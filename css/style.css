@@ -1,0 +1,362 @@
+    body {
+		background:#e9eaed;
+		font-family:Tahoma!important;
+		margin:0;
+		margin-top:10px;
+	}
+	.main {
+		width:1010px;
+		height:auto;
+		min-height:300px;
+		padding:0;
+		margin:auto;
+	}
+	.areas {
+		width:750px;
+		height:auto;
+		min-height:200px;
+		background:#ffffff;
+		margin:auto;
+		border-radius:3px;
+		border:1px solid #e1e2e3;
+		margin-top:0px;
+		padding:10px;
+	}
+	.apresenta-tarefas h1 {
+		display:block;
+		padding:10px;
+		padding-bottom:1px;
+		background:#f6f7f8;
+		padding-top:0!important;
+		line-height:30px!important;
+		border-bottom:1px solid #e1e2e3;
+		margin-bottom:0!important;
+	}
+	.apresenta-tarefas {
+		padding:0;
+		width:770px;
+	}
+	.apresenta-tarefas small {
+		color:#333d5f;
+	}
+	hr {
+		opacity:0.60;
+		border:1px solid #e1e2e3;
+	}
+	.info-areas {
+		padding:30px;
+	}
+	.info-areas p {
+		font-size:15px;
+	}
+	.img_situacao_tarefa {
+		margin-top:3px;
+		opacity:0.30;
+	}
+	.footer-areas {
+		display:block;
+		padding:0;
+		padding-bottom:1px;
+		background:#f6f7f8;
+		padding-top:10!important;
+		padding-bottom:10!important;
+		line-height:30px!important;
+		border-bottom:1px solid #e1e2e3;
+		min-height:10px;
+		border-radius:3px;
+		border-left:0;
+		border-right:0;
+		padding-left:10px;
+		margin-bottom:10px;
+	}
+	.textarea-post {
+		width:100%;
+		height:100px;
+		border-bottom:1px solid #e1e2e3;
+		outline:none;
+		padding:10px;
+		border:0;
+	}
+	.areas p {
+		color:#333333;
+	}
+	.areas h1,h2,h3,h4 {
+		margin:0;
+		margin-bottom:10px;
+		color:#999999;
+	}
+	.area-text-post {
+		background:#f6f7f8;
+		min-height:150px!important;
+		margin-top:0;
+		margin-bottom:10px;
+	}
+	.area-text-post input, select {
+		width:100%;
+		border-bottom:1px solid #e1e2e3;
+		outline:none;
+		padding:10px;
+		border:0;
+		border:1px solid transparent;
+	}
+	.area-text-post select {
+		border-top:1px solid #e1e2e3;
+	}
+	.area-text-post input:focus {
+		border:1px solid #e1e2e3!important;
+	}
+	.textarea-post:focus {
+		border:1px solid #e1e2e3;
+	}
+	.button-postar {
+		padding:5px;
+		background:#46629e;
+		border:1px solid #476199;
+		border-radius:3px;
+		color:white;
+		margin:11px 0px;
+		cursor:pointer;
+		font-weight:bold;
+	}
+	.banner {
+		width:1010px;
+		height:auto;
+		padding-bottom:10px;
+		padding-top:10px;
+		background:white;
+		margin:auto;
+		margin-bottom:0;
+		border:1px solid #e1e2e3;
+	}
+	#logo {
+		width:200px;
+		display:block;
+		float:left;
+		margin-left:10px;
+	}
+
+	.right {
+		float:right;
+	}
+	#main-area-left {
+		width:229px;
+	}
+	.left {
+		width:227px;
+		background:white;
+		height:auto;
+		margin-top:10px;
+		border:1px solid #e1e2e3;
+		border-radius:3px;
+	}
+	.left b {
+		margin-left:10px;
+		margin-top:10px!important;
+		color:#999999;
+	}
+    
+    .fotter {
+    	width:100%;
+    	height:20px;
+    	background:#e9eaed;
+    	margin-top:10px;
+    	border-top:1px solid #e1e2e3;
+    	padding-top:10px;
+    	padding-bottom:10px;
+    	text-align:center;
+    	opacity:0.60;
+    	font-size:12px;
+    }
+/* Hack para forçar o main a ir para baixo com relação ao conteúdo interno*/
+	.hide {
+		clear:both;
+	}
+
+/*Hack para que o banner fique do tamanho da área de login na página index*/
+	#pagina_index {
+		width:340px!important;
+		padding:10px;
+	}
+	#pagina_index img {
+		margin:auto;
+		display:block;
+	}
+
+	/*Definição dos elementos de formulários*/
+	input {
+		width:300px;
+		padding:5px;
+		border-radius:3px;
+		border:1px solid #cccccc;
+		outline:none;
+		margin-top:5px;
+		margin-bottom:5px;
+	}
+	input:focus {
+		border:1px solid gray!important;
+	}
+	button {
+		margin-top:8px;
+	}
+	.form-login {
+		border:1px solid #e1e2e3;
+		padding:10px;
+		border-radius:3px;
+		margin:10px 10px 10px;
+	}
+	.form-normal {
+		border:0;
+		margin:0;
+		padding:0;
+	}
+
+	input[type="radio"]:checked + label { 
+		color:silver; 
+	}
+	input[type="radio"] {
+		padding:0;
+		margin-top:10px!important;
+		width:15px;
+		margin:0;
+	}
+    
+    /*Área do login*/
+	.login {
+		width:340px;
+	}
+	.login h3 {
+		margin-left:10px;
+	}
+
+	/*Definição dos links*/
+	a {
+		color:#0099cc;
+		font-size:13px;
+		text-decoration:none;
+	}
+	a:hover {
+		opacity:0.80;
+	}
+
+	/*Fotter página index*/
+	.fotter-index {
+		width:340px;
+		border-radius:3;
+		background:white;
+		border:1px solid #e1e2e3;
+		padding:10px;
+		margin:auto;
+		margin-top:5px;
+		font-size:12px;
+		opacity:0.60;
+		text-align:center;
+	}
+
+	/*Div que apresenta erros*/
+	.msgErro {
+		width:auto;
+		background:#fbd3d3;
+		color:#990000;
+		border:1px solid red!important;
+	}
+	/*Div que apresenta as mensagens de sucesso*/
+	.msgSucesso {
+		background:#ebf8a4!important;
+		color:black!important;
+		border:1px solid #a2d246!important;
+		border-radius:3px;
+	}
+	/*Mostra o nome do Usuario Logado*/
+	#sobre-usuario {
+		width:500px;
+		float:right;
+		padding:10px;
+		background:white;
+		margin-right:10px;
+		opacity:0.60;
+		text-align:right;
+		line-height:0px;
+	}
+
+	/*Menu com os nomes dos usuarios cadastrados*/
+	ul {
+		margin:0;
+		padding:0;
+		list-style:none;
+	}
+	#menu-left a {
+		display:block;
+		padding:10px;
+		background:white;
+		border-bottom:1px solid #e1e2e3;
+		border-left:2px solid #2c375d;
+	}
+	#menu-left a:hover {
+		background:#f6f6f6;
+		color:black;
+	}
+
+	.menu-usuarios a::before {
+        content: url(css_img/icone_usuario.gif);
+        margin-right:5px;
+    }
+
+    .cadastrar-usuario a::before {
+        content: url(css_img/icone_cadastrar_usuario.gif);
+        margin-right:5px;
+    }
+    
+    
+    .link-arquivos::before {
+        content: url(css_img/icone_arquivos.gif)!important;
+        margin-right:5px;
+    }
+    
+
+    table {
+    	width:100%;
+    }
+    table tr td {
+    	border:1px solid #e1e2e3;
+    	padding:10px;
+    }
+
+    table tbody tr:nth-child(2n+1) {
+		background:#f4f8f5;
+	}
+	.tr-top {
+		background:#364062;
+		color:white;
+	}
+
+	.deletar {
+		color:#ff0000;
+	}
+
+	.small_aux {
+		color:#4f99d5;
+	}
+
+    
+    /*Essas classes "verde e vermelho" são aplicadas a um "b" via javascript*/
+	.verde {
+		color:green!important;
+		font-size:12px!important;
+		opacity:0.70;
+		margin-left:10px;
+	}
+	.vermelho {
+		color:red!important;
+		font-size:12px!important;
+		opacity:0.70;
+		margin-left:10px;
+	}
+    
+    /* Destaca a legenda "master e funcionario" na tabela*/
+	.master {
+		color:green;
+		text-decoration:underline;
+	}
+	.funcionario {
+		color:#996600;
+	}
