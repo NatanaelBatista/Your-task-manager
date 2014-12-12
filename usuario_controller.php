@@ -150,6 +150,9 @@ if (isset($_GET["editar"]))
                 }
             }
         }
+        else {
+            echo "Erro: Ao tentar mudar email";
+        }
     }
 }
 
@@ -165,7 +168,7 @@ if (isset($_POST["recuperarSenha"]))
         {
             $_senha = $listar->senha;
         }
-
+        
         $sendEmail->setRemetente($email);
         $sendEmail->setDestino($email);
         $sendEmail->setAssunto("Recuperação das suas credenciais de acesso do gerenciador de tarefas");

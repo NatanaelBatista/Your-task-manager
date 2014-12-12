@@ -14,16 +14,14 @@ class Container
 		$tarefas = new TarefasModel(self::getConexao());
 		return $tarefas;
 	}
-	
-	public static function getConexao()
-	{
-		$conexao = new Conexao("localhost","tarefas","root","");
-	    return $conexao;
-	}
-
 	public static function getSendMail()
 	{
 		$sendEmail = new SendEmail();
 		return $sendEmail;
+	}
+	public static function getConexao()
+	{
+		$conexao = new Conexao("localhost","tarefas","root","");
+	    return $conexao;
 	}
 }

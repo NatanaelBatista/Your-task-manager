@@ -26,14 +26,13 @@
       {
          $this->mensagem = $mensagem;
       }
-
-      private function headers()
+      
+      public function headers()
       {
          $headers  = "MIME-Version: 1.1\r\n";
          $headers .= "Content-type: text/html; charset=utf-8\r\n";
          $headers .= "From: {$this->remetente}\r\n"; 
          $headers .= "Return-Path: {$this->destino}\r\n"; 
-         return $headers;
       }
 
       public function sendThisEmail()
