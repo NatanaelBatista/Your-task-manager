@@ -108,6 +108,16 @@ if (isset($_GET["editar"]))
     }
     else 
     {
+        /**
+        * Se o email editado retornar "false" no momento da verificação, então o usuário está tentando edita-lo.
+        * Sendo assim edito logo o email para depois recupera-lo e prosseguir com o fluxo.
+        */
+        if ($usuario->verificaEmail($login) != true)
+        {
+            $usuario->setLogin($login);
+            $usuario->editar($id);
+        }
+
         if ($usuario->verificaEmail($login) == true)
         {
             foreach($usuario->listarWhere("login", $login) as $listar)
@@ -149,9 +159,6 @@ if (isset($_GET["editar"]))
                     verificaPaginaAcao($_GET["alterarUsuarioCorrente"]);
                 }
             }
-        }
-        else {
-            echo "Erro: Ao tentar mudar email";
         }
     }
 }
