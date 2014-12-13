@@ -35,8 +35,13 @@ foreach($usuario->listarWhere("id",$listar->vinculoUsuario) as $list)
 <b>Situação:</b> <small><?php echo $iconiSituacaoTarefa; ?></small> <br>
 <hr>
 
+<p><?php echo nl2br(DelimitarPorTamnho($listar->texto, 200, "")); ?></p>
+<?php 
+if (strlen($listar->texto) > 200):
+?>
 <p><?php echo nl2br(DelimitarPorTamnho($listar->texto, 200, " [...]")); ?></p>
 <a href="?textoCompleto&id=<?php echo $listar->idTarefas; ?>" title="Ler a tarefa completa">Continuar lendo...</a>
+<?php endif; ?>
 </div><!-- end info areas -->
 
 </section>
