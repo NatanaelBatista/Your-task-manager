@@ -103,10 +103,15 @@
 		border-top:1px solid #e1e2e3;
 	}
 	.area-text-post input:focus {
-		border:1px solid #e1e2e3!important;
+		background:#fefdf7;
+		border:1px solid transparent!important;
 	}
 	.textarea-post:focus {
-		border:1px solid #e1e2e3;
+		background:#fefdf7;
+	}
+	.area-text-post select {
+		margin-top:5px!important;
+		margin-bottom:5px!important;
 	}
 	.button-postar {
 		padding:5px;
@@ -359,4 +364,15 @@
 	}
 	.funcionario {
 		color:#996600;
+	}
+
+    
+	.h1-title-tarefas {
+		background:#46629e!important;
+		color:white!important;
+	}
+	.tarefa-feita {
+		border-left:5px solid #000000!important;
+		border-bottom:1px solid #000000!important;
+		border-top:1px solid #000000!important;
 	}

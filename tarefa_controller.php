@@ -25,7 +25,7 @@ if (isset($_GET["cadastrar"]))
 		$tarefas->setTexto($texto);
 		$tarefas->setVinculoUsuario($tarefaPara);
 		$tarefas->setDataCadastro(Date("d/m/Y"));
-		$tarefas->setFazer($fazer);
+		$tarefas->setSituacao($fazer);
 		$tarefas->setCriadorDaTarefa($criadorDaTarefa);
 		if ($tarefas->cadastrarTarefa())
 		{
@@ -45,5 +45,36 @@ if (isset($_GET["deletar"]))
 	{
 		setcookie("msgSucesso","Tarefa Deletada com Sucesso.");
     	header("Location:dashboard.php");
+	}
+}
+
+/**
+* Editar tarefas
+*/
+if (isset($_GET["editar"]))
+{
+	$id = (int) $_GET["id"];
+	$titulo = strip_tags(trim($_POST["titulo"]));
+	$texto = strip_tags(trim($_POST["texto"]));
+	$tarefaPara = strip_tags(trim($_POST["tarefa_para_usuario"]));
+    $situacao = strip_tags(trim($_POST["situacao"]));
+    
+    if (empty($titulo) or empty($texto) or empty($tarefaPara))
+	{
+		setcookie("msgErro","Todos os campos são obrigatórios.");
+		header("Location:editar_tarefas.php?editar&id={$id}");
+	}
+	else
+	{
+		$tarefas->setTitulo($titulo);
+		$tarefas->setTexto($texto);
+		$tarefas->setVinculoUsuario($tarefaPara);
+		$tarefas->setDataAcao(Date("d/m/Y"));
+		$tarefas->setSituacao($situacao);
+		if ($tarefas->editar($id))
+		{
+			setcookie("msgSucesso","Tarefa Editada com Sucesso.");
+    		header("Location:editar_tarefas.php?editar&id={$id}");
+		}
 	}
 }

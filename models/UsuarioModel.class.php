@@ -132,9 +132,29 @@ class UsuarioModel
 		$query = $this->db->prepare("select usuarios.id as idUsuario, tarefas.id as idTarefas, 
         nome, login, perfil, usuarios.dataCadastro as usuarioDataDoCadastro,
         titulo, texto, tarefas.dataCadastro as tarefasDataDoCadastro,
-        fazer, sendoFeita, feita, dataAcao, criadorDaTarefa, vinculoUsuario from usuarios join tarefas on tarefas.criadorDaTarefa = usuarios.id order by tarefas.dataCadastro desc, tarefas.id desc");
+        situacao, dataAcao, criadorDaTarefa, vinculoUsuario 
+        from usuarios join tarefas on tarefas.criadorDaTarefa = 
+        usuarios.id order by tarefas.dataCadastro desc, tarefas.id desc");
 		
         $query->execute();
+		return $query->fetchAll(PDO::FETCH_OBJ);
+	}
+
+	public function colecaoUsuarioTarefasWhere($campo, $valor)
+	{
+		if ($campo == "tarefas.id")
+		{
+			$valor = (int) $valor;
+		}
+
+		$query = $this->db->prepare("select usuarios.id as idUsuario, tarefas.id as idTarefas, 
+        nome, login, perfil, usuarios.dataCadastro as usuarioDataDoCadastro,
+        titulo, texto, tarefas.dataCadastro as tarefasDataDoCadastro,
+        situacao, dataAcao, criadorDaTarefa, vinculoUsuario 
+        from usuarios join tarefas on tarefas.criadorDaTarefa = 
+        usuarios.id where {$campo} = ?");
+		
+        $query->execute(array($valor));
 		return $query->fetchAll(PDO::FETCH_OBJ);
 	}
 }

@@ -5,9 +5,7 @@ class TarefasModel
 	protected $texto;
 	protected $vinculoUsuario;
 	protected $dataCadastro;
-	protected $fazer;
-	protected $sendoFeita;
-	protected $feita;
+	protected $situacao;
 	protected $dataAcao;
 	protected $criadorDaTarefa;
 	private $tableName = "tarefas";
@@ -38,17 +36,9 @@ class TarefasModel
     {
     	$this->dataCadastro = $data;
     }
-    public function setFazer($fazer)
+    public function setSituacao($situacao)
     {
-    	$this->fazer = $fazer;
-    }
-    public function setSendoFeita($sendoFeita)
-    {
-    	$this->sendoFeita = $sendoFeita;
-    }
-    public function setFeita($feita)
-    {
-    	$this->feita = $feita;
+    	$this->situacao = $situacao;
     }
     public function setDataAcao($dataAcao)
     {
@@ -68,9 +58,17 @@ class TarefasModel
 
     public function cadastrarTarefa()
     {
-        $cadastrar = $this->db->prepare("insert into {$this->tableName} (titulo, texto, vinculoUsuario, dataCadastro, fazer, criadorDaTarefa) values(?,?,?,?,?,?)");
-        $cadastrar->execute(array($this->titulo, $this->texto, $this->vinculoUsuario, $this->dataCadastro, $this->fazer, $this->criadorDaTarefa));
+        $cadastrar = $this->db->prepare("insert into {$this->tableName} (titulo, texto, vinculoUsuario, dataCadastro, situacao, criadorDaTarefa) values(?,?,?,?,?,?)");
+        $cadastrar->execute(array($this->titulo, $this->texto, $this->vinculoUsuario, $this->dataCadastro, $this->situacao, $this->criadorDaTarefa));
         return $cadastrar;
+    }
+
+    public function editar($id)
+    {
+        $id = (int) $id;
+        $editar = $this->db->prepare("update {$this->tableName} set titulo = ?, texto = ?, vinculoUsuario = ?, situacao = ?, dataAcao = ? where id = ?");
+        $editar->execute(array($this->titulo, $this->texto, $this->vinculoUsuario, $this->situacao, $this->dataAcao, $id));
+        return $editar;
     }
 
     public function deletar($id)
