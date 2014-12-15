@@ -1,6 +1,4 @@
-<?php foreach($usuario->colecaoUsuarioTarefas() as $listar):?>
-
-<?php
+<?php foreach($usuario->colecaoUsuarioTarefas() as $listar):
 /**
 * Apresenta determinadas legendas de acordo com a situação da tarefa
 */

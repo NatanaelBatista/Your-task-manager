@@ -69,7 +69,7 @@ if (isset($_GET["alterarMeusDados"]))
     <label for="perfil">Perfil do Usuario:</label> <br>
     <?php 
     /**
-    * Apresenta apenas o perfil de cada funcionario, sendo que ele não pode nudar o proprio perfil
+    * Apresenta apenas o perfil de cada funcionario, sendo que ele não pode mudar o proprio perfil
     */
     if ($_SESSION["perfil"] == "1") 
     {
