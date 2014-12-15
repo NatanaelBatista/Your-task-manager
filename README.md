@@ -21,5 +21,5 @@
 
 <p>
 	Bom, basicamente é isso. O sistema ainda está em desenvolvimento, está sendo bem interessante e prazerosa a construção do mesmo. 
-    Estou usando de certa forma o padrão MVC, orientado a objetos e sem a utilização de um  framework. Sim, já sei usar um framework é bem melhor, mas organizado, mas neste caso eu queria estudar  melhor orientação a objetos de forma crua...
+    Estou usando de certa forma o padrão MVC, orientado a objetos e sem a utilização de um framework. Sim, já sei usar um framework é bem melhor, mais organizado. Mas neste caso eu queria estudar melhor orientação a objetos de forma crua...
 </p>
