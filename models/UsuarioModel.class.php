@@ -6,6 +6,7 @@ class UsuarioModel
 	protected $senha;
 	protected $dataCadastro;
 	protected $perfil;
+	protected $perfilMasterMaster;
 	private $tableName = "usuarios";
 	private $db;
 
@@ -36,6 +37,10 @@ class UsuarioModel
     public function setPerfil($perfil)
     {
     	$this->perfil = $perfil;
+    }
+    public function setPerfilMasterMaster($perfilMasterMaster)
+    {
+    	$this->perfilMasterMaster = $perfilMasterMaster;
     }
 
 	public function verificaLogin($login,$senha)
@@ -78,6 +83,21 @@ class UsuarioModel
 		}
 	}
     
+    /**
+    * Esse metodo cadastra o primeiro usuario do Sistema 
+    * se o mesmo for executado sem nenhum usuario cadastrado.
+    */
+	public function cadastraOprimeiroUsuario()
+	{
+		if (count($this->listar()) < 1 and count($this->listar() < 2))
+		{
+			$cadastrar = $this->db->prepare("insert into {$this->tableName} (nome, login, senha, dataCadastro, perfil, perfil_master_master) values(?,?,?,?,?,?)");
+		    $cadastrar->execute(array("Usuario Admin", "admin@admin.com", "admin", Date("d/m/Y"), "1", "1"));
+		    return $cadastrar;
+		}
+		
+	}
+
     /**
     * This method takes all the data from the table
 	* @return an array of the objects
@@ -156,20 +176,5 @@ class UsuarioModel
 		
         $query->execute(array($valor));
 		return $query->fetchAll(PDO::FETCH_OBJ);
-	}
-
-    /**
-    * Esse metodo cadastra o primeiro usuario do Sistema 
-    * se o mesmo for executado sem nenhum usuario cadastrado.
-    */
-	public function cadastraOprimeiroUsuario()
-	{
-		if (count($this->listar()) < 1 and count($this->listar() < 2))
-		{
-			$cadastrar = $this->db->prepare("insert into {$this->tableName} (nome, login, senha, dataCadastro, perfil) values(?,?,?,?,?)");
-		    $cadastrar->execute(array("Usuario Admin", "admin@admin.com", "admin", Date("d/m/Y"), "1"));
-		    return $cadastrar;
-		}
-		
 	}
 }

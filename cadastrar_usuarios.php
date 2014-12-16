@@ -110,10 +110,15 @@ if (isset($_GET["editar"]))
             * Aplica uma legenda para os tipos de perfis
             */
              $tipoPerfil = "";
-             if ($listar->perfil == "1")
+             if ($listar->perfil == "1" and $listar->perfil_master_master != "1")
              {
                 $classPerfil = "master";
              	$tipoPerfil = "Master";
+             }
+             elseif ($listar->perfil == "1" and $listar->perfil_master_master == "1")
+             {
+                $classPerfil = "master";
+                $tipoPerfil = "Super Master";
              }
              else
              {
@@ -126,8 +131,8 @@ if (isset($_GET["editar"]))
                 	<td><?php echo $listar->nome; ?></td>
                 	<td><?php echo $listar->login; ?></td>
                 	<td class="<?php echo $classPerfil ?>"><?php echo $tipoPerfil; ?></td>
-                	<td><a href="?editar&id=<?php echo $listar->id;?>" class="editar" title="Editar o Usuario <?php echo $listar->nome; ?>">Editar</a></td>
-                	<td><a href="usuario_controller.php?deletar&id=<?php echo $listar->id;?>" class="deletar" title="Deletar o Usuario <?php echo $listar->nome; ?>">Deletar</a></td>
+                    <td><a href="?editar&id=<?php echo $listar->id;?>" class="editar" title="Editar o Usuario <?php echo $listar->nome; ?>">Editar</a></td>
+                    <td><a href="usuario_controller.php?deletar&id=<?php echo $listar->id;?>" class="deletar" title="Deletar o Usuario <?php echo $listar->nome; ?>">Deletar</a></td>
                 </tr>
 
         	<?php endforeach; ?>

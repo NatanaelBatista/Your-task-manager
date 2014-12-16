@@ -24,15 +24,17 @@ if (isset($_GET["login"]))
 			$idUsuario     = $listar->id;
 			$retornoNome   = $listar->nome;
 			$retornoPerfil = $listar->perfil;
+			$retoroPerfilMasterMaster = $listar->perfil_master_master;
 		}
 
         session_start();
-        $_SESSION["nome"]      = $retornoNome;
-		$_SESSION["login"]     = $login;
-		$_SESSION["senha"]     = $sennha;
+        $_SESSION["nome"] = $retornoNome;
+		$_SESSION["login"] = $login;
+		$_SESSION["senha"] = $sennha;
 		$_SESSION["idUsuario"] = $idUsuario;
-		$_SESSION["perfil"]    = $retornoPerfil;
-		$_SESSION["logado"]    = true;
+		$_SESSION["perfil"] = $retornoPerfil;
+		$_SESSION["perfil_master_master"] = $retoroPerfilMasterMaster;
+		$_SESSION["logado"] = true;
 		header("Location:dashboard.php");
 	}
 	else
