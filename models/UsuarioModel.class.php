@@ -157,4 +157,19 @@ class UsuarioModel
         $query->execute(array($valor));
 		return $query->fetchAll(PDO::FETCH_OBJ);
 	}
+
+    /**
+    * Esse metodo cadastra o primeiro usuario do Sistema 
+    * se o mesmo for executado sem nenhum usuario cadastrado.
+    */
+	public function cadastraOprimeiroUsuario()
+	{
+		if (count($this->listar()) < 1 and count($this->listar() < 2))
+		{
+			$cadastrar = $this->db->prepare("insert into {$this->tableName} (nome, login, senha, dataCadastro, perfil) values(?,?,?,?,?)");
+		    $cadastrar->execute(array("Usuario Admin", "admin@admin.com", "admin", Date("d/m/Y"), "1"));
+		    return $cadastrar;
+		}
+		
+	}
 }

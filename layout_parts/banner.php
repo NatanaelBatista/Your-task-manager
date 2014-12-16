@@ -1,4 +1,11 @@
 <?php 
+require_once("loaderClasses.php");
+$usuario = Container::getUsuario();
+/**
+* Este metodo cadastra o primeiro usuario do sistema
+*/
+$usuario->cadastraOprimeiroUsuario();
+
   /**
   * Destroi o Cookie de "mensagens de erro e de sucesso" depois que a página é atualizada
   */

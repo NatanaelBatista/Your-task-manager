@@ -16,7 +16,7 @@ if (isset($_GET["cadastrar"]))
     
     if (empty($nome) or empty($login) or empty($senha))
     {
-    	setcookie("msgErro","Todos os dados são origatórios.");
+    	setcookie("msgErro","Todos os dados são obrigatórios.");
 		header("Location:cadastrar_usuarios.php");
     }
     elseif (!filter_var($login, FILTER_VALIDATE_EMAIL))
