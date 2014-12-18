@@ -57,7 +57,7 @@ if (isset($_GET["deletar"]))
 {
     $id = (int) $_GET["id"];
     /**
-    *nVerifica se está tentando Deletar um Usuario com o perfil Super Master
+    * Verifica se está tentando Deletar um Usuario com o perfil Super Master
     */
     foreach($usuario->listarWhere("id", $id) as $listar)
     {
