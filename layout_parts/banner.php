@@ -41,17 +41,19 @@ $usuario->cadastraOprimeiroUsuario();
 * Verifica e apresenta o tipo do perfil do Usuario logado.
 */
   $tipoPerfil = "";
-  if ($_SESSION["perfil"] == "1") 
+  if ($_SESSION["perfil"] == "1" and $_SESSION["perfil_master_master"] != "1")
   {
-  	$tipoPerfil = "Master";
+    $classPerfil = "master";
+    $tipoPerfil = "Master";
   }
-  elseif ($_SESSION["perfil"] == "2")
+  elseif ($_SESSION["perfil"] == "1" and $_SESSION["perfil_master_master"] == "1")
   {
-    $tipoPerfil = "Funcionario";
+    $classPerfil = "master";
+    $tipoPerfil = "Super Master";
   }
   else 
   {
-    $tipoPerfil = "";
+    $tipoPerfil = "Funcionario";
   }
 ?>
 	<section id="sobre-usuario">
