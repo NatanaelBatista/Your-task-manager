@@ -43,7 +43,6 @@ $usuario->cadastraOprimeiroUsuario();
   $tipoPerfil = "";
   if ($_SESSION["perfil"] == "1" and $_SESSION["perfil_master_master"] != "1")
   {
-    $classPerfil = "master";
     $tipoPerfil = "Master";
   }
   elseif ($_SESSION["perfil"] == "1" and $_SESSION["perfil_master_master"] == "1")

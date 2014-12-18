@@ -56,10 +56,26 @@ if (isset($_GET["cadastrar"]))
 if (isset($_GET["deletar"]))
 {
     $id = (int) $_GET["id"];
-    if ($usuario->deletar($id))
+    /**
+    *nVerifica se está tentando Deletar um Usuario com o perfil Super Master
+    */
+    foreach($usuario->listarWhere("id", $id) as $listar)
     {
-        setcookie("msgSucesso","Usuario deletado com Sucesso.");
+        $retonaPerfilMasterMaster = $listar->perfil_master_master;
+    }
+
+    if ($retonaPerfilMasterMaster == "1" and $_SESSION["perfil_master_master"] != "1")
+    {
+        setcookie("msgErro","Você não pode Deletar um usuario com perfil ( Super Master ).");
         header("Location:cadastrar_usuarios.php");
+    }
+    else 
+    {
+        if ($usuario->deletar($id))
+        {
+            setcookie("msgSucesso","Usuario deletado com Sucesso.");
+            header("Location:cadastrar_usuarios.php");
+        }
     }
 }
 
@@ -108,6 +124,22 @@ if (isset($_GET["editar"]))
     }
     else 
     {
+        /**
+        * Verifica se está tentando Editar um Usuario com o perfil Super Master
+        */
+        foreach($usuario->listarWhere("id", $id) as $listar)
+        {
+            $retonaPerfilMasterMaster->$listar->perfil_master_master;
+        }
+
+        if ($retonaPerfilMasterMaster == "1" and $_SESSION["perfil_master_master"] != "1")
+        {
+            setcookie("msgErro","Você não pode Editar um usuario com perfil ( Super Master ).");
+            header("Location:cadastrar_usuarios.php");
+        }
+        else 
+        {
+
         /**
         * Se o email editado retornar "false" no momento da verificação, então o usuário está tentando edita-lo.
         * Sendo assim edito logo o email para depois recupera-lo e prosseguir com o fluxo.
@@ -161,6 +193,7 @@ if (isset($_GET["editar"]))
             }
         }
     }
+  }
 }
 
 /**

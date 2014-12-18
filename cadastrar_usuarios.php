@@ -51,10 +51,25 @@ if (isset($_GET["editar"]))
         <?php 
         /**
         * Se existir a variável "editar" inclui o form de editar
+        * Também verifica se está tentando editar um usuário com perfil Super Master
         */
         if (isset($_GET["editar"]))
         {
-            require_once("editar_usuarios.php");
+            $id = (int) $_GET["id"];
+            foreach($usuario->listarWhere("id", $id) as $listar)
+            {
+                $retonaPerfilMasterMaster = $listar->perfil_master_master;
+            }
+            
+            if ($retonaPerfilMasterMaster == "1" and $_SESSION["perfil_master_master"] != "1")
+            {
+                setcookie("msgErro","Você não tem permissão para Editar um Usuario com Perfil ( Super Master )");
+                header("Location:cadastrar_usuarios.php");
+            }
+            else
+            {
+                require_once("editar_usuarios.php");
+            }
         }
         else
         {
