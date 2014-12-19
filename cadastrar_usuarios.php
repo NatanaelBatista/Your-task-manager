@@ -58,12 +58,18 @@ if (isset($_GET["editar"]))
             $id = (int) $_GET["id"];
             foreach($usuario->listarWhere("id", $id) as $listar)
             {
-                $retonaPerfilMasterMaster = $listar->perfil_master_master;
+                $retornaPerfilMasterMaster = $listar->perfil_master_master;
+                $retornaPerfilMaster = $listar->perfil;
+                $retornaIdUsuario = $listar->id;
             }
             
-            if ($retonaPerfilMasterMaster == "1" and $_SESSION["perfil_master_master"] != "1")
+            if ($retornaPerfilMasterMaster == "1" and $_SESSION["perfil_master_master"] != "1")
             {
                 setcookie("msgErro","Você não tem permissão para Editar um Usuario com Perfil ( Super Master )");
+                header("Location:cadastrar_usuarios.php");
+            }
+            elseif ($retornaPerfilMaster == "1" and $_SESSION["perfil"] == "1" and $_SESSION["idUsuario"] != $retornaIdUsuario and $_SESSION["perfil_master_master"] != "1") {
+                setcookie("msgErro","Um Usuário portador do perfil Master não pode editar um outro usuário com o mesmo perfil.");
                 header("Location:cadastrar_usuarios.php");
             }
             else

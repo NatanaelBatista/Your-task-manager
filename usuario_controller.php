@@ -1,4 +1,5 @@
 <?php 
+session_start();
 require_once("loaderClasses.php");
 $usuario = Container::getUsuario();
 $sendEmail = Container::getSendMail();
@@ -61,12 +62,19 @@ if (isset($_GET["deletar"]))
     */
     foreach($usuario->listarWhere("id", $id) as $listar)
     {
-        $retonaPerfilMasterMaster = $listar->perfil_master_master;
+        $retornaPerfilMasterMaster = $listar->perfil_master_master;
+        $retornaPerfilMaster = $listar->perfil;
+        $retornaIdUsuario = $listar->id;
     }
 
-    if ($retonaPerfilMasterMaster == "1" and $_SESSION["perfil_master_master"] != "1")
+    if ($retornaPerfilMasterMaster == "1" and $_SESSION["perfil_master_master"] != "1")
     {
         setcookie("msgErro","Você não pode Deletar um usuario com perfil ( Super Master ).");
+        header("Location:cadastrar_usuarios.php");
+    }
+    elseif ($retornaPerfilMaster == "1" and $_SESSION["perfil"] == "1" and $_SESSION["idUsuario"] != $retornaIdUsuario and $_SESSION["perfil_master_master"] != "1")
+    {
+        setcookie("msgErro","Um Usuário portador do perfil Master não pode deletar um outro usuário com o mesmo perfil.");
         header("Location:cadastrar_usuarios.php");
     }
     else 
@@ -192,8 +200,8 @@ if (isset($_GET["editar"]))
                 }
             }
         }
-    }
-  }
+     }
+   }
 }
 
 /**
