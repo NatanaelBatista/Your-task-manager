@@ -1,0 +1,4 @@
+1: verifica se existe algum usuario vinculado a alguma tarefa
+2: buscamos o id da tarefa que está vinculada a este usuario
+3: Buscamos o id do novo usuario ao qual queremos atribuir a tarefa
+4: Na tabela tarefa trocamos o id vinculo usuario do antigo usuario pelo id do novo usuario

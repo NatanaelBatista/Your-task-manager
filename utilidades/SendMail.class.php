@@ -32,7 +32,7 @@
          $headers  = "MIME-Version: 1.1\r\n";
          $headers .= "Content-type: text/html; charset=utf-8\r\n";
          $headers .= "From: {$this->remetente}\r\n"; 
-         $headers .= "Return-Path: {$this->destino}\r\n"; 
+         $headers .= "Return-Path: valdiney@valdiney.meximas.com\r\n"; 
       }
 
       public function sendThisEmail()

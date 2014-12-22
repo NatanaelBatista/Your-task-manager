@@ -56,6 +56,18 @@ class TarefasModel
     	return $query->fetchAll(PDO::FETCH_OBJ);
     }
 
+    public function listarTarefasWhere($campo, $valor)
+    {
+        if ($campo == "id" or $campo == "vinculoUsuario" or $campo == "criadorDaTarefa")
+        {
+            $campo = (int) $valor;
+        }
+
+        $query = $this->db->prepare("select * from {$this->tableName} where {$campo} = ?");
+        $query->execute(array($valor));
+        return $query->fetchAll(PDO::FETCH_OBJ);
+    }
+
     public function cadastrarTarefa()
     {
         $cadastrar = $this->db->prepare("insert into {$this->tableName} (titulo, texto, vinculoUsuario, dataCadastro, situacao, criadorDaTarefa) values(?,?,?,?,?,?)");
@@ -68,6 +80,14 @@ class TarefasModel
         $id = (int) $id;
         $editar = $this->db->prepare("update {$this->tableName} set titulo = ?, texto = ?, vinculoUsuario = ?, situacao = ?, dataAcao = ? where id = ?");
         $editar->execute(array($this->titulo, $this->texto, $this->vinculoUsuario, $this->situacao, $this->dataAcao, $id));
+        return $editar;
+    }
+
+    public function editarApenasVinculoUsuario($idTarefa, $vinculoNovoUsuario)
+    {
+        $id = (int) $idTarefa;
+        $editar = $this->db->prepare("update {$this->tableName} set vinculoUsuario = ? where id = ?");
+        $editar->execute(array($vinculoNovoUsuario, $idTarefa));
         return $editar;
     }
 
