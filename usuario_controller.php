@@ -2,6 +2,7 @@
 session_start();
 require_once("loaderClasses.php");
 $usuario = Container::getUsuario();
+$tarefas = Container::getTarefas();
 $sendEmail = Container::getSendMail();
 
 /**
@@ -32,7 +33,7 @@ if (isset($_GET["cadastrar"]))
     }
     elseif ($repitaSenha != $senha)
     {
-        setcookie("msgErro","Você tentou alterar sua Senha, mas elas não coincidem. Verifique os campos “senha e repita sua senha”.");
+        setcookie("msgErro","Os valores do campo ( senha ) não coincide com os valores do campo ( repetir senha )");
         header("Location:cadastrar_usuarios.php");
     }
     else 
@@ -79,8 +80,40 @@ if (isset($_GET["deletar"]))
     }
     else 
     {
-        if ($usuario->deletar($id))
+        /**
+        * Verifica se existe algum usuário vinculado a alguma tarefa
+        */
+        if (count($usuario->colecaoUsuarioTarefasWhere("vinculoUsuario", $id)) >= 1)
         {
+            /**
+            * Busca o "id" desta tarefa
+            */
+            $retornoIdTarefa = array();
+            foreach($tarefas->listarTarefasWhere("id", $id) as $listar)
+            {
+                $retornoIdTarefa[] = $listar->id;
+            }
+            
+            /**
+            * Busca o "id" do usuário com perfil "master_master"
+            */
+            foreach($usuario->listarWhere("perfil_master_master", "1") as $listar)
+            {
+                $retornoIdNovoUsuario = $listar->id;
+            }
+            
+            /**
+            * Atribui ao usuário "master_master" todas as tarefas que pertenciam ao usuario deletado
+            */
+            $quantidade = count($tarefas->listarTarefasWhere("vinculoUsuario", $id));
+            for ($cont = 0; $cont < $quantidade; $cont++)
+            {
+                $tarefas->editarApenasVinculoUsuario($retornoIdTarefa[$cont],$retornoIdNovoUsuario);
+            } 
+        }
+
+        if ($usuario->deletar($id))
+        { 
             setcookie("msgSucesso","Usuario deletado com Sucesso.");
             header("Location:cadastrar_usuarios.php");
         }

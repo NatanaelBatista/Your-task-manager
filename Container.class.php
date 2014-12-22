@@ -21,7 +21,16 @@ class Container
 	}
 	public static function getConexao()
 	{
-		$conexao = new Conexao("localhost","tarefas","root","");
+		$servidor = "false";
+		if ($servidor == "true")
+		{
+			$conexao = new Conexao("mysql.hostinger.com.br","u592982482_ney","u592982482_ney","32402709ney");
+		}
+		else
+		{
+			$conexao = new Conexao("localhost","tarefas","root","");
+		}
+		
 	    return $conexao;
 	}
 }

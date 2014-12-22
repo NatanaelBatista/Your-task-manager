@@ -153,8 +153,7 @@ if (isset($_GET["editar"]))
                 	<td><?php echo $listar->login; ?></td>
                 	<td class="<?php echo $classPerfil ?>"><?php echo $tipoPerfil; ?></td>
                     <td><a href="?editar&id=<?php echo $listar->id;?>" class="editar" title="Editar o Usuario <?php echo $listar->nome; ?>">Editar</a></td>
-                    <td><a href="usuario_controller.php?deletar&id=<?php echo $listar->id;?>" class="deletar" title="Deletar o Usuario <?php echo $listar->nome; ?>">Deletar</a></td>
-                </tr>
+                    <td><a href="usuario_controller.php?deletar&id=<?php echo $listar->id;?>" class="deletar" title="Deletar o Usuario <?php echo $listar->nome; ?>">Deletar</a></td>                </tr>
 
         	<?php endforeach; ?>
         		
