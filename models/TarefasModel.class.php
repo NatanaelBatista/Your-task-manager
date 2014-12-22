@@ -83,19 +83,11 @@ class TarefasModel
         return $editar;
     }
 
-<<<<<<< HEAD
-    public function editarApenasVinculoUsuario($idTarefa)
-    {
-        $id = (int) $idTarefa;
-        $editar = $this->db->prepare("update {$this->tableName} set vinculoUsuario = ? where id = ?");
-        $editar->execute(array($this->vinculoUsuario, $id));
-=======
     public function editarApenasVinculoUsuario($idTarefa, $vinculoNovoUsuario)
     {
         $id = (int) $idTarefa;
         $editar = $this->db->prepare("update {$this->tableName} set vinculoUsuario = ? where id = ?");
         $editar->execute(array($vinculoNovoUsuario, $idTarefa));
->>>>>>> 58dfb4d17bcd81311481180bf2698d3520134005
         return $editar;
     }
 
