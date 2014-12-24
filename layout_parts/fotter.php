@@ -3,5 +3,5 @@
 	hideMsg();
 </script>
 <section class="fotter">
-	MaxConsig © Todos os direitos reservados.
+	ULA-GROUP (Grupo de estudos em Informática)
 </section>

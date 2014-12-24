@@ -49,7 +49,6 @@ if (isset($_GET["cadastrar"]))
     		header("Location:cadastrar_usuarios.php");
     	}
     }
-	
 }
 
 /**

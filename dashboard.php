@@ -20,7 +20,12 @@ require_once("validaSession.php");
         </section>
     <?php endif; ?>
 
-	<?php require_once("layout_parts/area_textarea_postagem.php");?>
+	<?php 
+	if (!isset($_GET["textoCompleto"]))
+	{
+		require_once("layout_parts/area_textarea_postagem.php");
+	}
+	?>
     
     
 	<?php if (isset($_COOKIE["msgErro"])): ?>
@@ -29,7 +34,17 @@ require_once("validaSession.php");
         </section>
     <?php endif; ?>
 
-	<?php require_once("layout_parts/areas_result_post.php"); ?>
+	<?php 
+	if (isset($_GET["textoCompleto"]))
+	{
+		$id = (int) $_GET["id"];
+		require_once("layout_parts/area_textarea_postagem_completa.php"); 
+	}
+	else
+	{
+		require_once("layout_parts/areas_result_post.php");
+	}
+	?>
 		
 	</section><!--end right-->
 

@@ -42,7 +42,7 @@ require_once("layout_parts/banner.php");
 
     </section>
     <section class="fotter-index">
-        MaxConsig © Todos os direitos reservados.
+        ULA-GROUP (Grupo de estudos em Informática)
     </section>
 
     <div class="hide"></div>
