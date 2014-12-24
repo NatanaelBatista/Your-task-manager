@@ -1,4 +1,14 @@
+( Para deletar usuários que tenham tarefas vinculas via vinculoUsuario )
+
 1: verifica se existe algum usuario vinculado a alguma tarefa
 2: buscamos o id da tarefa que está vinculada a este usuario
 3: Buscamos o id do novo usuario ao qual queremos atribuir a tarefa
 4: Na tabela tarefa trocamos o id vinculo usuario do antigo usuario pelo id do novo usuario
+
+( Para deletar usuários que tenham tarefas vinculas via id, ou seja, usuários que cadastraram terefas )
+
+1: Verifica se exsite alguma tarefa portando o id do usuário
+2: Buscamos o id da tarefa que está vinculada a este ususário
+3: Buscamos o id do novo usuario ao qual queremos atribuir a tarefa
+4: Na tabela tarefa trocamos o id do antigo usuario pelo id do novo usuario
+

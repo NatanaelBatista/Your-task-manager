@@ -3,7 +3,6 @@
 * Apresenta determinadas legendas de acordo com a situação da tarefa
 */
 $iconiSituacaoTarefa = "";
-$destacaTarefaFeita = "";
 if ($listar->situacao == "1")
 {
 	$iconiSituacaoTarefa = "Pendente.";
@@ -15,7 +14,6 @@ elseif ($listar->situacao == "2")
 elseif ($listar->situacao == "3")
 {
 	$iconiSituacaoTarefa = "Feita";
-	$destacaTarefaFeita = "tarefa-feita";
 }
 
 /**
@@ -28,7 +26,7 @@ foreach($usuario->listarWhere("id",$listar->vinculoUsuario) as $list)
 ?>
 <section class="areas apresenta-tarefas">
 
-<h1 class="h1-title-tarefas <?php echo $destacaTarefaFeita ?>"><?php echo $listar->titulo; ?></h1>
+<h1 class="h1-title-tarefas"><?php echo $listar->titulo; ?></h1>
 <div class="info-areas">
 <b>Tarefa atribuída ao usuário:</b> <?php echo $_nomeDoUsuarioTarefaAtibuida; ?></small> ( por ) <small><?php echo $listar->nome; ?><br>
 <b>Cadastrada em:</b> <small><?php echo $listar->tarefasDataDoCadastro; ?></small> <br>

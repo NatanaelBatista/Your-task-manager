@@ -81,6 +81,38 @@ if (isset($_GET["deletar"]))
     else 
     {
         /**
+        * Verifica se o usuário criou alguma tarefa
+        */
+        if (count($usuario->colecaoUsuarioTarefasWhere("criadorDaTarefa", $id)) >= 1)
+        {
+            /**
+            * Busca o "id" desta tarefa
+            */
+            $retornoIdTarefa = array();
+            foreach($tarefas->listarTarefasWhere("criadorDaTarefa", $id) as $listar)
+            {
+                $retornoIdTarefa[] = $listar->id;
+            }
+
+            /**
+            * Busca o "id" do usuário com perfil "master_master"
+            */
+            foreach($usuario->listarWhere("perfil_master_master", "1") as $listar)
+            {
+                $retornoIdNovoUsuario = $listar->id;
+            }
+            
+            /**
+            * Atribui ao usuário "master_master" todas as tarefas que pertenciam ao usuario deletado
+            */
+            $quantidade = count($tarefas->listarTarefasWhere("vinculoUsuario", $id));
+            for ($cont = 0; $cont < $quantidade; $cont++)
+            {
+                $tarefas->editarApenasCriadorDaTarefa($retornoIdTarefa[$cont],$retornoIdNovoUsuario);
+            } 
+        }
+
+        /**
         * Verifica se existe algum usuário vinculado a alguma tarefa
         */
         if (count($usuario->colecaoUsuarioTarefasWhere("vinculoUsuario", $id)) >= 1)
@@ -103,7 +135,7 @@ if (isset($_GET["deletar"]))
             }
             
             /**
-            * Atribui ao usuário "master_master" todas as tarefas que pertenciam ao usuario deletado
+            * Atribui ao usuário "master_master" todas as tarefas que foi atribuida ao usuario deletado
             */
             $quantidade = count($tarefas->listarTarefasWhere("vinculoUsuario", $id));
             for ($cont = 0; $cont < $quantidade; $cont++)

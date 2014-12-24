@@ -91,6 +91,14 @@ class TarefasModel
         return $editar;
     }
 
+    public function editarApenasCriadorDaTarefa($idTarefa, $novoCriador)
+    {
+        $id = (int) $idTarefa;
+        $editar = $this->db->prepare("update {$this->tableName} set criadorDaTarefa = ? where id = ?");
+        $editar->execute(array($novoCriador, $idTarefa));
+        return $editar;
+    }
+
     public function deletar($id)
     {
         $id = (int) $id;
