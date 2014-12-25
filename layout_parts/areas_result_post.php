@@ -38,7 +38,7 @@ foreach($usuario->listarWhere("id",$listar->vinculoUsuario) as $list)
 if (strlen($listar->texto) > 200):
 ?>
 <p><?php echo nl2br(DelimitarPorTamnho($listar->texto, 200, " [...]")); ?></p>
-<a href="?textoCompleto&id=<?php echo $listar->idTarefas; ?>" title="Ler a tarefa completa">Continuar lendo...</a>
+<a href="visualizar_tarefa_completa.php?textoCompleto&id=<?php echo $listar->idTarefas; ?>" title="Ler a tarefa completa">Continuar lendo...</a>
 <?php endif; ?>
 </div><!-- end info areas -->
 

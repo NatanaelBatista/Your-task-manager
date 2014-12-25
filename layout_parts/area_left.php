@@ -26,8 +26,8 @@
 <br>
 <b>Tarefas cadastradas</b>
 <ul id="menu-left" class="cadastrar-usuario">
-	<?php foreach($tarefas->listar() as $listar): ?>
-	  <li><a class="link-arquivos" href="dashboard.php" title="<?php echo $listar->titulo; ?>"><?php echo DelimitarPorTamnho($listar->titulo, 20, "..."); ?></a></li>
+	<?php foreach($usuario->colecaoUsuarioTarefas() as $listar): ?>
+	  <li><a class="link-arquivos" href="visualizar_tarefa_completa.php?textoCompleto&id=<?php echo $listar->idTarefas; ?>" title="<?php echo $listar->titulo . ": (" . $listar->tarefasDataDoCadastro ." )"; ?>"><?php echo DelimitarPorTamnho($listar->titulo, 20, "..."); ?></a></li>
     <?php endforeach; ?>
 </ul>
 	
