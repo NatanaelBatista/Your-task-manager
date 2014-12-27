@@ -177,4 +177,15 @@ class UsuarioModel
         $query->execute(array($valor));
 		return $query->fetchAll(PDO::FETCH_OBJ);
 	}
+
+	public function paginacao($dados, $quantidade)
+	{
+		$paginaAtual = (isset($_GET["pg"])) ? intval($_GET["pg"]) : 1;
+		$divideOvetor =  array($dados, $quantidade);
+		$quantidadeDeArquivos = count($divideOvetor);
+        $pagina = $divideOvetor[$paginaAtual - 1];
+
+        //foreach ()
+
+	}
 }

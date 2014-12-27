@@ -31,12 +31,8 @@ function paginacao($vetor, $quantidade)
            $menos = 1;
         }
       
-      if ($contar != 1) 
-      {
-        echo "<div class='col-lg-8 col-sm-8 showLinhaDoTempo'>";
-          printf('<a href="?pg=%s" class="btn linkButton btnpg"> <span class="glyphicon glyphicon-chevron-left"></span> </a>', $menos);
-          printf('<a href="?pg=%s" class="btn linkButton btnpg"> <span class="glyphicon glyphicon-chevron-right"></span> </a>', $mais);
-          echo " Página " .$atual . " de " . $contar;
-        echo "</div>";
-      }
+        printf('<a href="?pg=%s" class="btn">Anterior</a>', $menos);
+        printf('<a href="?pg=%s" class="btn">Proximo</a>', $mais);
+        echo " Página " .$atual . " de " . $contar;
+      
 }

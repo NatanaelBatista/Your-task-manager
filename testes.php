@@ -1,26 +1,18 @@
 <?php 
 session_start();
 require_once("loaderClasses.php");
+require_once("utilidades/pagination.php");
 $usuario = Container::getUsuario();
 $tarefas = Container::getTarefas();
 
-$id = "17";
-$idTarefa = "14";
+$result = "";
+$vetor = array();
 
-if (count($usuario->colecaoUsuarioTarefasWhere("vinculoUsuario",$id)) >= 1)
+foreach($tarefas->listar() as $listar)
 {
-	
-	$tarefas->setVinculoUsuario("26");
-	if ($tarefas->editarApenasVinculoUsuario($idTarefa))
-	{
-		echo "Cadastrado";
-	}
-	else
-	{
-		echo "Erro ao cadastrar";
-	}
+	$result = $listar->titulo;
+	$result .= $listar->vinculoUsuario;
+	$vetor[] = $result;
 }
-else
-{
-	echo "no";
-}
+
+paginacao($vetor,1);
