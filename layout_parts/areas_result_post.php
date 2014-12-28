@@ -1,4 +1,22 @@
-<?php foreach($usuario->colecaoUsuarioTarefas() as $listar):
+<?php 
+/**
+* Monta a páginação
+*/
+$pagina = 0;
+if (isset($_GET["controlePageProximo"]))
+{
+	$pagina = $pagina + 2;
+}
+
+if (isset($_GET["controlePageAnterior"]))
+{
+	$pagina - 2;
+}
+
+/**
+* Faz o select com páginação
+*/
+foreach($usuario->colecaoUsuarioTarefasPagination($pagina,2) as $listar):
 /**
 * Apresenta determinadas legendas de acordo com a situação da tarefa
 */
@@ -79,6 +97,11 @@ if ($listar->criadorDaTarefa == $_SESSION["idUsuario"])
 
 <?php endforeach; ?>
 
+<div class="footer-areas">
+   <a href="?controlePageAnterior" class="link-pagination" title="Ir para página anterior">Anterior</a>
+   <a href="?controlePageProximo" class="link-pagination" title="Ir para a proxima página">Promixo</a>
+   <div class="div-hide"></div>
+</div>
 <script>
 	var deletar = $(".deletar");
 	deletar.click( function() {

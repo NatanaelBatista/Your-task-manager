@@ -372,3 +372,20 @@
 		background:#46629e!important;
 		color:white!important;
 	}
+
+	.link-pagination {
+		display:block;
+		text-decoration:none;
+		padding-left:5px;
+		padding-right:5px;
+		background:#46629e;
+		color:white;
+		width:50px;
+		float:left;
+		text-align:center;
+		border-radius:2px;
+		margin-right:5px;
+	}
+	.div-hide {
+		clear:both;
+	}
