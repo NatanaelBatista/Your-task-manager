@@ -7,12 +7,12 @@ $tarefas = Container::getTarefas();
 $pagina = 0;
 if (isset($_GET["controlePageProximo"]))
 {
-	$pagina = $pagina + 1;
+	$pagina = $pagina + 2;
 }
 
 if (isset($_GET["controlePageAnterior"]))
 {
-	$pagina - 1;
+	$pagina - 2;
 }
 
 $quantidade = count($usuario->colecaoUsuarioTarefas());

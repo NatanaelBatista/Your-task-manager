@@ -98,8 +98,8 @@ if ($listar->criadorDaTarefa == $_SESSION["idUsuario"])
 <?php endforeach; ?>
 
 <div class="footer-areas">
-   <a href="?controlePageAnterior" class="link-pagination" title="Ir para página anterior">Anterior</a>
-   <a href="?controlePageProximo" class="link-pagination" title="Ir para a proxima página">Promixo</a>
+   <a href="?controlePageAnterior" class="link-pagination anterior" title="Ir para página anterior"></a>
+   <a href="?controlePageProximo" class="link-pagination proximo" title="Ir para a proxima página"></a>
    <div class="div-hide"></div>
 </div>
 <script>
