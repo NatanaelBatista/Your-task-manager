@@ -399,3 +399,21 @@
 		background-image:url("css_img/proximo.gif");
 		background-repeat:no-repeat;
 	}
+    
+    .classOnline {
+    	color:green!important;
+    }
+
+    .show_menu_usuarios_cadastrados {
+    	display:block;
+    	padding-top:10px;
+    	padding-bottom:10px;
+    	background:white;
+    	width:205px;
+    	border-left:2px solid #009900;
+    	margin-left:1px;
+    	margin-top:-1px;
+    }
+    #container_lista_usuarios {
+    	display:none;
+    }

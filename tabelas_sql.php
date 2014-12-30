@@ -32,5 +32,13 @@ alter table tarefas
 add foreign key fk_quem_vai_fazer_a_tarefa ( vinculoUsuario )
 references usuarios ( id )
 
+
+
+create table usuariosOnline(
+	id int null AUTO_INCREMENT PRIMARY KEY,
+	idUsuarioOnline int null,
+	)
+
+
 ?>
 

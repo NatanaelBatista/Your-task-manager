@@ -1,6 +1,7 @@
 <?php
 require_once("loaderClasses.php");
 $usuario = Container::getUsuario();
+$idUsuariosOnline = Container::getIdUsuariosOnline();
 
 if (isset($_GET["login"]))
 {
@@ -26,6 +27,12 @@ if (isset($_GET["login"]))
 			$retornoPerfil = $listar->perfil;
 			$retoroPerfilMasterMaster = $listar->perfil_master_master;
 		}
+       
+        /**
+        * Cadastra o id dos usuários logados no sistema
+        */
+		$idUsuariosOnline->setIdUsuarioOnline($idUsuario);
+		$idUsuariosOnline->cadastrarIdUsuariosOnline();
 
         session_start();
         $_SESSION["nome"] = $retornoNome;

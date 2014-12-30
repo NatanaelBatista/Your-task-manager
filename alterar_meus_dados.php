@@ -53,7 +53,7 @@ if (isset($_GET["alterarMeusDados"]))
 		<section class="areas">
         
 <h3>Editar Usuario: <small class="small_aux"><?php echo $_nome; ?></small> | Cadastrado desde: <small class="small_aux"><?php echo $_dataCadastro; ?></small></h3>
-<form method="post" action="usuario_controller.php?editar&id=<?php echo $_id;?>&alterarUsuarioCorrente" class="form-login form-normal">
+<form class="form" method="post" action="usuario_controller.php?editar&id=<?php echo $_id;?>&alterarUsuarioCorrente" class="form-login form-normal">
     <label for="nome">Nome:</label> <br>
     <input type="text" name="nome" id="nome" placeholder="Digite o nome..." value="<?php echo $_nome; ?>"> <br>
             
