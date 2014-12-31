@@ -3,6 +3,11 @@
 		font-family:Tahoma!important;
 		margin:0;
 		margin-top:10px;
+		font-family: "freight-text-pro",Georgia,Cambria,"Times New Roman",Times,serif;
+		letter-spacing: 0.01rem;
+        font-weight: 400;
+        font-style: normal;
+        line-height: 1.5;
 	}
 	.main {
 		width:1010px;
@@ -45,6 +50,11 @@
 	}
 	.info-areas {
 		padding:30px;
+		font-family: "freight-text-pro",Georgia,Cambria,"Times New Roman",Times,serif;
+		letter-spacing: 0.01rem;
+        font-weight: 400;
+        font-style: normal;
+        line-height: 1.5;
 	}
 	.info-areas p {
 		font-size:15px;
