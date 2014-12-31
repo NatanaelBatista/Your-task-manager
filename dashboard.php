@@ -22,7 +22,7 @@ require_once("validaSession.php");
     <?php endif; ?>
 
 	<?php 
-	if (!isset($_GET["textoCompleto"]))
+	if (!isset($_GET["textoCompleto"]) and !isset($_GET["tarefasCadaUsuario"]))
 	{
 		require_once("layout_parts/area_textarea_postagem.php");
 	}
@@ -40,6 +40,11 @@ require_once("validaSession.php");
 	{
 		$id = (int) $_GET["id"];
 		require_once("layout_parts/area_textarea_postagem_completa.php"); 
+	}
+	elseif (isset($_GET["tarefasCadaUsuario"]))
+	{
+		$id = (int) $_GET["id"];
+		require_once("layout_parts/area_result_post_cada_usuario.php"); 
 	}
 	else
 	{

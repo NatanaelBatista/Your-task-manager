@@ -19,10 +19,15 @@
 <div id="container_lista_usuarios">
 <section class="left">
 <br>
+<p>
+	Clicando nos usuários você lista todas as tarefas cadastradas por eles.
+</p>
 <b>Usuarios</b>
 <ul id="menu-left" class="menu-usuarios">
-	<?php foreach($usuario->listar() as $listar): ?>
-	   <li><a href=""><?php echo $listar->nome; ?></a></li>
+	<?php foreach($usuario->listar() as $listar): 
+     $quantidadeDeTarefas = count($usuario->colecaoUsuarioTarefasWhere("criadorDaTarefa",$listar->id));
+	?>
+	   <li><a href="?tarefasCadaUsuario&id=<?php echo $listar->id; ?>"><?php echo $listar->nome . " <span class='trc'>QTC ( <span class='numero_trc'>" . $quantidadeDeTarefas . "</span> )</span>"; ?></a></li>
 	<?php endforeach; ?>
 </ul>
 </section><!--end left-->
@@ -45,7 +50,6 @@
 	$(document).ready(function() {
 		$(".show_menu_usuarios_cadastrados").click(function() {
 			$("#container_lista_usuarios").toggle('slow');
-		})
-
+		});
 	});
 </script>

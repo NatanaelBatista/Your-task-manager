@@ -427,3 +427,19 @@
     #container_lista_usuarios {
     	display:none;
     }
+
+    .left p {
+    	font-size:11px;
+    	padding-left:10px;
+    	padding-right:10px;
+    	opacity:0.70;
+    }
+
+    .numero_trc {
+    	color:red!important;
+    }
+    .trc {
+    	opacity:0.40;
+    	text-align:right;
+    	float:right;
+    }
