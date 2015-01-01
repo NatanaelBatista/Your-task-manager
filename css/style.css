@@ -313,18 +313,18 @@
 	}
 
 	.menu-usuarios a::before {
-        content: url(css_img/icone_usuario.gif);
+        content: url(css_img/icone_usuario.png);
         margin-right:5px;
     }
 
     .cadastrar-usuario a::before {
-        content: url(css_img/icone_cadastrar_usuario.gif);
+        content: url(css_img/icone_cadastrar_usuario.png);
         margin-right:5px;
     }
     
     
     .link-arquivos::before {
-        content: url(css_img/icone_arquivos.gif)!important;
+        content: url(css_img/icone_arquivos.png)!important;
         margin-right:5px;
     }
     
