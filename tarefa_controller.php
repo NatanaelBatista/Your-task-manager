@@ -78,3 +78,15 @@ if (isset($_GET["editar"]))
 		}
 	}
 }
+
+/**
+* Recupera uma variável do tipo "post" via "ajax" e retorna um array de objetos
+*/
+if (isset($_POST["buscaAutoComplete"]))
+{
+	$vetor = array();
+    foreach($tarefas->listar() as $listar)
+    {
+ 	    echo $listar->titulo."/";
+    }
+}

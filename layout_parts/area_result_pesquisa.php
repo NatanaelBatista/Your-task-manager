@@ -1,24 +1,4 @@
-<?php 
-/**
-* Monta a páginação
-*/
-$numeroPorPagina = 5;
-$pagina = 0;
-$totalDePáginas = ceil(count($usuario->colecaoUsuarioTarefas()) / $numeroPorPagina);
-
-if (isset($_GET["controlePageProximo"]))
-{
-	$pagina = $pagina + 2;
-}
-
-if (isset($_GET["controlePageAnterior"]))
-{
-	$pagina - 2;
-}
-/**
-* Faz o select com páginação
-*/
-foreach($usuario->colecaoUsuarioTarefasPagination($pagina,$numeroPorPagina) as $listar):
+<?php foreach($usuario->pesquisarColecaoUsuarioTarefas("titulo", $valorPesquisa) as $listar):
 /**
 * Apresenta determinadas legendas de acordo com a situação da tarefa
 */
@@ -97,23 +77,14 @@ if ($listar->criadorDaTarefa == $_SESSION["idUsuario"])
 ?>
 </div><!-- end footer areas -->
 
-<?php endforeach; ?>
-
-<?php 
-/**
-* Controla quando os butões da páginação vão aparecer.
-*/
-if (count($usuario->colecaoUsuarioTarefas()) > $numeroPorPagina): 
-$atual = $pagina;
-if ($pagina == 0)
-{
-	$atual = 1;
-}
-?>
-<div class="footer-areas">
-   <a href="?controlePageAnterior" class="link-pagination anterior" title="Ir para página anterior"></a>
-   <a href="?controlePageProximo" class="link-pagination proximo" title="Ir para a proxima página"></a>
-   <?php echo $atual. " de " .$totalDePáginas; ?>
-   <div class="div-hide"></div>
-</div>
+<?php endforeach; 
+if (count($usuario->pesquisarColecaoUsuarioTarefas("titulo", $valorPesquisa)) < 1):?>
+<section class="areas apresenta-tarefas">
+	<div class="info-areas">
+		<img class="img_pesquisa_nao_encontrada" src="html_img/detetivi_pesquisa.jpg" alt="">
+	  <h2>Desculpe, mas a sua pesquisa não retornou nenhum valor, ou seja, conteúdo não encontrado..</h2>
+      <p>Verifique se digitou a palavra corretamente...</p>
+    <div class="hide"></div>
+    </div>
+</section>
 <?php endif; ?>

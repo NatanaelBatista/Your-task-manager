@@ -22,7 +22,7 @@ require_once("validaSession.php");
     <?php endif; ?>
 
 	<?php 
-	if (!isset($_GET["textoCompleto"]) and !isset($_GET["tarefasCadaUsuario"]))
+	if (!isset($_GET["textoCompleto"]) and !isset($_GET["tarefasCadaUsuario"]) and !isset($_GET["input_pesquisa"]))
 	{
 		require_once("layout_parts/area_textarea_postagem.php");
 	}
@@ -45,6 +45,11 @@ require_once("validaSession.php");
 	{
 		$id = (int) $_GET["id"];
 		require_once("layout_parts/area_result_post_cada_usuario.php"); 
+	}
+	elseif (isset($_GET["input_pesquisa"]))
+	{
+		$valorPesquisa = $_GET["input_pesquisa"];
+		require_once("layout_parts/area_result_pesquisa.php"); 
 	}
 	else
 	{

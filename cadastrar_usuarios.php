@@ -170,17 +170,5 @@ if (isset($_GET["editar"]))
 
 	</article><!--end main-->
     <?php require_once("layout_parts/fotter.php") ?>
-
-<script>
-    var deletar = $(".deletar");
-    deletar.click( function() {
-        var confirmar = confirm("Deseja realmente deletar esse Usuario?");
-        if (confirmar) {
-            return true;
-        } else {
-            return false;
-        }
-    })
-</script>
 </body>
 </html>

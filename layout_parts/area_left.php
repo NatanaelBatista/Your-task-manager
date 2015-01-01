@@ -2,8 +2,8 @@
 
 <section class="left">
 <div class="div_oculta_left">
-<form method="get" action="">
-	<input type="search" name="input_pesquisa" id="input_pesquisa" placeholder="Pesquisar...">
+<form method="get" action="dashboard.php">
+	<input type="search" name="input_pesquisa" id="input_pesquisa" placeholder="Pesquisar Tarefas...">
 	<button type="submit" class="button-postar">Buscar</button>
 </form>
 </div>
@@ -55,14 +55,3 @@
 </ul>
 </section><!--end left-->
 </div>
-
-<script>
-	$(document).ready(function() {
-
-		$(".show_menu_usuarios_cadastrados").click(function() {
-			$("#container_lista_usuarios").toggle('fast');
-			return false;
-		});
-
-	});
-</script>

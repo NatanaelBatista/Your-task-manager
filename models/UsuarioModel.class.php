@@ -99,8 +99,7 @@ class UsuarioModel
 	}
 
     /**
-    * This method takes all the data from the table
-	* @return an array of the objects
+    * Esse metodo lista todos os usuarios
 	*/
 	public function listar()
 	{
@@ -108,7 +107,10 @@ class UsuarioModel
 		$query->execute();
 		return $query->fetchAll(PDO::FETCH_OBJ);
 	}
-
+    
+    /**
+    * Esse metodo recebe dois argumentos e faz a consulta baseando-se nisso
+    */
 	public function listarWhere($campo, $valor)
 	{
 		if ($campo == "id")
@@ -191,6 +193,22 @@ class UsuarioModel
         usuarios.id where {$campo} = ?");
 		
         $query->execute(array($valor));
+		return $query->fetchAll(PDO::FETCH_OBJ);
+	}
+
+    /**
+    * Pesquisa tarefas vinculadas a cada usuario
+    */
+	public function pesquisarColecaoUsuarioTarefas($campo, $valor)
+	{
+		$query = $this->db->prepare("select usuarios.id as idUsuario, tarefas.id as idTarefas, 
+        nome, login, perfil, usuarios.dataCadastro as usuarioDataDoCadastro,
+        titulo, texto, tarefas.dataCadastro as tarefasDataDoCadastro,
+        situacao, dataAcao, criadorDaTarefa, vinculoUsuario 
+        from usuarios join tarefas on tarefas.criadorDaTarefa = 
+        usuarios.id where {$campo} like ?");
+		
+        $query->execute(array("%$valor%"));
 		return $query->fetchAll(PDO::FETCH_OBJ);
 	}
 }

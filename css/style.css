@@ -456,3 +456,10 @@
     	padding-bottom:2px;
     	font-weight:normal;
     }
+    .img_pesquisa_nao_encontrada {
+    	padding:10px;
+    	width:150px;
+    	border-radius:2px;
+    	display:block;
+    	float:left;
+    }
