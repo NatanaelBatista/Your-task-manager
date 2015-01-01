@@ -37,7 +37,7 @@
 	<?php foreach($usuario->listar() as $listar): 
      $quantidadeDeTarefas = count($usuario->colecaoUsuarioTarefasWhere("criadorDaTarefa",$listar->id));
 	?>
-	   <li><a href="?tarefasCadaUsuario&id=<?php echo $listar->id; ?>"><?php echo $listar->nome . " <span class='trc'>QTC ( <span class='numero_trc'>" . $quantidadeDeTarefas . "</span> )</span>"; ?></a></li>
+	   <li><a href="?tarefasCadaUsuario&id=<?php echo $listar->id; ?>"><?php echo Delimitar(" ",$listar->nome,0) . " " . Delimitar(" ",$listar->nome,1) . " <span class='trc'>QTC ( <span class='numero_trc'>" . $quantidadeDeTarefas . "</span> )</span>"; ?></a></li>
 	<?php endforeach; ?>
 </ul>
 </section><!--end left-->
