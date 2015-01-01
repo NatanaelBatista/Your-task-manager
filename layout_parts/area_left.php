@@ -1,4 +1,14 @@
 <div id="main-area-left">
+
+<section class="left">
+<div class="div_oculta_left">
+<form method="get" action="">
+	<input type="search" name="input_pesquisa" id="input_pesquisa" placeholder="Pesquisar...">
+	<button type="submit" class="button-postar">Buscar</button>
+</form>
+</div>
+</section><!--end left-->
+
 <section class="left">
 <br>
 <b>Navegação</b>
@@ -48,8 +58,11 @@
 
 <script>
 	$(document).ready(function() {
+
 		$(".show_menu_usuarios_cadastrados").click(function() {
-			$("#container_lista_usuarios").toggle('slow');
+			$("#container_lista_usuarios").toggle('fast');
+			return false;
 		});
+
 	});
 </script>
