@@ -1,22 +1,5 @@
 <?php foreach($usuario->pesquisarColecaoUsuarioTarefas("titulo", $valorPesquisa) as $listar):
 /**
-* Apresenta determinadas legendas de acordo com a situação da tarefa
-*/
-$iconiSituacaoTarefa = "";
-if ($listar->situacao == "1")
-{
-	$iconiSituacaoTarefa = "Pendente.";
-}
-elseif ($listar->situacao == "2")
-{
-	$iconiSituacaoTarefa = "Sendo Feita";
-}
-elseif ($listar->situacao == "3")
-{
-	$iconiSituacaoTarefa = "Feita";
-}
-
-/**
 * Busca o nome do usuario a quem a tarefa foi atribuida
 */
 foreach($usuario->listarWhere("id",$listar->vinculoUsuario) as $list)
@@ -30,7 +13,7 @@ foreach($usuario->listarWhere("id",$listar->vinculoUsuario) as $list)
 <div class="info-areas">
 <b>Tarefa atribuída ao usuário:</b> <?php echo $_nomeDoUsuarioTarefaAtibuida; ?></small> ( por ) <small><?php echo $listar->nome; ?><br>
 <b>Cadastrada em:</b> <small><?php echo $listar->tarefasDataDoCadastro; ?></small> <br>
-<b>Situação:</b> <small><?php echo $iconiSituacaoTarefa; ?></small> <br>
+<b>Situação:</b> <small><?php echo situacaoTarefa($listar->situacao); ?></small> <br>
 <hr>
 
 <?php 
