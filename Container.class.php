@@ -14,11 +14,6 @@ class Container
 		$tarefas = new TarefasModel(self::getConexao());
 		return $tarefas;
 	}
-	public static function getIdUsuariosOnline()
-	{
-		$usuariosOnline = new UsuariosOnlineModel(self::getConexao());
-		return $usuariosOnline;
-	}
 	public static function getSendMail()
 	{
 		$sendEmail = new SendEmail();

@@ -3,7 +3,6 @@ session_start();
 require_once("loaderClasses.php");
 $usuario = Container::getUsuario();
 $tarefas = Container::getTarefas();
-$idUsuariosOnline = Container::getIdUsuariosOnline();
 
 require_once("layout_parts/header.php");
 require_once("layout_parts/banner.php");
