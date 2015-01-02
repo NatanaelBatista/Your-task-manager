@@ -28,8 +28,7 @@
 				source: dadosPesquisa
 			});
 		})
-
-	});
+	}); // end jquery
 	
 	hideMsg();
 	deletarTarefas();

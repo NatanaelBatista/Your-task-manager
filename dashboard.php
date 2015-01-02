@@ -9,9 +9,7 @@ require_once("layout_parts/header.php");
 require_once("layout_parts/banner.php");
 require_once("utilidades/functions.php");
 require_once("validaSession.php");
-
 ?>
-
 	<article class="main">
 	<section class="right">
 
@@ -62,7 +60,6 @@ require_once("validaSession.php");
 	    <?php 
 	      require_once("layout_parts/area_left.php");
 	    ?>
-
     <div class="hide"></div>
 
 	</article><!--end main-->

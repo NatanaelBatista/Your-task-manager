@@ -156,7 +156,7 @@ class UsuarioModel
         titulo, texto, tarefas.dataCadastro as tarefasDataDoCadastro,
         situacao, dataAcao, criadorDaTarefa, vinculoUsuario 
         from usuarios join tarefas on tarefas.criadorDaTarefa = 
-        usuarios.id order by tarefas.dataCadastro desc, tarefas.id desc");
+        usuarios.id order by tarefas.id desc");
 		
         $query->execute();
 		return $query->fetchAll(PDO::FETCH_OBJ);
@@ -172,7 +172,7 @@ class UsuarioModel
         titulo, texto, tarefas.dataCadastro as tarefasDataDoCadastro,
         situacao, dataAcao, criadorDaTarefa, vinculoUsuario 
         from usuarios join tarefas on tarefas.criadorDaTarefa = 
-        usuarios.id order by tarefas.dataCadastro asc, tarefas.id desc limit {$inicio}, {$quantidade}");
+        usuarios.id order by tarefas.id desc limit {$inicio}, {$quantidade}");
 		
         $query->execute();
 		return $query->fetchAll(PDO::FETCH_OBJ);
