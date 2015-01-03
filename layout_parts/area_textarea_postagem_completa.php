@@ -1,4 +1,6 @@
-<?php foreach($usuario->colecaoUsuarioTarefasWhere("tarefas.id",$id) as $listar):
+<?php
+require_once("layout_parts/erro_visualizar_tarefas_completas_404.php");
+foreach($usuario->colecaoUsuarioTarefasWhere("tarefas.id",$id) as $listar):
 /**
 * Busca o nome do usuario a quem a tarefa foi atribuida
 */
