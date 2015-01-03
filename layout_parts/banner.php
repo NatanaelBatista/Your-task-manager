@@ -13,12 +13,17 @@ $usuario->cadastraOprimeiroUsuario();
     setcookie("msgSucesso", "", time()-3600);
   
   /**
-  * Destroi os kookies que são criado no momento de tentar cadastrar um usuario,
+  * Destroi os cookie´s que são criado no momento de tentar cadastrar um usuario ou tarefas,
   * mas é barrado pela validação.
   */
     setcookie("retornaNome", "", time()-3600);
     setcookie("retornoLogin", "", time()-3600);
     setcookie("retornoPerfil", "", time()-3600);
+
+    setcookie("retornaTitulo", "", time()-3600);
+    setcookie("retornoTexto", "", time()-3600);
+
+
 
    /**
    * Aplica uma class css no banner se a página corrente for a "index.php".

@@ -14,8 +14,20 @@ if (isset($_GET["cadastrar"]))
 	$fazer = "1";
 	$criadorDaTarefa = $_SESSION["idUsuario"];
     
+    /**
+    * Grava no Cookie alguns dados digitados no formulário
+    * Essa função é chamada quando a validação de entrada encontra alguns erros
+    * Tecnica efetuada para que o usuario não perca tudo o que digitou no formulário.
+    */
+	function seErroValidacao($titulo,$texto,$tarefaPara)
+    {
+        setcookie("retornaTitulo",$titulo);
+        setcookie("retornoTexto",$texto);
+    }
+    
 	if (empty($titulo) or empty($texto) or empty($tarefaPara))
 	{
+		seErroValidacao($titulo,$texto,$tarefaPara);
 		setcookie("msgErro","Todos os campos são obrigatórios.");
 		header("Location:dashboard.php");
 	}

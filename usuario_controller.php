@@ -17,7 +17,7 @@ if (isset($_GET["cadastrar"]))
 	$perfil = strip_tags(trim($_POST["perfil"]));
     
     /**
-    * Grava no kookie alguns dados digitados no formulário
+    * Grava no Cookie alguns dados digitados no formulário
     * Essa função é chamada quando a validação de entrada encontra alguns erros
     * Tecnica efetuada para que o usuario não perca tudo o que digitou no formulário.
     */
