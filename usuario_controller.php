@@ -34,6 +34,12 @@ if (isset($_GET["cadastrar"]))
     	setcookie("msgErro","Todos os dados são obrigatórios.");
 		header("Location:cadastrar_usuarios.php");
     }
+    elseif (!preg_match("/^[a-zA-Z]/", $nome))
+    {
+        seErroValidacao($nome,$login,$perfil);
+        setcookie("msgErro","O sistema não perminte números neste campo.");
+        header("Location:cadastrar_usuarios.php");
+    }
     elseif (!filter_var($login, FILTER_VALIDATE_EMAIL))
     {
         seErroValidacao($nome,$login,$perfil);
