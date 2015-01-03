@@ -182,12 +182,12 @@ if (isset($_GET["editar"]))
     if (empty($nome) or empty($login) or empty($senha))
     {
         setcookie("msgErro","Todos os dados são obrigatórios.");
-        header("Location:editar_usuarios.php");
+        verificaPaginaAcao($_GET["alterarUsuarioCorrente"]);
     }
     elseif (!filter_var($login, FILTER_VALIDATE_EMAIL))
     {
         setcookie("msgErro","Digite um Email valido.");
-        header("Location:cadastrar_usuarios.php");
+        verificaPaginaAcao($_GET["alterarUsuarioCorrente"]);
     }
     elseif ($repitaSenha != $senha)
     {
