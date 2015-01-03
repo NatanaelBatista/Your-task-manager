@@ -36,6 +36,8 @@ if (isset($_GET["editar"]))
         $funcionario = "checked";
     }
 }
+
+ if (isset($_POST))
 ?>
 
 	<article class="main">
@@ -78,16 +80,34 @@ if (isset($_GET["editar"]))
             }
         }
         else
-        {
+        {  /**
+            * Verifica se esse kookie existe
+            */
+           if (isset($_COOKIE["retornoPerfil"]))
+           {
+               $master = "unchecked";
+               $funcionario = "unchecked";
+               /**
+               * Verifica o tipo do perfil e destaca o radio button
+               */
+               if ($_COOKIE["retornoPerfil"] == "1")
+               {
+                    $master = "checked";
+               }
+               elseif ($_COOKIE["retornoPerfil"] == "2")
+               {
+                    $funcionario = "checked";
+               }
+           }
         ?>
 	     <h3>Cadastrar Usuario</h3>
 
 	     <form method="post" action="usuario_controller.php?cadastrar" class="form-login form-normal">
 			<label for="nome">Nome:</label> <br>
-			<input type="text" name="nome" id="nome" placeholder="Digite o nome..."> <br>
+			<input type="text" name="nome" id="nome" placeholder="Digite o nome..." value="<?php echo isset($_COOKIE["retornaNome"]) ? $_COOKIE["retornaNome"]:""; ?>"> <br>
 			
 			<label for="email">Email <small>( Será usado como login )</small>:</label> <br>
-			<input type="text" name="login" id="email" placeholder="Digite o email do Usuario."> <br>
+			<input type="text" name="login" id="email" placeholder="Digite o email do Usuario." value="<?php echo isset($_COOKIE["retornoLogin"]) ? $_COOKIE["retornoLogin"]:""; ?>"> <br>
 
 			<label for="senha">Senha <small>( Escolha uma senha temporária )</small>:</label> <br>
 			<input type="password" name="senha" id="senha" placeholder="Escolha uma senha"> <br>
@@ -96,8 +116,8 @@ if (isset($_GET["editar"]))
             <input type="password" name="repitaSenha" id="repita_senha" placeholder="Repita a senha"> <br>
 
             <label for="perfil">Perfil do Usuario:</label> <br>
-            <input type="radio" name="perfil" value="1" id="master"> <label for="master">Master</label> <br>
-            <input type="radio" name="perfil" value="2" id="funcionario" checked> <label for="funcionario">Funcionario</label> <br>
+            <input type="radio" name="perfil" value="1" id="master" <?php echo isset($master) ? $master:""; ?>> <label for="master">Master</label> <br>
+            <input type="radio" name="perfil" value="2" id="funcionario" <?php echo isset($funcionario) ? $funcionario:"checked"; ?>> <label for="funcionario">Funcionario</label> <br>
 
 			<button type="submit" class="button-postar" id="entrar">Cadastrar</button> 
 		</form>

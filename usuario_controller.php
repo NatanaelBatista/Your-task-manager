@@ -16,23 +16,39 @@ if (isset($_GET["cadastrar"]))
     $repitaSenha = strip_tags(trim($_POST["repitaSenha"]));
 	$perfil = strip_tags(trim($_POST["perfil"]));
     
+    /**
+    * Grava no kookie alguns dados digitados no formulário
+    * Essa função é chamada quando a validação de entrada encontra alguns erros
+    * Tecnica efetuada para que o usuario não perca tudo o que digitou no formulário.
+    */
+    function seErroValidacao($nome,$login,$perfil)
+    {
+        setcookie("retornaNome",$nome);
+        setcookie("retornoLogin",$login);
+        setcookie("retornoPerfil",$perfil);
+    }
+    
     if (empty($nome) or empty($login) or empty($senha))
     {
+        seErroValidacao($nome,$login,$perfil);
     	setcookie("msgErro","Todos os dados são obrigatórios.");
 		header("Location:cadastrar_usuarios.php");
     }
     elseif (!filter_var($login, FILTER_VALIDATE_EMAIL))
     {
+        seErroValidacao($nome,$login,$perfil);
     	setcookie("msgErro","Digite um Email valido.");
 		header("Location:cadastrar_usuarios.php");
     }
     elseif($usuario->verificaEmail($login) == true)
     {
+        seErroValidacao($nome,$login,$perfil);
         setcookie("msgErro","Já existe um usuario com este Email.");
         header("Location:cadastrar_usuarios.php");
     }
     elseif ($repitaSenha != $senha)
     {
+        seErroValidacao($nome,$login,$perfil);
         setcookie("msgErro","Os valores do campo ( senha ) não coincide com os valores do campo ( repetir senha )");
         header("Location:cadastrar_usuarios.php");
     }
