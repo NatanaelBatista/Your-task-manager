@@ -43,28 +43,6 @@ class UsuarioModel
     	$this->perfilMasterMaster = $perfilMasterMaster;
     }
 
-	public function verificaLogin($login,$senha)
-	{
-		$query = $this->db->prepare("select * from {$this->tableName} where login = ? and senha = ?");
-		$query->execute(array($login,$senha));
-
-		if ($query->rowCount())
-		{
-			return true;
-		}
-		else 
-		{
-			return false;
-		}
-	}
-    
-	public function retornaDadosLogin($login,$senha)
-	{
-		$query = $this->db->prepare("select * from {$this->tableName} where login = ? and senha = ?");
-		$query->execute(array($login,$senha));
-		return $query->fetchAll(PDO::FETCH_OBJ);
-	}
-
 	/**
 	* Verifica se já existe um determinado Email cadastrado
 	* @return boolean

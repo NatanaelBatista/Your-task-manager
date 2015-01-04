@@ -1,11 +1,14 @@
 <?php
+/**
+* Controller que valida à entrada do usuário no sistema
+*/
 require_once("loaderClasses.php");
-$usuario = Container::getUsuario();
+$loginModel = Container::getLoginModel();
 
 if (isset($_GET["login"]))
 {
-	$login = trim($_POST["login"]);
-	$senha = trim($_POST["senha"]);
+	$login = strip_tags(trim($_POST["login"]));
+	$senha = strip_tags(trim($_POST["senha"]));
 
 	if (empty($login) or empty($senha))
 	{
@@ -17,16 +20,22 @@ if (isset($_GET["login"]))
 		setcookie("msgErro","Este Email não é valido");
 		header("Location:index.php");
 	}
-	elseif ($usuario->verificaLogin($login,$senha) == true)
+	/**
+	* Se returnar true o usuário tem um cadastro valido no sistema.
+	*/
+	elseif ($loginModel->verificaLogin($login,$senha) == true)
 	{
-		foreach($usuario->retornaDadosLogin($login,$senha) as $listar)
+		foreach($loginModel->retornaDadosLogin($login,$senha) as $listar)
 		{
 			$idUsuario     = $listar->id;
 			$retornoNome   = $listar->nome;
 			$retornoPerfil = $listar->perfil;
 			$retoroPerfilMasterMaster = $listar->perfil_master_master;
 		}
-       
+        
+        /**
+        * Carrega na Session os dados do Usuário que acabou de logar-se no sistema.
+        */
         session_start();
         $_SESSION["nome"] = $retornoNome;
 		$_SESSION["login"] = $login;
