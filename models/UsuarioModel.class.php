@@ -1,4 +1,7 @@
 <?php 
+/**
+* Class responsável por manter a persistência dos dados da tabela Usuários.
+*/
 class UsuarioModel
 {
 	protected $nome;
@@ -16,7 +19,7 @@ class UsuarioModel
 	}
 
 	/**
-    * Set´s: setting the attributes
+    * Métodos para setarem os atributos da class.
     */
     public function setNome($nome)
     {
@@ -45,7 +48,8 @@ class UsuarioModel
 
 	/**
 	* Verifica se já existe um determinado Email cadastrado
-	* @return boolean
+	* @param String
+	* @return Boolean
 	*/
 	public function verificaEmail($login)
 	{
@@ -62,8 +66,9 @@ class UsuarioModel
 	}
     
     /**
-    * Esse metodo cadastra o primeiro usuario do Sistema 
-    * se o mesmo for executado sem nenhum usuario cadastrado.
+    * Esse método cadastra o primeiro usuário do Sistema 
+    * se o mesmo for executado sem nenhum usuário cadastrado.
+    * @return Boolean
     */
 	public function cadastraOprimeiroUsuario()
 	{
@@ -73,11 +78,11 @@ class UsuarioModel
 		    $cadastrar->execute(array("Usuario Admin", "admin@admin.com", "admin", Date("d/m/Y"), "1", "1"));
 		    return $cadastrar;
 		}
-		
 	}
 
     /**
-    * Esse metodo lista todos os usuarios
+    * Método lista todos os usuarios cadastrados no sistema.
+    * @return Array de Objetos
 	*/
 	public function listar()
 	{
@@ -87,7 +92,9 @@ class UsuarioModel
 	}
     
     /**
-    * Esse metodo recebe dois argumentos e faz a consulta baseando-se nisso
+    * Método lista usuários de acordo com os seus parametros
+    * @param Int - $campo
+    * @param String - $valor
     */
 	public function listarWhere($campo, $valor)
 	{
@@ -100,14 +107,23 @@ class UsuarioModel
 		$query->execute(array($valor));
 		return $query->fetchAll(PDO::FETCH_OBJ);
 	}
-
+    
+    /**
+    * Método cadastra os usários no sistema.
+    * @return Boolean
+    */
 	public function cadastrarUsuario()
 	{
 		$cadastrar = $this->db->prepare("insert into {$this->tableName} (nome, login, senha, dataCadastro, perfil) values(?,?,?,?,?)");
 		$cadastrar->execute(array($this->nome, $this->login, $this->senha, $this->dataCadastro, $this->perfil));
 		return $cadastrar;
 	}
-
+    
+    /**
+    * Método faz a edição dos usuários.
+    * @param Int - $id
+    * @return Boolean
+    */
 	public function editar($id)
 	{
 		$id = (int) $id;
@@ -115,7 +131,12 @@ class UsuarioModel
 		$editar->execute(array($this->nome, $this->login, $this->senha, $this->perfil, $id));
 	    return $editar;
 	}
-
+    
+    /**
+    * Método deleta um usuário do sistema.
+    * @param Int - $id
+    * @return Boolean
+    */
 	public function deletar($id)
 	{
 		$id = (int) $id;
@@ -125,7 +146,8 @@ class UsuarioModel
 	}
     
     /**
-    * Retorna todos os dados entre as tabelas "usuarios e tarefas" via a chave "criadorDaTarefa"
+    * Retorna todos os dados entre as tabelas "usuarios e tarefas" via a chave "criadorDaTarefa".
+    * @return Array de Objetos
     */
 	public function colecaoUsuarioTarefas()
 	{
@@ -141,7 +163,8 @@ class UsuarioModel
 	}
     
     /**
-    * Este método é chamado quando necessitamos mostrar uma paginação
+    * Este método é chamado quando necessitamos mostrar uma paginação.
+    * @return Array de Objetos
     */
 	public function colecaoUsuarioTarefasPagination($inicio, $quantidade)
 	{
@@ -156,6 +179,32 @@ class UsuarioModel
 		return $query->fetchAll(PDO::FETCH_OBJ);
 	}
 
+	/**
+    * Método faz a pesquisa das tarefas vinculadas a cada usuario
+    * @param String or Int - $campo
+    * @param Int or String - $valor
+    * @return Array de Objetos
+    */
+	public function pesquisarColecaoUsuarioTarefas($campo, $valor)
+	{
+		$query = $this->db->prepare("select usuarios.id as idUsuario, tarefas.id as idTarefas, 
+        nome, login, perfil, usuarios.dataCadastro as usuarioDataDoCadastro,
+        titulo, texto, tarefas.dataCadastro as tarefasDataDoCadastro,
+        situacao, dataAcao, criadorDaTarefa, vinculoUsuario 
+        from usuarios join tarefas on tarefas.criadorDaTarefa = 
+        usuarios.id where {$campo} like ?");
+		
+        $query->execute(array("%$valor%"));
+		return $query->fetchAll(PDO::FETCH_OBJ);
+	}
+    
+    /**
+    * Retorna todos os dados entre as tabelas "usuarios e tarefas" via a chave "criadorDaTarefa"
+    * de acordo com seus parâmetros.
+    * @param String - $campo
+    * @param Int or String - $valor
+    * @return Array de Objetos
+    */
 	public function colecaoUsuarioTarefasWhere($campo, $valor)
 	{
 		if ($campo == "tarefas.id")
@@ -173,20 +222,6 @@ class UsuarioModel
         $query->execute(array($valor));
 		return $query->fetchAll(PDO::FETCH_OBJ);
 	}
-
-    /**
-    * Pesquisa tarefas vinculadas a cada usuario
-    */
-	public function pesquisarColecaoUsuarioTarefas($campo, $valor)
-	{
-		$query = $this->db->prepare("select usuarios.id as idUsuario, tarefas.id as idTarefas, 
-        nome, login, perfil, usuarios.dataCadastro as usuarioDataDoCadastro,
-        titulo, texto, tarefas.dataCadastro as tarefasDataDoCadastro,
-        situacao, dataAcao, criadorDaTarefa, vinculoUsuario 
-        from usuarios join tarefas on tarefas.criadorDaTarefa = 
-        usuarios.id where {$campo} like ?");
-		
-        $query->execute(array("%$valor%"));
-		return $query->fetchAll(PDO::FETCH_OBJ);
-	}
 }
+/* End of file UsuarioModel.php */
+/* Location: models */
