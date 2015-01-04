@@ -1,6 +1,7 @@
 <?php 
 /**
 * Class responsável por manter a persistência dos dados da tabela Usuários.
+* @var private - $db - Recebe um método da class do tipo conexao.
 */
 class UsuarioModel
 {
@@ -25,22 +26,27 @@ class UsuarioModel
     {
     	$this->nome = $nome;
     }
+
     public function setLogin($login)
     {
     	$this->login = $login;
     }
+
     public function setSenha($senha)
     {
     	$this->senha = $senha;
     }
+
     public function setDataCadastro($data)
     {
     	$this->dataCadastro = $data;
     }
+
     public function setPerfil($perfil)
     {
     	$this->perfil = $perfil;
     }
+
     public function setPerfilMasterMaster($perfilMasterMaster)
     {
     	$this->perfilMasterMaster = $perfilMasterMaster;
@@ -95,6 +101,7 @@ class UsuarioModel
     * Método lista usuários de acordo com os seus parametros
     * @param Int - $campo
     * @param String - $valor
+    * @return Array de Objetos
     */
 	public function listarWhere($campo, $valor)
 	{
@@ -223,5 +230,5 @@ class UsuarioModel
 		return $query->fetchAll(PDO::FETCH_OBJ);
 	}
 }
-/* End of file UsuarioModel.php */
+/* End of file UsuarioModel.class.php */
 /* Location: models */
