@@ -10,7 +10,7 @@ $sendEmail = Container::getSendMail();
 */
 if (isset($_GET["cadastrar"]))
 {
-	$nome   = strip_tags(trim($_POST["nome"]));
+	$nome   = strip_tags(trim(ucwords($_POST["nome"])));
 	$login  = strip_tags(trim($_POST["login"]));
 	$senha  = strip_tags(trim($_POST["senha"]));
     $repitaSenha = strip_tags(trim($_POST["repitaSenha"]));
@@ -29,15 +29,21 @@ if (isset($_GET["cadastrar"]))
     }
     
     if (empty($nome) or empty($login) or empty($senha))
-    {
+    {  
         seErroValidacao($nome,$login,$perfil);
     	setcookie("msgErro","Todos os dados são obrigatórios.");
 		header("Location:cadastrar_usuarios.php");
     }
-    elseif (!preg_match("/^[a-zA-Z]/", $nome))
+    elseif (!preg_match("/^[a-zA-Z\\s]*$/", $nome))
     {
         seErroValidacao($nome,$login,$perfil);
         setcookie("msgErro","O sistema não perminte números neste campo.");
+        header("Location:cadastrar_usuarios.php");
+    }
+    elseif (strlen($senha) < 5)
+    {
+        seErroValidacao($nome,$login,$perfil);
+        setcookie("msgErro","O campo Senha deve ter no mínimo ( 5 ) caracteres.");
         header("Location:cadastrar_usuarios.php");
     }
     elseif (!filter_var($login, FILTER_VALIDATE_EMAIL))
@@ -209,6 +215,11 @@ if (isset($_GET["editar"]))
     elseif (!filter_var($login, FILTER_VALIDATE_EMAIL))
     {
         setcookie("msgErro","Digite um Email valido.");
+        verificaPaginaAcao($_GET["alterarUsuarioCorrente"]);
+    }
+    elseif (strlen($senha) < 5)
+    {
+        setcookie("msgErro","O campo Senha deve ter no mínimo ( 5 ) caracteres.");
         verificaPaginaAcao($_GET["alterarUsuarioCorrente"]);
     }
     elseif ($repitaSenha != $senha)

@@ -8,7 +8,7 @@ $tarefas = Container::getTarefas();
 */
 if (isset($_GET["cadastrar"]))
 {
-	$titulo = strip_tags(trim($_POST["titulo"]));
+	$titulo = strip_tags(trim(ucwords($_POST["titulo"])));
 	$texto = strip_tags(trim($_POST["texto"]));
 	$tarefaPara = strip_tags(trim($_POST["tarefa_para_usuario"]));
 	$fazer = "1";
