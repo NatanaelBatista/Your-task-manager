@@ -5,4 +5,3 @@ $usuario = Container::getUsuario();
 $tarefas = Container::getTarefas();
 $loginModel = Container::getLoginModel();
 
-echo $loginModel->retornaDadosLogin("admin@admin.com","admin")[0];

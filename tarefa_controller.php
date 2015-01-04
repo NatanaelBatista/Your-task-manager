@@ -1,5 +1,9 @@
 <?php 
 session_start();
+/**
+* Controller do Model-TarefasModel
+* @author Valdiney França
+*/
 require_once("loaderClasses.php");
 $tarefas = Container::getTarefas();
 
@@ -102,3 +106,5 @@ if (isset($_POST["buscaAutoComplete"]))
  	    echo $listar->titulo."/";
     }
 }
+/* End of file tarefas_controller.php */
+/* Location: raiz */

@@ -1,6 +1,7 @@
 <?php
 /**
-* Controller que valida à entrada do usuário no sistema
+* Controller do Model-LoginModel
+* @author Valdiney França
 */
 require_once("loaderClasses.php");
 $loginModel = Container::getLoginModel();
@@ -52,3 +53,5 @@ if (isset($_GET["login"]))
 		header("Location:index.php");
 	}
 }
+/* End of file login_controller.php */
+/* Location: raiz */

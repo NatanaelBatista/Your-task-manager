@@ -1,5 +1,9 @@
 <?php 
 session_start();
+/**
+* Controller do Model-UsuarioModel
+* @author Valdiney França
+*/
 require_once("loaderClasses.php");
 $usuario = Container::getUsuario();
 $tarefas = Container::getTarefas();
@@ -37,7 +41,7 @@ if (isset($_GET["cadastrar"]))
     elseif (!preg_match("/^[a-zA-Z\\s]*$/", $nome))
     {
         seErroValidacao($nome,$login,$perfil);
-        setcookie("msgErro","O sistema não perminte números neste campo.");
+        setcookie("msgErro","O sistema não permite números neste campo.");
         header("Location:cadastrar_usuarios.php");
     }
     elseif (strlen($senha) < 5)
@@ -297,7 +301,7 @@ if (isset($_GET["editar"]))
                 }
             }
         }
-     }
+      }
    }
 }
 
@@ -326,3 +330,5 @@ if (isset($_POST["recuperarSenha"]))
         echo "false";
     }
 }
+/* End of file usuario_controller.php */
+/* Location: raiz */

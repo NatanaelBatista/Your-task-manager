@@ -1,7 +1,7 @@
 <?php 
-
 /**
 * Class para trabalhar com envio de Email.
+* @author Valdiney França
 */
    class SendEmail
    {
@@ -39,4 +39,6 @@
       {
          return mail($this->destino, $this->assunto, $this->mensagem, $this->headers());
       }
-   }
+}
+/* End of file SendEmail.class.php */
+/* Location: utilidades */

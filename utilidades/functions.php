@@ -1,6 +1,12 @@
 <?php 
 /**
-* Delimita uma String de acordo com valores passados via argumentos
+* Funções usadas em varias partes do sistema
+* @author Valdiney França
+*/
+
+/**
+* Delimita uma String de acordo com valores passados via argumentos.
+* @return Array
 */
 function DelimitarPorTamnho($entrada,$tamanho,$acabamento) 
 {
@@ -9,12 +15,13 @@ function DelimitarPorTamnho($entrada,$tamanho,$acabamento)
 }
 
 /**
-* Delimita por caracteres
+* Delimita por caracteres.
+* @return Array
 */
 function Delimitar($d,$entrada,$p) 
 {
-	 $saida = explode($d,$entrada);
-	 return $saida[$p];
+	$saida = explode($d,$entrada);
+	return $saida[$p];
 }
 
 /**
@@ -37,3 +44,5 @@ function situacaoTarefa($situacao)
 		return "Feita";
 	}
 }
+/* End of file functions.php */
+/* Location: utilidades */

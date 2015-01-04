@@ -1,4 +1,7 @@
 <?php 
+/**
+* Class ainda não implementada no sistema
+*/
 class UsuariosOnlineModel 
 {
 	protected $idUsuarioOnline;

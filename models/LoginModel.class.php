@@ -2,6 +2,7 @@
 /**
 * Class responsável por verificar a existência de usuários cadastrados 
 * no sistema durante o ato de fazer login.
+* @author Valdiney França
 */
 class LoginModel
 {
@@ -47,3 +48,5 @@ class LoginModel
 		return $query->fetchAll(PDO::FETCH_OBJ);
 	}
 }
+/* End of file LoginModel.class.php */
+/* Location: models */

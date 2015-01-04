@@ -2,6 +2,7 @@
 /**
 * Class responsável por manter a persistência dos dados da tabela Usuários.
 * @var private - $db - Recebe um método da class do tipo conexao.
+* @author Valdiney França
 */
 class UsuarioModel
 {
