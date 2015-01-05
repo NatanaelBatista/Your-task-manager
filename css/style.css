@@ -11,6 +11,7 @@
         line-height: 1.5;
         background-image:url("css_img/fundo.jpg")!important;
         background-attachment: fixed;
+        background:#f1f0f0!important;
 	}
 	.main {
 		width:1010px;
@@ -150,6 +151,7 @@
 		display:block;
 		float:left;
 		margin-left:10px;
+		opacity:0.60;
 	}
 
 	.right {
@@ -487,4 +489,14 @@
     	display:block;
     	float:right;
     	opacity:0.30;
+    }
+
+    .h1-title-tarefas {
+    	background:#34333e!important;
+    	color:#fdfcff!important;
+    }
+    button {
+    	background:#5ba188!important;
+    	color:#fdfcff!important;
+    	border:0!important;
     }
