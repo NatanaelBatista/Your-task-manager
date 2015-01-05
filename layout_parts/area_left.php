@@ -19,6 +19,8 @@
 	<?php if ($_SESSION["perfil"] == "1"): ?>
 	<li><a href="cadastrar_usuarios.php">Cadastrar / Editar Usuarios</a></li>
 	<?php endif; ?>
+
+	<li><a href="pagina_de_recados.php">Mural de Recados</a></li>
 </ul>
 </section><!--end left-->
 

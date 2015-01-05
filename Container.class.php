@@ -23,9 +23,19 @@ class Container
 		$tarefas = new TarefasModel(self::getConexao());
 		return $tarefas;
 	}
+
+	 /**
+    * Instância a class que trabalha com os recados cadastrados pelos usuários.
+    * @return instancia do objeto PDO
+    */
+	public static function getRecados()
+	{
+		$recados = new RecadosModel(self::getConexao());
+		return $recados;
+	}
     
     /**
-    * Instância a class trabalha com a identificalção de login.
+    * Instância a class que trabalha com a identificalção de login.
     * @return instancia do objeto PDO
     */
 	public static function getLoginModel()
