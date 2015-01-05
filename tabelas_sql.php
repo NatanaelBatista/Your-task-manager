@@ -40,5 +40,11 @@ create table usuariosOnline(
 	)
 
 
+
+create table recados (
+	id int not null AUTO_INCREMENT PRIMARY KEY,
+	idUsuarioMandouRecado int not null,
+	dataRecado varchar(10) not null,
+	)
 ?>
 
