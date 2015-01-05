@@ -19,10 +19,11 @@ require_once("validaSession.php");
         </section>
     <?php endif; ?>
       
-      <section class="areas area-text-post">
+      <section class="areas area-text-post section-textarea-recados">
         <form method="post" action="recados_controller.php?cadastrarRecados">
             <textarea name="recado" class="textarea-post" cols="2" rows="10" placeholder="Deixe um recado para o grupo..."></textarea>
             <button type="submit" class="button-postar">Publicar Recado</button>
+            <p>As suas mensagens serão mostradas para todos os usuários do sistema.</p>
         </form>
       </section>  
     

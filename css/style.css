@@ -483,3 +483,8 @@
     .corpo-recado hr {
     	border:1px dotted silver;
     }
+    .section-textarea-recados p {
+    	display:block;
+    	float:right;
+    	opacity:0.30;
+    }
