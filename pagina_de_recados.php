@@ -41,10 +41,16 @@ require_once("validaSession.php");
             foreach($usuario->listarWhere("id",$listar->idUsuarioMandouRecado) as $list)
             {
                 $nomeDoUsuario = $list->nome;
+                $email = $list->login;
             }
+            
+            $size = 40;
+            //$grav_url = "http://www.gravatar.com/avatar/" . md5( strtolower( trim( $email ) ) ) . "?d=" . urlencode( $email ) . "&s=" . $size;
+            $grav_url = "http://www.gravatar.com/avatar/" . md5( strtolower( trim( $email ) ) ) . "?s=" . $size;
          ?>
         <div class="corpo-recado">
-            <b>Recado de: </b><?php echo $nomeDoUsuario; ?> | <b>Enviado em: </b><?php echo $listar->dataRecado; ?><br> 
+            <img class="img-perfil-recados" src="<?php echo $grav_url; ?>" alt="" />
+            <b>Recado de: </b><span class="time-line-nome"><?php echo $nomeDoUsuario; ?></span> <br> <b>Enviado em: </b><span class="time-line-data"><?php echo $listar->dataRecado; ?></span><br> 
             <p><?php echo nl2br($listar->recado); ?></p>
         </div><!-- end corpo-recado -->
          <?php endforeach; ?>

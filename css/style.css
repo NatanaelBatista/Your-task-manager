@@ -295,7 +295,7 @@
 		opacity:0.60;
 		text-align:right;
 		line-height:0px;
-		margin-top:10px!important;
+		margin-top:4px!important;
 	}
 
 	/*Menu com os nomes dos usuarios cadastrados*/
@@ -492,11 +492,26 @@
     }
 
     .h1-title-tarefas {
-    	background:#34333e!important;
-    	color:#fdfcff!important;
+    	background:#1d2029!important;
+    	color:#edeff2!important;
     }
     button {
     	background:#5ba188!important;
     	color:#fdfcff!important;
     	border:0!important;
+    }
+
+    .time-line-nome {
+    	color:#5ba188!important;
+    }
+    .time-line-data {
+    	color:#479ccc;
+    	opacity:0.60;
+    	font-size:11px!important;
+    	margin:0!important;
+    }
+    .img-perfil-recados {
+    	display:block;
+    	float:left;
+    	margin-right:10px;
     }

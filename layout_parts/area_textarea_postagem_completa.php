@@ -13,7 +13,7 @@ foreach($usuario->listarWhere("id",$listar->vinculoUsuario) as $list)
 
 <h1 class="h1-title-tarefas"><?php echo $listar->titulo; ?></h1>
 <div class="info-areas">
-<b>Tarefa atribuída ao usuário:</b> <?php echo $_nomeDoUsuarioTarefaAtibuida; ?></small> ( por ) <small><?php echo $listar->nome; ?><br>
+<b>Tarefa atribuída ao usuário:</b> <span class="time-line-nome"><?php echo $_nomeDoUsuarioTarefaAtibuida; ?></span></small> ( por ) <small><span class="time-line-data"><?php echo $listar->nome; ?></span><br>
 <b>Cadastrada em:</b> <small><?php echo $listar->tarefasDataDoCadastro; ?></small> <br>
 <b>Situação:</b> <small><?php echo situacaoTarefa($listar->situacao); ?></small> <br>
 <hr>
