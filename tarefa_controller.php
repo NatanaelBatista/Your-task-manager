@@ -100,7 +100,6 @@ if (isset($_GET["editar"]))
 */
 if (isset($_POST["buscaAutoComplete"]))
 {
-	$vetor = array();
     foreach($tarefas->listar() as $listar)
     {
  	    echo $listar->titulo."/";
