@@ -1,29 +1,13 @@
 <?php 
 require_once("loaderClasses.php");
+require_once("utilidades/functions.php");
 $usuario = Container::getUsuario();
+
 /**
 * Este metodo cadastra o primeiro usuario do sistema
 */
 $usuario->cadastraOprimeiroUsuario();
-
-  /**
-  * Destroi o Cookie de "mensagens de erro e de sucesso" depois que a página é atualizada
-  */
-    setcookie("msgErro", "", time()-3600);
-    setcookie("msgSucesso", "", time()-3600);
-  
-  /**
-  * Destroi os cookie´s que são criado no momento de tentar cadastrar um usuario ou tarefas,
-  * mas é barrado pela validação.
-  */
-    setcookie("retornaNome", "", time()-3600);
-    setcookie("retornoLogin", "", time()-3600);
-    setcookie("retornoPerfil", "", time()-3600);
-
-    setcookie("retornaTitulo", "", time()-3600);
-    setcookie("retornoTexto", "", time()-3600);
-
-
+deletaCookie();
 
    /**
    * Aplica uma class css no banner se a página corrente for a "index.php".

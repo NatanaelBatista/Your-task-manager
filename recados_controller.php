@@ -30,3 +30,5 @@ if (isset($_GET["cadastrarRecados"]))
 		}
 	}
 }
+/* End of file recados_controller.php */
+/* Location: raiz */

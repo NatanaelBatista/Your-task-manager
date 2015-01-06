@@ -6,7 +6,6 @@ $tarefas = Container::getTarefas();
 
 require_once("layout_parts/header.php");
 require_once("layout_parts/banner.php");
-require_once("utilidades/functions.php");
 require_once("validaSession.php");
 ?>
 	<article class="main">

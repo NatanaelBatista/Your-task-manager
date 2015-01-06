@@ -29,42 +29,41 @@ if (isset($_GET["cadastrar"]))
     {
         setcookie("retornaNome",$nome);
         setcookie("retornoLogin",$login);
-        setcookie("retornoPerfil",$perfil);
     }
     
     if (empty($nome) or empty($login) or empty($senha))
     {  
-        seErroValidacao($nome,$login,$perfil);
+        seErroValidacao($nome,$login);
     	setcookie("msgErro","Todos os dados são obrigatórios.");
 		header("Location:cadastrar_usuarios.php");
     }
     elseif (!preg_match("/^[a-zA-Z\\s]*$/", $nome))
     {
-        seErroValidacao($nome,$login,$perfil);
+        seErroValidacao($nome,$login);
         setcookie("msgErro","O sistema não permite números neste campo.");
         header("Location:cadastrar_usuarios.php");
     }
     elseif (strlen($senha) < 5)
     {
-        seErroValidacao($nome,$login,$perfil);
+        seErroValidacao($nome,$login);
         setcookie("msgErro","O campo Senha deve ter no mínimo ( 5 ) caracteres.");
         header("Location:cadastrar_usuarios.php");
     }
     elseif (!filter_var($login, FILTER_VALIDATE_EMAIL))
     {
-        seErroValidacao($nome,$login,$perfil);
+        seErroValidacao($nome,$login);
     	setcookie("msgErro","Digite um Email valido.");
 		header("Location:cadastrar_usuarios.php");
     }
     elseif($usuario->verificaEmail($login) == true)
     {
-        seErroValidacao($nome,$login,$perfil);
+        seErroValidacao($nome,$login);
         setcookie("msgErro","Já existe um usuario com este Email.");
         header("Location:cadastrar_usuarios.php");
     }
     elseif ($repitaSenha != $senha)
     {
-        seErroValidacao($nome,$login,$perfil);
+        seErroValidacao($nome,$login);
         setcookie("msgErro","Os valores do campo ( senha ) não coincide com os valores do campo ( repetir senha )");
         header("Location:cadastrar_usuarios.php");
     }
