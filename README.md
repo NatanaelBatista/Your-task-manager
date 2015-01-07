@@ -23,3 +23,6 @@
 	Bom, basicamente é isso. O sistema ainda está em desenvolvimento, está sendo bem interessante e prazerosa a construção do mesmo. 
     Estou usando de certa forma o padrão MVC, orientado a objetos e sem a utilização de um framework. Sim, já sei usar um framework é bem melhor, mais organizado. Mas neste caso eu queria estudar melhor orientação a objetos de forma crua...
 </p>
+
+<h1>Layout Atual:</h1>
+<img src="https://scontent-a-gru.xx.fbcdn.net/hphotos-xpa1/v/t1.0-9/10917134_695038720618706_9007768139795650316_n.jpg?oh=c820f70171358aa25cd9dd43f68508a9&oe=55415760" alt="">
