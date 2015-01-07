@@ -1,18 +1,25 @@
-<?php foreach($usuario->pesquisarColecaoUsuarioTarefas("titulo", $valorPesquisa) as $listar):
+<?php 
+foreach($usuario->pesquisarColecaoUsuarioTarefas("titulo", $valorPesquisa) as $listar):
+    $emailCriadorTarefa = $listar->login;
+
 /**
 * Busca o nome do usuario a quem a tarefa foi atribuida
 */
 foreach($usuario->listarWhere("id",$listar->vinculoUsuario) as $list)
 {
 	$_nomeDoUsuarioTarefaAtibuida = $list->nome;
+	$emailVinculoUsuario = $list->login;
 }
 ?>
 <section class="areas apresenta-tarefas">
 
 <h1 class="h1-title-tarefas"><?php echo $listar->titulo; ?></h1>
 <div class="info-areas">
+<img class="img-perfil-recados criador" src="<?php echo requisicaoGravatarAPI($emailCriadorTarefa,40); ?>" alt="" />
+<img class="img-perfil-recados recebeu" src="<?php echo requisicaoGravatarAPI($emailVinculoUsuario,40); ?>" alt="" />
+
 <b>Tarefa atribuída ao usuário:</b> <?php echo $_nomeDoUsuarioTarefaAtibuida; ?></small> ( por ) <small><?php echo $listar->nome; ?><br>
-<b>Cadastrada em:</b> <small><?php echo $listar->tarefasDataDoCadastro; ?></small> <br>
+<b>Cadastrada em:</b> <small><?php echo $listar->tarefasDataDoCadastro; ?></small> |
 <b>Situação:</b> <small><?php echo situacaoTarefa($listar->situacao); ?></small> <br>
 <hr>
 

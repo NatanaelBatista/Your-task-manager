@@ -1,6 +1,19 @@
 <div id="main-area-left">
 
 <section class="left">
+
+<img class="img-perfil-recados-banner" src="<?php echo requisicaoGravatarAPI($_SESSION["login"],40); ?>" alt="" />
+<div class="inperfil">
+    <b><?php echo Delimitar(" ",$_SESSION["nome"],0) . " " . Delimitar(" ",$_SESSION["nome"],1); ?></b> <br>
+    <a href="alterar_meus_dados.php?alterarMeusDados">Editar meus dados</a>
+</div>
+
+</section><!--end left-->
+
+
+
+
+<section class="left">
 <div class="div_oculta_left">
 <form method="get" action="dashboard.php">
 	<input type="search" name="input_pesquisa" id="input_pesquisa" placeholder="Pesquisar Tarefas...">
@@ -14,7 +27,6 @@
 <b>Navegação</b>
 <ul id="menu-left" class="cadastrar-usuario">
 	<li><a href="dashboard.php">Visualizar / Cadastrar Tarefas</a></li>
-	<li><a href="alterar_meus_dados.php?alterarMeusDados">Alterar meus dados</a></li>
 
 	<?php if ($_SESSION["perfil"] == "1"): ?>
 	<li><a href="cadastrar_usuarios.php">Cadastrar / Editar Usuarios</a></li>
@@ -36,7 +48,12 @@
 </p>
 <b>Usuarios</b>
 <ul id="menu-left" class="menu-usuarios">
-	<?php foreach($usuario->listar() as $listar): 
+	<?php foreach($usuario->listar() as $listar):
+	$emailCriadorTarefa = $listar->login;
+	?>
+	<img class="img-perfil-recados" src="<?php echo requisicaoGravatarAPI($emailCriadorTarefa,30); ?>" alt="" />
+	
+	<?php
      $quantidadeDeTarefas = count($usuario->colecaoUsuarioTarefasWhere("criadorDaTarefa",$listar->id));
 	?>
 	   <li><a href="dashboard.php?tarefasCadaUsuario&id=<?php echo $listar->id; ?>"><?php echo Delimitar(" ",$listar->nome,0) . " " . Delimitar(" ",$listar->nome,1) . " <span class='trc'>QTC ( <span class='numero_trc'>" . $quantidadeDeTarefas . "</span> )</span>"; ?></a></li>

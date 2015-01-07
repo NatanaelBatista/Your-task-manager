@@ -19,20 +19,25 @@ if (isset($_GET["controlePageAnterior"]))
 * Faz o select com páginação
 */
 foreach($usuario->colecaoUsuarioTarefasPagination($pagina,$numeroPorPagina) as $listar):
+	$emailCriadorTarefa = $listar->login;
 /**
 * Busca o nome do usuario a quem a tarefa foi atribuida
 */
 foreach($usuario->listarWhere("id",$listar->vinculoUsuario) as $list)
 {
 	$_nomeDoUsuarioTarefaAtibuida = $list->nome;
+	$emailVinculoUsuario = $list->login;
 }
 ?>
 <section class="areas apresenta-tarefas">
 
 <h1 class="h1-title-tarefas"><?php echo $listar->titulo; ?></h1>
 <div class="info-areas">
+<img class="img-perfil-recados criador" src="<?php echo requisicaoGravatarAPI($emailCriadorTarefa,40); ?>" alt="" />
+<img class="img-perfil-recados recebeu" src="<?php echo requisicaoGravatarAPI($emailVinculoUsuario,40); ?>" alt="" />
+
 <b>Tarefa atribuída ao usuário:</b> <span class="time-line-nome"><?php echo $_nomeDoUsuarioTarefaAtibuida; ?></span></small> ( por ) <small><span class="time-line-data"><?php echo $listar->nome; ?></span><br>
-<b>Cadastrada em:</b> <small><?php echo $listar->tarefasDataDoCadastro; ?></small> <br>
+<b>Cadastrada em:</b> <small><?php echo $listar->tarefasDataDoCadastro; ?></small> |
 <b>Situação:</b> <small><?php echo situacaoTarefa($listar->situacao); ?></small> <br>
 <hr>
 

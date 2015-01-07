@@ -150,7 +150,7 @@
 		width:200px;
 		display:block;
 		float:left;
-		margin-left:10px;
+		margin-left:20px;
 		opacity:0.60;
 	}
 
@@ -316,9 +316,13 @@
 		color:black;
 	}
 
-	.menu-usuarios a::before {
+	/*.menu-usuarios a::before {
         content: url(css_img/icone_usuario.png);
         margin-right:5px;
+    }*/
+    .menu-usuarios img {
+    	margin-left:5px;
+    	margin-top:5px;
     }
 
     .cadastrar-usuario a::before {
@@ -514,4 +518,34 @@
     	display:block;
     	float:left;
     	margin-right:10px;
+    	border:1px solid #f0f1f2;
+    }
+
+    .criador {
+    	border:1px solid #479ccc!important;
+    }
+    .recebeu {
+    	border:1px solid #5ba188!important;
+    }
+
+    .img-perfil-recados-banner {
+    	display:block;
+    	float:left;
+    	margin-left:5px;
+    	margin-top:5px;
+    }
+    .inperfil {
+    	padding:10px;
+    	padding-top:5px!important;
+    }
+    .inperfil a, b {
+    	font-size:13px;
+    	margin:0!important;
+    	margin-left:10px!important;
+    	margin-bottom:0!important;
+    }
+    .inperfil a {
+    	text-decoration:underline;
+    	opacity:0.60;
+    	font-size:11px;
     }

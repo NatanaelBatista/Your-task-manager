@@ -70,5 +70,18 @@ function deletaCookie()
     setcookie("retornaTitulo", "", time()-3600);
     setcookie("retornoTexto", "", time()-3600);
 }
+
+/**
+* Função usa o email do Usuário para acessar a API do Gravar e retornar 
+* uma imagem para perfil.
+* @param String - $email
+* @param Int - $size
+* @return String - $email - hash
+*/
+function requisicaoGravatarAPI($email,$size)
+{
+   return $grav_url = "http://www.gravatar.com/avatar/" . md5( strtolower( trim( $email ) ) ) . "?s=" . $size;
+}
+//$grav_url = "http://www.gravatar.com/avatar/" . md5( strtolower( trim( $email ) ) ) . "?d=" . urlencode( $email ) . "&s=" . $size;
 /* End of file functions.php */
 /* Location: utilidades */

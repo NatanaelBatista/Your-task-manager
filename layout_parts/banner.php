@@ -53,7 +53,6 @@ deletaCookie();
   }
 ?>
 	<section id="sobre-usuario">
-		<?php echo "<b>Usuario</b>: " . $_SESSION["nome"]; ?> |
 		<?php echo "<b>Perfil</b>: "  . $tipoPerfil; ?> | <a href="?sair" title="Sair do Sistema">Sair</a>
 	</section>
 <?php endif; ?>
