@@ -60,7 +60,7 @@ class Container
 	*/
 	public static function getConexao()
 	{
-		$servidor = "true";
+		$servidor = "false";
 		if ($servidor == "true")
 		{
 			$conexao = new Conexao("mysql.hostinger.com.br","u592982482_ney","u592982482_ney","32402709ney");

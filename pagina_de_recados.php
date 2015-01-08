@@ -21,7 +21,7 @@ require_once("validaSession.php");
       
       <section class="areas area-text-post section-textarea-recados">
         <form method="post" action="recados_controller.php?cadastrarRecados">
-            <textarea name="recado" class="textarea-post" cols="2" rows="10" placeholder="Deixe um recado para o grupo..."></textarea>
+            <textarea id="recado" name="recado" class="textarea-post" cols="2" rows="10" placeholder="Deixe um recado para o grupo..."></textarea>
             <button type="submit" class="button-postar">Publicar Recado</button>
             <p>As suas mensagens serão mostradas para todos os usuários do sistema.</p>
         </form>
@@ -47,7 +47,7 @@ require_once("validaSession.php");
         <div class="corpo-recado">
             <img class="img-perfil-recados" src="<?php echo requisicaoGravatarAPI($email,40); ?>" alt="" />
             <b>Recado de: </b><span class="time-line-nome"><?php echo $nomeDoUsuario; ?></span> <br> <b>Enviado em: </b><span class="time-line-data"><?php echo $listar->dataRecado; ?></span><br> 
-            <p><?php echo nl2br($listar->recado); ?></p>
+            <p><?php echo $listar->recado; ?></p>
         </div><!-- end corpo-recado -->
          <?php endforeach; ?>
         
@@ -63,5 +63,22 @@ require_once("validaSession.php");
 
 	</article><!--end main-->
     <?php require_once("layout_parts/fotter.php"); ?>
+
+    <script>
+    $(function() {
+    
+     //CKEDITOR.inline( 'article-body' );
+
+     CKEDITOR.replace( 'recado', {
+        uiColor: '#f6f7f8',
+        toolbar: [
+          [ 'Bold', 'Italic', '-', 'NumberedList', 'BulletedList', '-', 'Link', 'Unlink' ],
+          [ 'FontSize', 'TextColor', 'BGColor','Undo', 'Redo','JustifyLeft'],
+          [{ name: 'links', items : [ 'Link','Unlink','Anchor' ] },]
+        ]
+      });
+
+});
+    </script>
 </body>
 </html>

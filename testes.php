@@ -15,4 +15,4 @@ $grav_url = "http://www.gravatar.com/avatar/" . md5( strtolower( trim( $email ) 
 
 ?>
 
-<img src="<?php echo $grav_url; ?>" alt="" />
+<img src="<?php echo $grav_url; ?>" alt="" al="yes"/>

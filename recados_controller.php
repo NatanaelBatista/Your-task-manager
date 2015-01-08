@@ -10,7 +10,7 @@ $recados = Container::getRecados();
 
 if (isset($_GET["cadastrarRecados"]))
 {
-	$recado = strip_tags(trim($_POST["recado"]));
+	$recado = trim($_POST["recado"]);
 	$dataRecado = Date("d/m/Y");
 
 	if (empty($recado))
