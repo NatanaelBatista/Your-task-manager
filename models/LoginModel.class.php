@@ -47,6 +47,21 @@ class LoginModel
 		$query->execute(array($login,$senha));
 		return $query->fetchAll(PDO::FETCH_OBJ);
 	}
+    
+    /**
+    * Protege as páginas que devem ser somente acessadas via usuário logado.
+    * @param Array - $sessionLogin
+    * @param String - $caminhoNaoLogado;
+    * @return Void
+    */
+	public function protegeSession($sessionLogin,$caminhoNaoLogado)
+	{
+		@session_start();
+		if (!isset($sessionLogin))
+		{
+			header("Location:{$caminhoNaoLogado}");
+		}
+	}
 }
 /* End of file LoginModel.class.php */
 /* Location: models */

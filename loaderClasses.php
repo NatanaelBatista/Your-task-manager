@@ -6,5 +6,4 @@ require_once("models/TarefasModel.class.php");
 require_once("models/UsuariosOnlineModel.class.php");
 require_once("models/LoginModel.class.php");
 require_once("models/RecadosModel.class.php");
-
 require_once("utilidades/SendMail.class.php");
