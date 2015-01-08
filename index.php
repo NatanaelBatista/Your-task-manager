@@ -48,7 +48,7 @@ require_once("layout_parts/banner.php");
     <div class="hide"></div>
     
 	</article><!--end main-->
-
+    <script src="js/jquery-1.11.0.js"></script>
 	<script>
 	$(document).ready(function() {
 		/**
