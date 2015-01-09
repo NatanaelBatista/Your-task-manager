@@ -9,10 +9,6 @@
 </p>
 
 <p>
-	Pude vivenciar essa necessidade na atual empresa onde sou funcionário, na área de desenvolvimento web. Usam o bloco de notas do Windows para escreverem tarefas que devem ser feitas, isso depois é mandado via email para cada integrante da equipe. Funciona, mas não é lá a melhor forma a ser utilizada. Eles usam desta forma por já estarem acostumados e desta forma já fizeram grandes projetos. Mesmo assim resolvemos a começar a desenvolver um sistema web multiusuários onde poderemos gerenciar tarefas. 
-</p>
-
-<p>
 	De acordo com as expressões acima o sistema não se trata de um gerenciador de projetos e sim um gerenciador de tarefas podendo ser atribuída a qualquer usuário cadastrado no sistema. 
 </p>
 
@@ -21,8 +17,10 @@
 </p>
 
 <p>
-	Bom, basicamente é isso. O sistema ainda está em desenvolvimento, está sendo bem interessante e prazerosa a construção do mesmo. 
-    Estou usando de certa forma o padrão MVC, orientado a objetos e sem a utilização de um framework. Sim, já sei usar um framework é bem melhor, mais organizado. Mas neste caso eu queria estudar melhor orientação a objetos de forma crua...
+	Bom, basicamente é isso. O sistema ainda está em desenvolvimento, está sendo bem interessante e prazerosa a construção do mesmo. Estou usando de certa forma o padrão MVC, orientado a objetos e sem a utilização de um framework. Sim, já sei... Usar um framework é bem melhor, mais organizado. Mas neste caso eu queria estudar melhor orientação a objetos de forma crua...
+	<br>
+    Estou usando Containers para não ter em minhas classes um forte acoplamento e nem mesmo dependência de forma direta. No caso estou fazendo uso de Injeção de dependências (Dependency Injection)
+
 </p>
 
 <h1>Layout Atual:</h1>

@@ -84,8 +84,6 @@ require_once("layout_parts/banner.php");
                   }, function(data) {
                     respostaAjaxEmail.text("");
                     var explode = data.split("<br />",data);
-                    console.log(data[0]);
-                    
                     /**
                     * Infelizmente uma gambiarra para não retornar validação incoerente 
                     * quando o sistema estiver rodando localmente sem a função “mail” 
@@ -101,7 +99,6 @@ require_once("layout_parts/banner.php");
                   	}
 
                   });
-             
              });
 	});
 	</script>
