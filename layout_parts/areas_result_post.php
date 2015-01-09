@@ -4,11 +4,11 @@
 */
 $numeroPorPagina = 5;
 $pagina = 0;
-$totalDePáginas = ceil(count($usuario->colecaoUsuarioTarefas()) / $numeroPorPagina);
+$totalDePaginas = ceil(count($usuario->colecaoUsuarioTarefas()) / $numeroPorPagina);
 
 if (isset($_GET["controlePageProximo"]))
 {
-	$pagina = $pagina + 2;
+	$pagina + 1;
 }
 
 if (isset($_GET["controlePageAnterior"]))
@@ -61,15 +61,10 @@ else
 /**
 * Para o usuario nivel "1" mostra o "editar e deletar" de todas as tarefas cadastradas
 */
-if ($_SESSION["perfil"] == "1"):
-?>
- 
- <a href="editar_tarefas.php?editar&id=<?php echo $listar->idTarefas;?>" class="editar" title="Editar essa Tarefa">Editar</a> |
- <a href="tarefa_controller.php?deletar&id=<?php echo $listar->idTarefas;?>" class="deletar" title="Deletar essa Tarefa">Deletar</a> |
- <small>Tarefa criada por: <?php echo $listar->nome; ?></small>
-<?php endif; ?>
-
-<?php 
+if ($_SESSION["perfil"] == "1")
+{
+	include("controle_editar_deletar_tarefas.php");
+}
 /**
 * Para o usuario com perfil nivel "2" mostra apenas o "editar e deletar" das tarefas cadastradas por ele
 */
@@ -77,15 +72,9 @@ if ($listar->criadorDaTarefa == $_SESSION["idUsuario"])
 {
 	if ($_SESSION["perfil"] != "1")
 	{
-?>
-
-<a href="editar_tarefas.php?editar&id=<?php echo $listar->idTarefas;?>" class="editar" title="Editar essa Tarefa">Editar</a> |
-<a href="tarefa_controller.php?deletar&id=<?php echo $listar->idTarefas;?>" class="deletar" title="Deletar essa Tarefa">Deletar</a> |
-<small>Tarefa criada por: <?php echo $listar->nome; ?></small>
-
-<?php 
- } /*End primeiro if*/
-} /*End segundo if*/
+		include("controle_editar_deletar_tarefas.php");
+	}
+} 
 ?>
 </div><!-- end footer areas -->
 
@@ -105,7 +94,7 @@ if ($pagina == 0)
 <div class="footer-areas">
    <a href="?controlePageAnterior" class="link-pagination anterior" title="Ir para página anterior"></a>
    <a href="?controlePageProximo" class="link-pagination proximo" title="Ir para a proxima página"></a>
-   <?php echo $atual. " de " .$totalDePáginas; ?>
+   <?php echo $atual. " de " .$totalDePaginas; ?>
    <div class="div-hide"></div>
 </div>
 <?php endif; ?>
