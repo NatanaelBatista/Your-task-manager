@@ -60,20 +60,20 @@ require_once("layout_parts/banner.php");
 		    linkFazerLogin = $("#link-fazer-login");
 
 		    areaRecuperarSenha.hide();
-		    linkRecuperarSenha.click(function() {
+		    linkRecuperarSenha.on('click',function() {
 		    	areaFazerLogin.slideUp('slow');
 		    	areaRecuperarSenha.slideDown('slow');
-		    })
+		    });
 
-		    linkFazerLogin.click(function() {
+		    linkFazerLogin.on('click',function() {
 		    	areaFazerLogin.slideDown('slow');
 		    	areaRecuperarSenha.slideUp('slow');
-		    })
+		    });
 
             /**
             * Requisição ajax para verificar se existe um email cadastrado
             */
-		    $("#button-verifica-email").click( function() {
+		    $("#button-verifica-email").on('click', function() {
 		    	var loginEmail = $("#login-email"),
 		    	    respostaAjaxEmail = $("#resposta-ajax-email");
 		    	    respostaAjaxEmail.text("Verificando...");
