@@ -299,7 +299,7 @@ if (isset($_GET["editar"]))
                     verificaPaginaAcao($_GET["alterarUsuarioCorrente"]);
                 }
             }
-        }
+         }
       }
    }
 }
@@ -322,11 +322,11 @@ if (isset($_POST["recuperarSenha"]))
         $sendEmail->setAssunto("Recuperação das suas credenciais de acesso do gerenciador de tarefas");
         $sendEmail->setMensagem("Sua senha de acesso é: {$_senha}");
         $sendEmail->sendThisEmail();
-        echo "true";
+        echo 1;
     }
     else
     {
-        echo "false";
+        echo 0;
     }
 }
 /* End of file usuario_controller.php */

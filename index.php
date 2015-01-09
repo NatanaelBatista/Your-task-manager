@@ -28,7 +28,7 @@ require_once("layout_parts/banner.php");
 			<label for="login-email">Login:</label> <br>
 			<input type="text" name="login_email" id="login-email" placeholder="Digite o seu Email..."> <br>
 
-			<button type="button" class="button-postar" id="button-verifica-email">Entrar</button> 
+			<button type="button" class="button-postar" id="button-verifica-email">Verificar</button> 
 			<a href="#" id="link-fazer-login">Fazer Login</a>
 		</form>
 		<b id="resposta-ajax-email"></b>
@@ -83,11 +83,19 @@ require_once("layout_parts/banner.php");
                      recuperarSenha: loginEmail.val()
                   }, function(data) {
                     respostaAjaxEmail.text("");
-
-                  	if (data == "true") {
+                    var explode = data.split("<br />",data);
+                    console.log(data[0]);
+                    
+                    /**
+                    * Infelizmente uma gambiarra para não retornar validação incoerente 
+                    * quando o sistema estiver rodando localmente sem a função “mail” 
+                    * configurada no php.ini 
+                    */
+                  	if (data[0] == "<") {
                   		respostaAjaxEmail.attr('class', 'verde');
                   		respostaAjaxEmail.text("Verifique o seu Email para recuperar sua Senha.");
-                  	} else {
+                  	} 
+                  	else {
                   		respostaAjaxEmail.attr('class', 'vermelho');
                   		respostaAjaxEmail.text("Esse Email não está cadastrado no Sistema.");
                   	}
