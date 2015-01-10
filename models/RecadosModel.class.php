@@ -45,4 +45,16 @@ class RecadosModel
 		$query->execute();
 		return $query->fetchAll(PDO::FETCH_OBJ);
 	}
+
+	public function listarWhere($campo, $valor)
+	{
+		if ($campo == "id" or $campo == "idUsuarioMandouRecado")
+		{
+			$valor = (int) $valor;
+		}
+
+		$query = $this->db->prepare("select * from {$this->tableName} where {$campo} = ?");
+		$query->execute(array($valor));
+		return $query->fetchAll(PDO::FETCH_OBJ);
+	}
 }

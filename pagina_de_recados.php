@@ -20,11 +20,20 @@ require_once("validaSession.php");
     <?php endif; ?>
       
       <section class="areas area-text-post section-textarea-recados">
+        <?php if (isset($_GET["prepara_para_editar"])) 
+        {
+          $id = (int) $_GET["id"];
+          require_once("layout_parts/textarea_editar_recados.php");
+        }
+        else
+        {
+        ?>
         <form method="post" action="recados_controller.php?cadastrarRecados">
             <textarea id="recado" name="recado" class="textarea-post" cols="2" rows="10" placeholder="Deixe um recado para o grupo..."></textarea>
             <button type="submit" class="button-postar">Publicar Recado</button>
             <p>As suas mensagens serão mostradas para todos os usuários do sistema.</p>
         </form>
+        <?php }; ?>
       </section>  
     
     <?php if (isset($_COOKIE["msgErro"])): ?>
@@ -33,7 +42,7 @@ require_once("validaSession.php");
         </section>
     <?php endif; ?>
 
-    <section class="areas apresenta-tarefas">
+    <section class="areas apresenta-tarefas areas_recados">
        <h1 class="h1-title-tarefas">Mural de Recados</h1>
        <div class="info-areas recados">
          <?php 
@@ -49,6 +58,21 @@ require_once("validaSession.php");
             <b>Recado de: </b><span class="time-line-nome"><?php echo $nomeDoUsuario; ?></span> <br> <b>Enviado em: </b><span class="time-line-data"><?php echo $listar->dataRecado; ?></span><br> 
             <p><?php echo $listar->recado; ?></p>
         </div><!-- end corpo-recado -->
+        <div class="footer-areas">
+        <?php 
+            if ($listar->idUsuarioMandouRecado == $_SESSION["idUsuario"] and $_SESSION["perfil_master_master"] != 1):
+        ?>
+          <a href="pagina_de_recados.php?prepara_para_editar&id=<?php echo $listar->id; ?>" class="editar" title="Editar essa tarefa">Editar</a>
+
+         <?php
+         endif; 
+         if ($_SESSION["perfil_master_master"] == 1):
+         ?>
+           <a href="pagina_de_recados.php?prepara_para_editar&id=<?php echo $listar->id; ?>" class="editar" title="Editar essa tarefa">Editar</a> |
+           <a href="recados_controller.php?deletar" class="deletar" title="Deletar essa tarefa">Deletar</a>
+         
+         <?php endif;?>
+         </div>
          <?php endforeach; ?>
         
        </div><!-- end info areas -->
@@ -66,9 +90,6 @@ require_once("validaSession.php");
 
     <script>
     $(function() {
-    
-     //CKEDITOR.inline( 'article-body' );
-
      CKEDITOR.replace( 'recado', {
         uiColor: '#f6f7f8',
         toolbar: [
@@ -77,7 +98,6 @@ require_once("validaSession.php");
           [{ name: 'links', items : [ 'Link','Unlink','Anchor' ] },]
         ]
       });
-
 });
     </script>
 </body>

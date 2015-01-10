@@ -49,7 +49,7 @@
 		color:#333d5f;
 	}
 	hr {
-		opacity:0.60;
+		opacity:0.30;
 		border:1px solid #e1e2e3;
 	}
 	.info-areas {
@@ -476,11 +476,16 @@
     	background:white;
     	border-radius:2px;
     	border:1px solid #f0f1f2;
-    	margin-bottom:10px;
+    	margin-bottom:0px;
     	padding:10px;
     	box-shadow:#f0f1f2 1px 1px 2px;
     	position: relative;
     	color:#34344a;
+    }
+
+    .areas_recados .footer-areas a {
+    	opacity:0.60;
+    	
     }
     .corpo-recado b, p {
     	opacity:0.70;
