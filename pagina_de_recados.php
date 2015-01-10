@@ -23,7 +23,14 @@ require_once("validaSession.php");
         <?php if (isset($_GET["prepara_para_editar"])) 
         {
           $id = (int) $_GET["id"];
-          require_once("layout_parts/textarea_editar_recados.php");
+          if (count($recados->listarWhere("id",$id)) < 1)
+          {
+            require_once("layout_parts/erro_preparar_editar_recados_404.php");
+          }
+          else
+          {
+            require_once("layout_parts/textarea_editar_recados.php");
+          }
         }
         else
         {
@@ -93,7 +100,7 @@ require_once("validaSession.php");
      CKEDITOR.replace( 'recado', {
         uiColor: '#f6f7f8',
         toolbar: [
-          [ 'Bold', 'Italic', '-', 'NumberedList', 'BulletedList', '-', 'Link', 'Unlink' ],
+          [ 'Link', 'Unlink' ],
           [ 'FontSize', 'TextColor', 'BGColor','Undo', 'Redo','JustifyLeft'],
           [{ name: 'links', items : [ 'Link','Unlink','Anchor' ] },]
         ]
