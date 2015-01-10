@@ -8,6 +8,9 @@ require_once("loaderClasses.php");
 $usuario = Container::getUsuario();
 $recados = Container::getRecados();
 
+/**
+* Cadastra um Recado.
+*/
 if (isset($_GET["cadastrarRecados"]))
 {
 	$recado = trim($_POST["recado"]);
@@ -28,6 +31,34 @@ if (isset($_GET["cadastrarRecados"]))
 			setcookie("msgSucesso","Recado enviado com Sucesso.");
     		header("Location:pagina_de_recados.php");
 		}
+	}
+}
+
+/**
+* Deleta um Recado.
+*/
+if (isset($_GET["deletar"]))
+{
+	$id = (int) $_GET["id"];
+	if ($recados->deletar($id))
+	{
+		setcookie("msgSucesso","Recado Deletado com Sucesso.");
+    	header("Location:pagina_de_recados.php");
+	}
+}
+
+/**
+* Edita um Recado.
+*/
+if (isset($_GET["editarRecados"]))
+{
+	$id = (int) $_GET["id"];
+	$recado = trim($_POST["recado"]);
+	$recados->setRecado($recado);
+	if ($recados->editar($id))
+	{
+		setcookie("msgSucesso","Recado Editado com Sucesso.");
+    	header("Location:pagina_de_recados.php?prepara_para_editar&id={$id}");
 	}
 }
 /* End of file recados_controller.php */

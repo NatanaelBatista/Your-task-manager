@@ -69,7 +69,7 @@ require_once("validaSession.php");
          if ($_SESSION["perfil_master_master"] == 1):
          ?>
            <a href="pagina_de_recados.php?prepara_para_editar&id=<?php echo $listar->id; ?>" class="editar" title="Editar essa tarefa">Editar</a> |
-           <a href="recados_controller.php?deletar" class="deletar" title="Deletar essa tarefa">Deletar</a>
+           <a href="recados_controller.php?deletar&id=<?php echo $listar->id; ?>" class="deletar" title="Deletar essa tarefa">Deletar</a>
          
          <?php endif;?>
          </div>

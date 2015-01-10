@@ -57,4 +57,20 @@ class RecadosModel
 		$query->execute(array($valor));
 		return $query->fetchAll(PDO::FETCH_OBJ);
 	}
+
+	public function deletar($id)
+	{
+		$id = (int) $id;
+		$deletar = $this->db->prepare("delete from {$this->tableName} where id = ?");
+		$deletar->execute(array($id));
+		return $deletar;
+	}
+
+	public function editar($id)
+	{
+		$id = (int) $id;
+		$editar = $this->db->prepare("update {$this->tableName} set recado = ? where id = ?");
+		$editar->execute(array($this->recado,$id));
+		return $editar;
+	}
 }
