@@ -5,20 +5,16 @@ $usuario = Container::getUsuario();
 $tarefas = Container::getTarefas();
 $loginModel = Container::getLoginModel();
 
+$cores = array(
+    array("cor" => "verde"),
+    array("cor" => "vermelho"),
+    array("cor" => "amarelo")
+    );
+
+   usort($cores, function($a, $b)
+   {
+    return strcmp($a["cor"], $b["cor"]);
+   });
 
 
-    $email = "admin@admin.com";
-    if ($usuario->verificaEmail($email) == true)
-    {
-        foreach($usuario->listarWhere("login", $email) as $listar)
-        {
-            $_senha = $listar->senha;
-        }
-        
-        echo "true";
-        echo $_senha;
-    }
-    else
-    {
-        echo "false";
-    }
+    

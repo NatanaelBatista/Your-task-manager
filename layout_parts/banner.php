@@ -2,6 +2,7 @@
 require_once("loaderClasses.php");
 require_once("utilidades/functions.php");
 $usuario = Container::getUsuario();
+$loginModel = Container::getLoginModel();
 
 /**
 * Este metodo cadastra o primeiro usuario do sistema
@@ -22,12 +23,11 @@ deletaCookie();
     }
 
   /**
-  * Saindo do sistema e destruindo a sessão juntamente com algumas variáveis de Cookie.
+  * Saindo do sistema e destruindo a sessão.
   */
     if (isset($_GET["sair"]))
     {
-       session_destroy();
-       header("Location:index.php");
+      $loginModel->logOut("index.php");
     }
 ?>
 <header class="banner" <?php echo $idPaginaIndex; ?>>
@@ -53,7 +53,7 @@ deletaCookie();
   }
 ?>
 	<section id="sobre-usuario">
-		<?php echo "<b>Perfil</b>: "  . $tipoPerfil; ?> | <a href="?sair" title="Sair do Sistema">Sair</a>
+		<?php echo "<b>Perfil</b>: "  . $tipoPerfil; ?> | <a id="logOut" href="?sair" title="Sair do Sistema">Sair</a>
 	</section>
 <?php endif; ?>
 <div class="hide"></div>

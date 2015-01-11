@@ -62,6 +62,17 @@ class LoginModel
 			header("Location:{$caminhoNaoLogado}");
 		}
 	}
+    
+    /**
+    * Método faz o logOut do usuário no sistema.
+    * @param String - $paginaDestino
+    * @return Void
+    */
+	public function logOut($paginaDestino)
+	{
+	   session_destroy();
+       header("Location:{$paginaDestino}");
+	}
 }
 /* End of file LoginModel.class.php */
 /* Location: models */

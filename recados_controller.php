@@ -61,5 +61,14 @@ if (isset($_GET["editarRecados"]))
     	header("Location:pagina_de_recados.php?prepara_para_editar&id={$id}");
 	}
 }
+
+/**
+* Teste recuperara a quantidade de recados...
+*/
+if (isset($_POST["novoRecado"]))
+{
+	$quantidadeAtual = count($recados->listar());
+	echo $quantidadeAtual;
+}
 /* End of file recados_controller.php */
 /* Location: raiz */
