@@ -38,7 +38,10 @@ require_once("validaSession.php");
         <form method="post" action="recados_controller.php?cadastrarRecados">
             <textarea id="recado" name="recado" class="textarea-post" cols="2" rows="10" placeholder="Deixe um recado para o grupo..."></textarea>
             <button type="submit" class="button-postar">Publicar Recado</button>
-            <p>As suas mensagens serão mostradas para todos os usuários do sistema.</p>
+            <p>
+              ( <span class="time-line-nome"> Recados cadastrados<b><?php echo count($recados->listar());?></b></span> )
+             Os seus recados serão mostradas para todos os usuários do sistema.
+            </p>
         </form>
         <?php }; ?>
       </section>  
