@@ -569,3 +569,14 @@
     	border-top:1px solid #f6f7f8!important;
     	display:none;
     }
+
+    
+    .feita {
+    	border-left:2px solid #669900!important;
+    }
+    .sendoFeita {
+    	border-left:2px solid #ffcc00!important;
+    }
+    .pendente {
+    	border-left:2px solid #0099cc!important;
+    }
