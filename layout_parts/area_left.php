@@ -33,7 +33,7 @@
 	<?php endif; ?>
 
 	<li><a href="pagina_de_recados.php">Mural de Recados</a></li>
-	<li><a href="pagina_de_recados.php">Relatório de Tarefas</a></li>
+	<li><a href="relatorio_geral.php">Relatório Geral</a></li>
 </ul>
 </section><!--end left-->
 
