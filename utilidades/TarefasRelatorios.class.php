@@ -1,4 +1,9 @@
 <?php 
+/**
+* Class que gera o resultado com relação as Tarefas
+* @var $tarefas - Recebe uma instancia do objeto que representa a class TarefasModel
+* @author Valiney França
+*/
 class TarefasRelatorios
 {
 	private $tarefas;
@@ -39,3 +44,5 @@ class TarefasRelatorios
 	    return $razaoCentesimal;
 	}
 }
+/* End of file TarefasRelatorios.class.php */
+/* Location: utilidades */
