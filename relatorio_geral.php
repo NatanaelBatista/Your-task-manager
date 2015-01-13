@@ -4,39 +4,10 @@ require_once("loaderClasses.php");
 $usuario = Container::getUsuario();
 $tarefas = Container::getTarefas();
 $loginModel = Container::getLoginModel();
+$TarefasRelatorios = Container::getTarefasRelatorios();
 require_once("layout_parts/header.php");
 require_once("layout_parts/banner.php");
 require_once("validaSession.php");
-
-function quantidadeDeTarefas($tarefas)
-{
-	return count($tarefas->listar());
-}
-
-function tarefasPendentes($tarefas)
-{
-	return count($tarefas->listarTarefasWhere("situacao",1));
-}
-
-function tarefasSendoFeitas($tarefas)
-{
-	return count($tarefas->listarTarefasWhere("situacao",2));
-}
-
-function tarefasFinalizadas($tarefas)
-{
-	return count($tarefas->listarTarefasWhere("situacao",3));
-}
-
-$quantidade = quantidadeDeTarefas($tarefas);
-$finalizadas = tarefasFinalizadas($tarefas);
-
-function previsaoDeConclusao($quantidade,$finalizadas)
-{
-	$razao = $finalizadas / $quantidade;
-	$razaoCentesimal = ceil($razao * 100);
-	return $razaoCentesimal;
-}
 ?>
 	<article class="main">
 	<section class="right">
@@ -64,11 +35,11 @@ function previsaoDeConclusao($quantidade,$finalizadas)
             </thead>
 
                 <tr>
-                	<td><?php echo quantidadeDeTarefas($tarefas); ?></td>
-                    <td><?php echo tarefasPendentes($tarefas); ?></td>
-                    <td><?php echo tarefasSendoFeitas($tarefas); ?></td>   
-                    <td><?php echo tarefasFinalizadas($tarefas); ?></td>   
-                    <td><?php echo previsaoDeConclusao(quantidadeDeTarefas($tarefas), tarefasFinalizadas($tarefas)) . "%"; ?></td>          
+                	<td><?php echo $TarefasRelatorios->quantidadeDeTarefas(); ?></td>
+                    <td><?php echo $TarefasRelatorios->tarefasPendentes();    ?></td>
+                    <td><?php echo $TarefasRelatorios->tarefasSendoFeitas();  ?></td>   
+                    <td><?php echo $TarefasRelatorios->tarefasFinalizadas();  ?></td>   
+                    <td><?php echo $TarefasRelatorios->previsaoDeConclusao() . "%"; ?></td>          
                 </tr>
 
         	</table>
