@@ -4,17 +4,14 @@ require_once("loaderClasses.php");
 $usuario = Container::getUsuario();
 $tarefas = Container::getTarefas();
 $loginModel = Container::getLoginModel();
+require_once("utilidades/TarefasRelatorios.class.php");
+$TarefasRelatorios = Container::getTarefasRelatorios();
 
-$cores = array(
-    array("cor" => "verde"),
-    array("cor" => "vermelho"),
-    array("cor" => "amarelo")
-    );
+echo $TarefasRelatorios->previsaoDeConclusao();
 
-   usort($cores, function($a, $b)
-   {
-    return strcmp($a["cor"], $b["cor"]);
-   });
+
+
+
 
 
     

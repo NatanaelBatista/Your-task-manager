@@ -54,6 +54,12 @@ class Container
 		return $sendEmail;
 	}
 
+	public static function getTarefasRelatorios()
+	{
+		$tarefasRelatorios = new TarefasRelatorios(self::getTarefas());
+		return $tarefasRelatorios;
+	}
+
 	/**
 	* Mantém a conexão com a base de dados.
 	* @return instancia do objeto PDO
