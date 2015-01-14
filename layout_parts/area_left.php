@@ -24,21 +24,21 @@
 
 <section class="left">
 <br>
-<b>Navegação</b>
+<b><?php echo $captions_menu_left["caption_menu_left"]; ?></b>
 <ul id="menu-left" class="cadastrar-usuario">
-	<li><a href="dashboard.php">Visualizar / Cadastrar Tarefas</a></li>
+	<li><a href="dashboard.php"><?php echo $captions_menu_left["01"]; ?></a></li>
 
 	<?php if ($_SESSION["perfil"] == "1"): ?>
-	<li><a href="cadastrar_usuarios.php">Cadastrar / Editar Usuarios</a></li>
+	<li><a href="cadastrar_usuarios.php"><?php echo $captions_menu_left["02"]; ?></a></li>
 	<?php endif; ?>
 
-	<li><a href="pagina_de_recados.php">Mural de Recados</a></li>
-	<li><a href="relatorio_geral.php">Relatório Geral</a></li>
+	<li><a href="pagina_de_recados.php"><?php echo $captions_menu_left["03"]; ?></a></li>
+	<li><a href="relatorio_geral.php"><?php echo $captions_menu_left["04"]; ?></a></li>
 </ul>
 </section><!--end left-->
 
 <ul id="menu-left" class="cadastrar-usuario">
-<li><a href="#" class="show_menu_usuarios_cadastrados">Lista de Usuários Cadastrados</a></li>
+<li><a href="#" class="show_menu_usuarios_cadastrados"><?php echo $captions_menu_left["05"]; ?></a></li>
 </ul>
 
 <div id="container_lista_usuarios">

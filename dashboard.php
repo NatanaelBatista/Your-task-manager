@@ -63,6 +63,6 @@ require_once("validaSession.php");
     <div class="hide"></div>
 
 	</article><!--end main-->
-	<?php require_once("layout_parts/fotter.php") ?>
+	<?php require_once("layout_parts/footer.php"); ?>
 </body>
 </html>

@@ -340,6 +340,7 @@
 
     table {
     	width:100%;
+    	font-size:13px;
     }
     table tr td {
     	border:1px solid #e1e2e3;
@@ -350,7 +351,7 @@
 		background:#f4f8f5;
 	}
 	.tr-top {
-		background:#364062;
+		background:#1d2029;
 		color:white;
 	}
 
