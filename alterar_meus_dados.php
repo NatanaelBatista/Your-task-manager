@@ -49,6 +49,12 @@ if (isset($_GET["alterarMeusDados"]))
             <?php echo $_COOKIE["msgSucesso"]; ?>
         </section>
     <?php endif; ?>
+    <!-- erro and sucesso -->
+    <?php if (isset($_COOKIE["msgErro"])): ?>
+        <section class="fotter-index msgErro">
+            <?php echo $_COOKIE["msgErro"]; ?>
+        </section>
+    <?php endif; ?>
 
 		<section class="areas">
         
@@ -86,12 +92,6 @@ if (isset($_GET["alterarMeusDados"]))
     ?>
     <button type="submit" class="button-postar" id="entrar">Cadastrar Mudanças</button> 
 </form>
-
-    <?php if (isset($_COOKIE["msgErro"])): ?>
-        <section class="fotter-index msgErro">
-            <?php echo $_COOKIE["msgErro"]; ?>
-        </section>
-    <?php endif; ?>
 
         </section>
 

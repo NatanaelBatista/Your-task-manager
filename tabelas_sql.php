@@ -1,4 +1,7 @@
 <?php 
+/**
+* Tabelas Usadas no  Sistema.
+*/
 create table usuarios(
 	id int not null AUTO_INCREMENT PRIMARY KEY,
 	nome varchar(40) not null,
@@ -7,7 +10,6 @@ create table usuarios(
 	dataCadastro varchar(10) not null,
 	perfil int not null
 	)
-
 
 create table tarefas(
 	id int not null AUTO_INCREMENT PRIMARY KEY,

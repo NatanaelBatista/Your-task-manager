@@ -315,12 +315,13 @@ if (isset($_POST["recuperarSenha"]))
         foreach($usuario->listarWhere("login", $email) as $listar)
         {
             $_senha = $listar->senha;
+            $_nome = $listar->nome;
         }
         
         $sendEmail->setRemetente($email);
         $sendEmail->setDestino($email);
-        $sendEmail->setAssunto("Recuperação das suas credenciais de acesso do gerenciador de tarefas");
-        $sendEmail->setMensagem("Sua senha de acesso é: {$_senha}");
+        $sendEmail->setAssunto("Recuperação das suas credenciais de acesso do gerenciador de tarefas ( Your task manager )");
+        $sendEmail->setMensagem("Senhor {$_nome} sua senha de acesso para o sistema é: {$_senha}");
         $sendEmail->sendThisEmail();
         echo 1;
     }

@@ -69,6 +69,12 @@ if (strlen($_texto) > 200):?>
             <?php echo $_COOKIE["msgSucesso"]; ?>
         </section>
     <?php endif; ?>
+    <!-- erro and sucesso -->
+    <?php if (isset($_COOKIE["msgErro"])): ?>
+        <section class="fotter-index msgErro">
+            <?php echo $_COOKIE["msgErro"]; ?>
+        </section>
+    <?php endif; ?>
 
 	<section class="areas area-text-post">
 		<h3>Editar Tarefa</h3>
@@ -94,13 +100,6 @@ if (strlen($_texto) > 200):?>
 		</form>
     </section>
     
-    
-	<?php if (isset($_COOKIE["msgErro"])): ?>
-        <section class="fotter-index msgErro">
-            <?php echo $_COOKIE["msgErro"]; ?>
-        </section>
-    <?php endif; ?>
-
 	</section><!--end right-->
 
 	    <?php 

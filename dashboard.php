@@ -16,6 +16,12 @@ require_once("validaSession.php");
             <?php echo $_COOKIE["msgSucesso"]; ?>
         </section>
     <?php endif; ?>
+    <!-- erro and sucesso -->
+    <?php if (isset($_COOKIE["msgErro"])): ?>
+        <section class="fotter-index msgErro">
+            <?php echo $_COOKIE["msgErro"]; ?>
+        </section>
+    <?php endif; ?>
 
 	<?php 
 	if (!isset($_GET["textoCompleto"]) and !isset($_GET["tarefasCadaUsuario"]) and !isset($_GET["input_pesquisa"]))
@@ -25,11 +31,7 @@ require_once("validaSession.php");
 	?>
     
     
-	<?php if (isset($_COOKIE["msgErro"])): ?>
-        <section class="fotter-index msgErro">
-            <?php echo $_COOKIE["msgErro"]; ?>
-        </section>
-    <?php endif; ?>
+	
 
 	<?php 
 	if (isset($_GET["textoCompleto"]))

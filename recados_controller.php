@@ -18,7 +18,7 @@ if (isset($_GET["cadastrarRecados"]))
 
 	if (empty($recado))
 	{
-		setcookie("msgErro","Escreva um Recado antes de tentar enviar.");
+		setcookie("msgErro","Você não pode publicar sem escrever um recado antes.");
         header("Location:pagina_de_recados.php");
 	}
 	else

@@ -48,6 +48,12 @@ if (isset($_GET["editar"]))
             <?php echo $_COOKIE["msgSucesso"]; ?>
         </section>
     <?php endif; ?>
+    <!-- erro and sucesso -->
+    <?php if (isset($_COOKIE["msgErro"])): ?>
+        <section class="fotter-index msgErro">
+            <?php echo $_COOKIE["msgErro"]; ?>
+        </section>
+    <?php endif; ?>
 
 		<section class="areas">
         <?php 
@@ -122,12 +128,6 @@ if (isset($_GET["editar"]))
 			<button type="submit" class="button-postar" id="entrar">Cadastrar</button> 
 		</form>
         <?php } /*End else*/ ?>
-	    
-    <?php if (isset($_COOKIE["msgErro"])): ?>
-        <section class="fotter-index msgErro">
-            <?php echo $_COOKIE["msgErro"]; ?>
-        </section>
-    <?php endif; ?>
 
         </section>
         <p><!--Para ceparar os containers--></p>

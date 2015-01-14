@@ -1,4 +1,7 @@
 <?php 
+/**
+* Carrega as Classes usadas pelo Sistema.
+*/
 require_once("db/Conexao.class.php");
 require_once("Container.class.php");
 require_once("models/UsuarioModel.class.php");

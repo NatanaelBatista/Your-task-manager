@@ -96,7 +96,7 @@ if (isset($_GET["editar"]))
 }
 
 /**
-* Recupera uma variável do tipo "post" via "ajax" e retorna um array de objetos
+* Recupera uma variável do tipo "post" via "ajax" e retorna uma String separada por "/".
 */
 if (isset($_POST["buscaAutoComplete"]))
 {

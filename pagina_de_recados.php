@@ -18,6 +18,12 @@ require_once("validaSession.php");
             <?php echo $_COOKIE["msgSucesso"]; ?>
         </section>
     <?php endif; ?>
+    <!-- erro and sucesso -->
+    <?php if (isset($_COOKIE["msgErro"])): ?>
+        <section class="fotter-index msgErro">
+            <?php echo $_COOKIE["msgErro"]; ?>
+        </section>
+    <?php endif; ?>
       
       <section class="areas area-text-post section-textarea-recados">
         <?php if (isset($_GET["prepara_para_editar"])) 
@@ -45,12 +51,6 @@ require_once("validaSession.php");
         </form>
         <?php }; ?>
       </section>  
-    
-    <?php if (isset($_COOKIE["msgErro"])): ?>
-        <section class="fotter-index msgErro">
-            <?php echo $_COOKIE["msgErro"]; ?>
-        </section>
-    <?php endif; ?>
 
     <section class="areas apresenta-tarefas areas_recados">
        <h1 class="h1-title-tarefas">Mural de Recados</h1>

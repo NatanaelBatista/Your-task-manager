@@ -277,6 +277,7 @@
 		background:#fbd3d3;
 		color:#990000;
 		border:1px solid red!important;
+		margin-bottom:3px;
 	}
 	/*Div que apresenta as mensagens de sucesso*/
 	.msgSucesso {
