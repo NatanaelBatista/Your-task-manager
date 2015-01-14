@@ -24,7 +24,7 @@
 
 <section class="left">
 <br>
-<b><?php echo $captions_menu_left["caption_menu_left"]; ?></b>
+<b><?php echo $captions_menu_left["caption_menu_left_navigation"]; ?></b>
 <ul id="menu-left" class="cadastrar-usuario">
 	<li><a href="dashboard.php"><?php echo $captions_menu_left["01"]; ?></a></li>
 
@@ -45,9 +45,9 @@
 <section class="left">
 <br>
 <p>
-	Clicando nos usuários você lista todas as tarefas cadastradas por eles.
+	<?php echo $captions_menu_left["caption_menu_left_descricao_de_acao"]; ?>
 </p>
-<b>Usuarios</b>
+<b><?php echo $captions_menu_left["caption_menu_left_usuarios"]; ?></b>
 <ul id="menu-left" class="menu-usuarios">
 	<?php foreach($usuario->listar() as $listar):
 	$emailCriadorTarefa = $listar->login;
