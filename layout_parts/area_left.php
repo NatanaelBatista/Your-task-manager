@@ -5,19 +5,17 @@
 <img class="img-perfil-recados-banner" src="<?php echo requisicaoGravatarAPI($_SESSION["login"],40); ?>" alt="" />
 <div class="inperfil">
     <b><?php echo Delimitar(" ",$_SESSION["nome"],0) . " " . Delimitar(" ",$_SESSION["nome"],1); ?></b> <br>
-    <a href="alterar_meus_dados.php?alterarMeusDados">Editar meus dados</a>
+    <a href="alterar_meus_dados.php?alterarMeusDados"><?php echo $captions_menu_left["caption_menu_left_perfil"]; ?></a>
 </div>
 
 </section><!--end left-->
 
 
-
-
 <section class="left">
 <div class="div_oculta_left">
 <form method="get" action="dashboard.php">
-	<input type="search" name="input_pesquisa" id="input_pesquisa" placeholder="Pesquisar Tarefas...">
-	<button type="submit" class="button-postar">Buscar</button>
+	<input type="search" name="input_pesquisa" id="input_pesquisa" placeholder="<?php echo $captions_menu_left["caption_menu_left_input"]; ?>">
+	<button type="submit" class="button-postar"><?php echo $captions_menu_left["caption_menu_left_button_pesquisar"] ; ?></button>
 </form>
 </div>
 </section><!--end left-->
@@ -67,7 +65,7 @@
 
 <section class="left">
 <br>
-<b>Tarefas cadastradas</b>
+<b><?php echo $captions_menu_left["caption_menu_left_tarefas"]; ?></b>
 <ul id="menu-left" class="cadastrar-usuario">
 	<?php 
 	$destacaSituacao = "";
