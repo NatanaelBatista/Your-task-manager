@@ -64,7 +64,7 @@ class TarefasModel
     * @return Array de Objetos
     */
     public function listar()
-    {
+    { 
     	$query = $this->db->prepare("select * from {$this->tableName} order by id desc, dataCadastro desc");
     	$query->execute();
     	return $query->fetchAll(PDO::FETCH_OBJ);

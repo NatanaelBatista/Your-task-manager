@@ -9,6 +9,8 @@ class Conexao implements ConexaoInterface
 	private $db;
 	private $user;
 	private $password;
+	private $pdo;
+	
 	public function __construct($host, $db, $user, $password)
 	{
 		$this->host = $host;
@@ -18,7 +20,34 @@ class Conexao implements ConexaoInterface
 	}
 	public function connect()
 	{
-		return new \PDO("mysql:host={$this->host};dbname={$this->db}",$this->user,$this->password);
+		try
+		{
+			return $this->pdo = new \PDO("mysql:host={$this->host};dbname={$this->db}",$this->user,$this->password);
+		}
+		catch(PDOException $e)
+		{
+			if ($e->getCode() == 2002)
+			{
+				echo "<sql_error>SQL: Esse Localhost não existe</sql_error>";
+			}
+			elseif ($e->getCode() == 1049)
+			{
+				echo "<sql_error>SQL: Esse Banco de dados não existe</sql_error>";
+			}
+			elseif ($e->getCode() == 1044)
+			{
+				echo "<sql_error>SQL: Usuario inexistente</sql_error>";
+			}
+			elseif ($e->getCode() == 1045)
+			{
+				echo "<sql_error>SQL: Essa Senha está incorreta</sql_error>";
+			}
+		}
+	}
+
+	public function __destruct()
+	{
+		$this->pdo = null;
 	}
 }
 /* End of file Conexao.class.php */
