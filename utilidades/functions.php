@@ -11,7 +11,7 @@
 function DelimitarPorTamnho($entrada,$tamanho,$acabamento) 
 {
 	$saida = str_split($entrada,$tamanho);
-    return $saida[0].$acabamento;
+  return $saida[0].$acabamento;
 }
 
 /**
@@ -62,11 +62,11 @@ function deletaCookie()
   * mas é barrado pela validação.
   */
 
-    /* Cookies da página cadastrar_usuarios.php */
+  /* Cookies da página cadastrar_usuarios.php */
     setcookie("retornaNome", "", time()-3600);
     setcookie("retornoLogin", "", time()-3600);
     
-    /* Cookies da página area_textarea_postagem.php */
+  /* Cookies da página area_textarea_postagem.php */
     setcookie("retornaTitulo", "", time()-3600);
     setcookie("retornoTexto", "", time()-3600);
 }

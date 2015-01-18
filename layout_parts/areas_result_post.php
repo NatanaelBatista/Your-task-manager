@@ -2,23 +2,14 @@
 /**
 * Monta a páginação
 */
-$numeroPorPagina = 5;
-$pagina = 0;
+$numeroPorPagina = 4;
 $totalDePaginas = ceil(count($usuario->colecaoUsuarioTarefas()) / $numeroPorPagina);
+$totalDeArquivos = count($usuario->colecaoUsuarioTarefas());
 
-if (isset($_GET["controlePageProximo"]))
-{
-	$pagina + 1;
-}
-
-if (isset($_GET["controlePageAnterior"]))
-{
-	$pagina - 2;
-}
 /**
 * Faz o select com páginação
 */
-foreach($usuario->colecaoUsuarioTarefasPagination($pagina,$numeroPorPagina) as $listar):
+foreach($usuario->colecaoUsuarioTarefasPagination($_GET["pagina"],$numeroPorPagina) as $listar):
 	$emailCriadorTarefa = $listar->login;
 /**
 * Busca o nome do usuario a quem a tarefa foi atribuida
@@ -85,16 +76,16 @@ if ($listar->criadorDaTarefa == $_SESSION["idUsuario"])
 * Controla quando os butões da páginação vão aparecer.
 */
 if (count($usuario->colecaoUsuarioTarefas()) > $numeroPorPagina): 
-$atual = $pagina;
-if ($pagina == 0)
+$paginaAtual = $_GET["pagina"];
+if ($_GET["pagina"] == 0)
 {
-	$atual = 1;
+	$paginaAtual = 1;
 }
-?>
+?>  
 <div class="footer-areas">
-   <a href="?controlePageAnterior" class="link-pagination anterior" title="Ir para página anterior"></a>
-   <a href="?controlePageProximo" class="link-pagination proximo" title="Ir para a proxima página"></a>
-   <?php echo $atual. " de " .$totalDePaginas; ?>
+   <a href="?controlePageAnterior&pagina=<?php echo ($_GET["pagina"] - 1) < 0 ? $_GET["pagina"] = 0 : $_GET["pagina"] - 1 ; ?>" class="link-pagination anterior" title="Ir para página anterior"></a>
+   <a href="?controlePageProximo&pagina=<?php echo ($_GET["pagina"] + 1) > $totalDePaginas ? $_GET["pagina"] = $totalDePaginas : $_GET["pagina"] + 1;?>" class="link-pagination proximo" title="Ir para a proxima página"></a>
+   <?php echo $paginaAtual . " de " . $totalDePaginas; ?>
    <div class="div-hide"></div>
 </div>
 <?php endif; ?>

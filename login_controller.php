@@ -45,7 +45,7 @@ if (isset($_GET["login"]))
 		$_SESSION["perfil"] = $retornoPerfil;
 		$_SESSION["perfil_master_master"] = $retoroPerfilMasterMaster;
 		$_SESSION["logado"] = true;
-		header("Location:dashboard.php");
+		header("Location:dashboard.php?pagina=0");
 	}
 	else
 	{

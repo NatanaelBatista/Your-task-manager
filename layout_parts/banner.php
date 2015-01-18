@@ -15,7 +15,7 @@
   */
   if (isset($bannerIndexPage))
   {
-		$idPaginaIndex = $bannerIndexPage;
+		 $idPaginaIndex = $bannerIndexPage;
   }
   else
   {
@@ -27,7 +27,7 @@
   */
   if (isset($_GET["sair"]))
   {
-	$loginModel->logOut("index.php");
+	   $loginModel->logOut("index.php");
   }
 ?>
 <header class="banner" <?php echo $idPaginaIndex; ?>>

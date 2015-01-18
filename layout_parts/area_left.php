@@ -24,7 +24,7 @@
 <br>
 <b><?php echo $captions_menu_left["caption_menu_left_navigation"]; ?></b>
 <ul id="menu-left" class="cadastrar-usuario">
-	<li><a href="dashboard.php"><?php echo $captions_menu_left["01"]; ?></a></li>
+	<li><a href="dashboard.php?pagina=0"><?php echo $captions_menu_left["01"]; ?></a></li>
 
 	<?php if ($_SESSION["perfil"] == "1"): ?>
 	<li><a href="cadastrar_usuarios.php"><?php echo $captions_menu_left["02"]; ?></a></li>
