@@ -74,3 +74,5 @@ class RecadosModel
 		return $editar;
 	}
 }
+/* End of file RecadosModel.class.php */
+/* Location: models */

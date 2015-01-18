@@ -1,34 +1,34 @@
 <?php 
-require_once("loaderClasses.php");
-require_once("utilidades/functions.php");
-$usuario = Container::getUsuario();
-$loginModel = Container::getLoginModel();
+  require_once("loaderClasses.php");
+  require_once("utilidades/functions.php");
+  $usuario = Container::getUsuario();
+  $loginModel = Container::getLoginModel();
 
-/**
-* Este metodo cadastra o primeiro usuario do sistema
-*/
-$usuario->cadastraOprimeiroUsuario();
-deletaCookie();
+  /**
+  * Este metodo cadastra o primeiro usuario do sistema
+  */
+  $usuario->cadastraOprimeiroUsuario();
+  deletaCookie();
 
-   /**
-   * Aplica uma class css no banner se a página corrente for a "index.php".
-   */
-    if (isset($bannerIndexPage))
-    {
-	    $idPaginaIndex = $bannerIndexPage;
-    }
-    else
-    {
-	    $idPaginaIndex = "";
-    }
+  /**
+  * Aplica uma class css no banner se a página corrente for a "index.php".
+  */
+  if (isset($bannerIndexPage))
+  {
+		$idPaginaIndex = $bannerIndexPage;
+  }
+  else
+  {
+	   $idPaginaIndex = "";
+  }
 
   /**
   * Saindo do sistema e destruindo a sessão.
   */
-    if (isset($_GET["sair"]))
-    {
-      $loginModel->logOut("index.php");
-    }
+  if (isset($_GET["sair"]))
+  {
+	$loginModel->logOut("index.php");
+  }
 ?>
 <header class="banner" <?php echo $idPaginaIndex; ?>>
 	<img src="html_img/logo.png" id="logo">
@@ -40,16 +40,16 @@ deletaCookie();
   $tipoPerfil = "";
   if ($_SESSION["perfil"] == "1" and $_SESSION["perfil_master_master"] != "1")
   {
-    $tipoPerfil = "Master";
+	$tipoPerfil = "Master";
   }
   elseif ($_SESSION["perfil"] == "1" and $_SESSION["perfil_master_master"] == "1")
   {
-    $classPerfil = "master";
-    $tipoPerfil = "Super Master";
+	$classPerfil = "master";
+	$tipoPerfil = "Super Master";
   }
   else 
   {
-    $tipoPerfil = "Funcionario";
+	$tipoPerfil = "Funcionario";
   }
 ?>
 	<section id="sobre-usuario">
