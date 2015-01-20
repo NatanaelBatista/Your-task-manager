@@ -84,10 +84,9 @@ require_once("validaSession.php");
          <?php endif;?>
          </div>
          <?php endforeach; ?>
-        
        </div><!-- end info areas -->
     </section><!-- end areas -->
-
+    
     </section>
 	</section><!--end right-->
 
@@ -96,7 +95,7 @@ require_once("validaSession.php");
     <div class="hide"></div>
 
 	</article><!--end main-->
-    <?php require_once("layout_parts/footer.php"); ?>
+<?php require_once("layout_parts/footer.php"); ?>
 
     <script>
     $(function() {

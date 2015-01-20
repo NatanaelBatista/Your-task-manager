@@ -58,6 +58,13 @@ class RecadosModel
 		return $query->fetchAll(PDO::FETCH_OBJ);
 	}
 
+	public function listarPagination($inicio, $quantidade)
+	{
+		$query = $this->db->prepare("select * from {$this->tableName} order by id desc, dataRecado asc limit {$inicio}, {$quantidade}");
+		$query->execute();
+		return $query->fetchAll(PDO::FETCH_OBJ);
+	}
+
 	public function deletar($id)
 	{
 		$id = (int) $id;
