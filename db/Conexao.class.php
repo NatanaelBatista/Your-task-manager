@@ -9,7 +9,6 @@ class Conexao implements ConexaoInterface
 	private $db;
 	private $user;
 	private $password;
-	private $pdo;
 	
 	public function __construct($host, $db, $user, $password)
 	{
@@ -22,7 +21,7 @@ class Conexao implements ConexaoInterface
 	{
 		try
 		{
-			return $this->pdo = new \PDO("mysql:host={$this->host};dbname={$this->db}",$this->user,$this->password);
+			return new \PDO("mysql:host={$this->host};dbname={$this->db}",$this->user,$this->password);
 		}
 		catch(PDOException $e)
 		{
@@ -43,11 +42,6 @@ class Conexao implements ConexaoInterface
 				echo "<sql_error>SQL: Essa Senha está incorreta</sql_error>";
 			}
 		}
-	}
-
-	public function __destruct()
-	{
-		$this->pdo = null;
 	}
 }
 /* End of file Conexao.class.php */

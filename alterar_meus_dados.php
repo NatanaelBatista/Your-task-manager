@@ -93,6 +93,12 @@ if (isset($_GET["alterarMeusDados"]))
     <button type="submit" class="button-postar" id="entrar">Cadastrar Mudanças</button> 
 </form>
 
+<h4>Dicas sobre Imagem de Perfil</h4>
+<p>
+O “your task manager” utiliza os serviços da API do sistema Gravatar. Trata-se de um sistema que disponibiliza Avatares associados ao seu endereço de email. Por tanto para que a sua imagem de perfil seja visível no “your task manager recomendamos que realize um cadastro rápido no sistema do Gravatar e cadastre uma imagem de perfil ao seu email.</p>
+<a href="http://pt.wikipedia.org/wiki/Gravatar" target="blank">Leia sobre o Gravatar no Wikipedia </a> |  
+<a href="https://signup.wordpress.com/signup/?ref=oauth2&oauth2_redirect=55417f438ade32fc51a4fd8c5f2fced2%40https%3A%2F%2Fpublic-api.wordpress.com%2Foauth2%2Fauthorize%2F%3Fclient_id%3D1854%26response_type%3Dcode%26blog_id%3D0%26state%3Dd9d9c81d64de8d9d4bb6e08b4b24972b717dafa26c2fb4918c1b8e7c5a5b89da%26redirect_uri%3Dhttps%253A%252F%252Fen.gravatar.com%252Fconnect%252F%253Faction%253Drequest_access_token%26jetpack-code%26jetpack-user-id%3D0%26action%3Doauth2-login&wpcom_connect=1" target="blank">Cadastrar imagem no Gravatar</a>  
+
         </section>
 
         
