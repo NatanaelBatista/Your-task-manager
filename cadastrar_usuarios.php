@@ -137,7 +137,7 @@ if (isset($_GET["editar"]))
         	<table>
             <thead>
         		<tr class="tr-top">
-        			<td>Id</td>
+        			<td>PR</td>
         			<td>Nome</td>
         			<td>Login</td>
         			<td>Perfil</td>
@@ -168,7 +168,7 @@ if (isset($_GET["editar"]))
              }
             ?>
                 <tr>
-                	<td><?php echo $listar->id; ?></td>
+                	<td class="td_perfil"><img src="<?php echo requisicaoGravatarAPI($listar->login,43); ?>" alt="" /></td>
                 	<td><?php echo $listar->nome; ?></td>
                 	<td><?php echo $listar->login; ?></td>
                 	<td class="<?php echo $classPerfil ?>"><?php echo $tipoPerfil; ?></td>

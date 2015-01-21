@@ -371,7 +371,11 @@
 	.small_aux {
 		color:#4f99d5;
 	}
-
+     
+    .td_perfil {
+    	padding:0px!important;
+    	width:43px!important;
+    }
     
     /*Essas classes "verde e vermelho" são aplicadas a um "b" via javascript*/
 	.verde {
