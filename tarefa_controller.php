@@ -33,7 +33,7 @@ if (isset($_GET["cadastrar"]))
 	{
 		seErroValidacao($titulo,$texto,$tarefaPara);
 		setcookie("msgErro","Todos os campos são obrigatórios.");
-		header("Location:dashboard.php");
+		header("Location:dashboard.php?pagina=0");
 	}
 	else
 	{
@@ -46,7 +46,7 @@ if (isset($_GET["cadastrar"]))
 		if ($tarefas->cadastrarTarefa())
 		{
 			setcookie("msgSucesso","Tarefa Cadastrada com Sucesso.");
-    		header("Location:dashboard.php");
+    		header("Location:dashboard.php?pagina=0");
 		}
 	}
 }
@@ -60,7 +60,7 @@ if (isset($_GET["deletar"]))
 	if ($tarefas->deletar($id))
 	{
 		setcookie("msgSucesso","Tarefa Deletada com Sucesso.");
-    	header("Location:dashboard.php");
+    	header("Location:dashboard.php?pagina=0");
 	}
 }
 

@@ -80,6 +80,11 @@ class RecadosModel
 		$editar->execute(array($this->recado,$id));
 		return $editar;
 	}
+
+	public function __destruct()
+	{
+		$fechaConexao = $this->db = null;
+	}
 }
 /* End of file RecadosModel.class.php */
 /* Location: models */

@@ -73,6 +73,11 @@ class LoginModel
 	   session_destroy();
        header("Location:{$paginaDestino}");
 	}
+
+	public function __destruct()
+	{
+		$fechaConexao = $this->db = null;
+	}
 }
 /* End of file LoginModel.class.php */
 /* Location: models */

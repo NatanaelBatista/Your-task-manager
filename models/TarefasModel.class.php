@@ -151,6 +151,11 @@ class TarefasModel
         $deletar = $this->db->prepare("delete from {$this->tableName} where id = ?");
         return $deletar->execute(array($id));
     }
+
+    public function __destruct()
+    {
+        $fechaConexao = $this->db = null;
+    }
 }
 /* End of file TarefasModel.class.php */
 /* Location: models */

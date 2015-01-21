@@ -21,7 +21,7 @@ class Conexao implements ConexaoInterface
 	{
 		try
 		{
-			return new \PDO("mysql:host={$this->host};dbname={$this->db}",$this->user,$this->password);
+			return new PDO("mysql:host={$this->host};dbname={$this->db}",$this->user,$this->password);
 		}
 		catch(PDOException $e)
 		{

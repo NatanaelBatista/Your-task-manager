@@ -230,6 +230,11 @@ class UsuarioModel
         $query->execute(array($valor));
 		return $query->fetchAll(PDO::FETCH_OBJ);
 	}
+
+	public function __destruct()
+	{
+		$fechaConexao = $this->db = null;
+	}
 }
 /* End of file UsuarioModel.class.php */
 /* Location: models */
