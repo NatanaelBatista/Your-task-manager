@@ -9,7 +9,7 @@ $totalDeArquivos = count($usuario->colecaoUsuarioTarefas());
 /**
 * Faz o select com páginação
 */
-foreach($usuario->colecaoUsuarioTarefasPagination($_GET["pagina"],$numeroPorPagina) as $listar):
+foreach($usuario->colecaoUsuarioTarefasPagination(isset($_GET["pagina"]),$numeroPorPagina) as $listar):
 	$emailCriadorTarefa = $listar->login;
 /**
 * Busca o nome do usuario a quem a tarefa foi atribuida
@@ -77,8 +77,8 @@ if ($listar->criadorDaTarefa == $_SESSION["idUsuario"])
 */
 if (count($usuario->colecaoUsuarioTarefas()) > $numeroPorPagina)
 {
-	$paginaAtual = $_GET["pagina"];
-    if ($_GET["pagina"] == 0)
+	$paginaAtual = isset($_GET["pagina"]);
+    if (isset($_GET["pagina"]) == 0)
     {
     	$paginaAtual = 1;
     }
