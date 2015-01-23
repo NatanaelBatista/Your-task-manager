@@ -64,6 +64,21 @@ class LoginModel
 	}
     
     /**
+    * Protege as páginas que devem ser somente acessadas pelos usuarios perfil Master e super master.
+    * @param Array - $sessionLogin
+    * @param String - $caminhoNaoLogado;
+    * @return Void
+    */
+	public function protegeAreaAdminPerfilMaster($sessionLogin,$caminhoNaoLogado)
+	{
+		@session_start();
+		if (isset($sessionLogin) != "1")
+		{
+			header("Location:{$caminhoNaoLogado}");
+		}
+	}
+    
+    /**
     * Método faz o logOut do usuário no sistema.
     * @param String - $paginaDestino
     * @return Void

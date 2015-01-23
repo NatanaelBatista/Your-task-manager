@@ -8,6 +8,7 @@ require_once("layout_parts/header.php");
 require_once("layout_parts/banner.php");
 require_once("utilidades/functions.php");
 require_once("validaSession.php");
+require_once("validaAreaPerfilMaster.php");
 
 if (isset($_GET["editar"]))
 {
