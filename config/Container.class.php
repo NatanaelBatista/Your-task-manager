@@ -66,16 +66,6 @@ class Container
 	*/
 	public static function getConexao()
 	{
-		$servidor = "false";
-		if ($servidor == "true")
-		{
-			$conexao = new Conexao("mysql.mysql12.000webhost.com","a1759951_tarefas","a1759951_base","32402709ney");
-		}
-		else
-		{
-			$conexao = new Conexao("localhost","tarefas","root","");
-		}
-		
-	    return $conexao;
+		return $conexao = Conexao::connect();
 	}
 }

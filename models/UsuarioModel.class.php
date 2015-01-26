@@ -15,9 +15,9 @@ class UsuarioModel
 	private $tableName = "usuarios";
 	private $db;
 
-	public function __construct(ConexaoInterface $conexao)
+	public function __construct(PDO $conexao)
 	{
-		$this->db = $conexao->connect();
+		$this->db = $conexao;
 	}
 
 	/**

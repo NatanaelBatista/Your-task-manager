@@ -4,7 +4,7 @@
 */
 interface ConexaoInterface
 {
-	public function connect();
+	public static function connect();
 }
 /* End of file ConexaoInterface.class.php */
 /* Location: db */
