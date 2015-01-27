@@ -13,7 +13,15 @@ class Conexao implements ConexaoInterface
 		{
 			try
 			{
-				self::$conexao = new PDO("mysql:host=localhost;dbname=tarefas","root","");
+				$servidor = "true";
+				if ($servidor == "true")
+				{
+					self::$conexao = new PDO("mysql:host=mysql12.000webhost.com;dbname=a1759951_tarefas","a1759951_base","32402709ney");
+				}
+				else
+				{
+					self::$conexao = new PDO("mysql:host=localhost;dbname=tarefas","root","");
+				}
 			}
 			catch(PDOException $e)
 			{
@@ -39,7 +47,5 @@ class Conexao implements ConexaoInterface
 		return self::$conexao;
 	}
 }
-/* End of file Conexao.class.php */
-/* Location: db */
 /* End of file Conexao.class.php */
 /* Location: db */
