@@ -31,7 +31,7 @@ if (isset($_GET["login"]))
 			$idUsuario     = $listar->id;
 			$retornoNome   = $listar->nome;
 			$retornoPerfil = $listar->perfil;
-			$retoroPerfilMasterMaster = $listar->perfil_master_master;
+			$retornoPerfilMasterMaster = $listar->perfil_master_master;
 		}
         
         /**
@@ -43,7 +43,7 @@ if (isset($_GET["login"]))
 		$_SESSION["senha"] = $sennha;
 		$_SESSION["idUsuario"] = $idUsuario;
 		$_SESSION["perfil"] = $retornoPerfil;
-		$_SESSION["perfil_master_master"] = $retoroPerfilMasterMaster;
+		$_SESSION["perfil_master_master"] = $retornoPerfilMasterMaster;
 		$_SESSION["logado"] = true;
 		header("Location:dashboard.php?pagina=0");
 	}

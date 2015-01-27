@@ -5,11 +5,16 @@
 $numeroPorPagina = 4;
 $totalDePaginas = ceil(count($usuario->colecaoUsuarioTarefas()) / $numeroPorPagina);
 $totalDeArquivos = count($usuario->colecaoUsuarioTarefas());
+$pagina = $_GET["pagina"];
 
+if ($pagina == "")
+{
+	$pagina = 0;
+}
 /**
 * Faz o select com páginação
 */
-foreach($usuario->colecaoUsuarioTarefasPagination(isset($_GET["pagina"]),$numeroPorPagina) as $listar):
+foreach($usuario->colecaoUsuarioTarefasPagination($pagina,$numeroPorPagina) as $listar):
 	$emailCriadorTarefa = $listar->login;
 /**
 * Busca o nome do usuario a quem a tarefa foi atribuida
@@ -77,8 +82,8 @@ if ($listar->criadorDaTarefa == $_SESSION["idUsuario"])
 */
 if (count($usuario->colecaoUsuarioTarefas()) > $numeroPorPagina)
 {
-	$paginaAtual = isset($_GET["pagina"]);
-    if (isset($_GET["pagina"]) == 0)
+	$paginaAtual = $_GET["pagina"];
+    if ($_GET["pagina"] == 0)
     {
     	$paginaAtual = 1;
     }

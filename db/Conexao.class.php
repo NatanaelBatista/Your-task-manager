@@ -13,7 +13,7 @@ class Conexao implements ConexaoInterface
 		{
 			try
 			{
-				$servidor = "true";
+				$servidor = "false";
 				if ($servidor == "true")
 				{
 					self::$conexao = new PDO("mysql:host=mysql12.000webhost.com;dbname=a1759951_tarefas","a1759951_base","32402709ney");
