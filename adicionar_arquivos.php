@@ -24,6 +24,17 @@ require_once("validaSession.php");
         </section>
     <?php endif; ?>
 
+<?php if (isset($_GET["editar"]))
+{
+?>
+
+<?php 
+ require_once("layout_parts/editar_files.php");
+}
+else
+{
+?>
+
 <section class="areas apresenta-tarefas">
 
 <h1 class="h1-title-tarefas">Adicionar Arquivos</h1>
@@ -39,8 +50,10 @@ require_once("validaSession.php");
 </div><!-- end info areas -->
 
 </section><!--end-->
+<?php 
+} 
+?>
 <br>
-
 
 <section class="areas apresenta-tarefas">
 
