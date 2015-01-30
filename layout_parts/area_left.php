@@ -32,6 +32,7 @@
 
 	<li><a href="pagina_de_recados.php"><?php echo $captions_menu_left["03"]; ?></a></li>
 	<li><a href="relatorio_geral.php"><?php echo $captions_menu_left["04"]; ?></a></li>
+	<li><a href="adicionar_arquivos.php"><?php echo $captions_menu_left["06"]; ?></a></li>
 </ul>
 </section><!--end left-->
 

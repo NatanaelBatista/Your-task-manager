@@ -53,11 +53,35 @@ class Container
 		$sendEmail = new SendEmail();
 		return $sendEmail;
 	}
-
+    
+     /**
+    * Instância a class para trabalhar com os relatórios de cadastro.
+    * @return instancia do objeto Relatorio
+    */
 	public static function getTarefasRelatorios()
 	{
 		$tarefasRelatorios = new TarefasRelatorios(self::getTarefas());
 		return $tarefasRelatorios;
+	}
+    
+     /**
+    * Instância a class para pesistir os arquivos na tabela.
+    * @return instancia do objeto Arquivos
+    */
+	public static function getArquivos()
+	{
+		$arquivos = new ArquivoModel(self::getConexao());
+		return $arquivos;
+	}
+    
+     /**
+    * Instância a class para trabalhar com upload de arquivos.
+    * @return instancia do objeto Arquivos
+    */
+	public static function getTheUploadFiles()
+	{
+		$upload = new TheUploadFiles();
+		return $upload;
 	}
 
 	/**

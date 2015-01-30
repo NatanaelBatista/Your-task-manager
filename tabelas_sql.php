@@ -49,5 +49,13 @@ create table recados (
 	dataRecado varchar(10) not null,
 	recado text not null
 	)
+
+
+create table arquivos (
+	id int not null AUTO_INCREMENT PRIMARY KEY,
+	nome varchar(50) not null,
+	dataPostagem varchar(10) not null,
+	idUsuario int not null
+	)
 ?>
 

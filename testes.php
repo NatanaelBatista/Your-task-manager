@@ -6,12 +6,30 @@ $tarefas = Container::getTarefas();
 $loginModel = Container::getLoginModel();
 require_once("utilidades/TarefasRelatorios.class.php");
 $TarefasRelatorios = Container::getTarefasRelatorios();
+$arquivos = Container::getArquivos();
 
 // Retirando mascaras de campos
+/*
 $input = str_replace(".", "", $_POST["input"]);
 $input = str_replace("-","",$input);
 echo $input;
+*/
 
+class soma
+{
+	public static function emprestimo($valor,$meses)
+	{
+		$parcelas = $valor / $meses;
+		return number_format($parcelas, 2, ',', '.');
+	}
+}
+
+//echo $soma = "R$: " . soma::emprestimo(2000,12);
+
+
+$a =  number_format($produto = 1024 * 1024 * 4, 2, '.','.');
+$a = explode(".", $a);
+echo $a[0];
 
 
 ?>

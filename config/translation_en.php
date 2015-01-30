@@ -19,6 +19,7 @@ $captions_menu_left["02"] = "Registering / Edit User";
 $captions_menu_left["03"] = "Message Boards";
 $captions_menu_left["04"] = "General Report";
 $captions_menu_left["05"] = "Registered Users";
+$captions_menu_left["06"] = "View / Add File";
 /*end Navegação*/
 
 /*Legendas do menu left. ( Lista de Usuários )*/
