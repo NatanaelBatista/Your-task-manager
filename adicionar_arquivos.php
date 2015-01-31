@@ -55,6 +55,7 @@ else
 ?>
 <br>
 
+<?php if (count($arquivos->select()) != 0):?>
 <section class="areas apresenta-tarefas">
 
 <h1 class="h1-title-tarefas">Arquivos Cadastrados</h1>
@@ -63,32 +64,55 @@ else
 <?php foreach($arquivos->select() as $listar):
         $extencao = explode(".", $listar->caminhoArquivo);
         $id = $listar->id;
+        foreach($usuario->listarWhere("id", $listar->idUsuario) as $list)
+        {
+          $_retornoNomeUsuario = $list->nome;
+        }
+        
+        $showDivArquivoNaoEncontrado = null;
+        if (!file_exists($listar->caminhoArquivo))
+        {
+           $showDivArquivoNaoEncontrado = "classCssNaoEccontrado";
+        }
 ?>
-  <div class="show_arquivos">
+  <div class="show_arquivos <?php echo $showDivArquivoNaoEncontrado;?>">
     <span class="icone_arquivos_files">
-       <img src="html_img/icone_arquivos_file.png" alt=""> 
+
+      <?php 
+      /*Verifica se o Arquivo existe na pasta do Servidor e define os Icones*/
+      if (!file_exists($listar->caminhoArquivo))
+      {
+        echo '<img src="html_img/icone_arquivos_file_erro.png" alt="">';
+      }
+      elseif ($extencao[1] != "zip" and $extencao[1] != "html" and $extencao[1] != "css" and $extencao[1] != "js" and $extencao[1] != "php" and $extencao[1] != "sql")
+      {
+        echo '<img src="html_img/icone_arquivos_file.png" alt="">';
+      }
+      elseif ($extencao[1] == "zip")
+      {
+        echo '<img src="html_img/icone_arquivos_file_zip.png" alt="">';
+      }
+      else
+      {
+        echo '<img src="html_img/icone_arquivos_file_codigo.png" alt="">';
+      }
+      ?>
     </span>	
 
     <?php echo $listar->nome . "." . $extencao[1]; ?>
   	<br> 
     <span class="data_postagem_files">
-       Cadastrado em: <?php echo $listar->dataPostagem; ?>
+       Cadastrado em:  <span class="time-line-nome"> <?php echo $listar->dataPostagem; ?></span> |
+       ( Cadastrado por: <span class="time-line-nome"> <?php echo DelimitarPorTamnho($_retornoNomeUsuario, 20, "..."); ?></span> )
     </span>
-  	<?php 
-      /*Determina qual usuário pode deletar os arquivos*/
-      if ($_SESSION["perfil_master_master"] == 1)
-      {
-        require("layout_parts/controle_arquivos_file.php");
-      }
-      elseif ($_SESSION["perfil"] == 1 and $listar->idUsuario == $_SESSION["idUsuario"])
-      {
-        require("layout_parts/controle_arquivos_file.php");
-      }
+  	<?php
+      require("layout_parts/controle_arquivos_file.php");
     ?>
   </div>
 <?php endforeach; ?>
 </div><!-- end info areas -->
 
+<?php endif; ?>
 </section><!--end-->
 
     
@@ -102,14 +126,21 @@ else
 	</article><!--end main-->
 	<?php require_once("layout_parts/footer.php"); ?>
 
+<?php if (!isset($_GET["editar"])): ?>
+
 	<script>
   $(document).ready(function() {
 	   /*Mostra o botão de submit se o campo file contiver um arquivo setado*/
-	   var postarFile = $(".postar-file").hide();
+	    var postarFile = $(".postar-file").hide();
        var campoFile = $(".campo_file").on("change",function() {
           postarFile.show("fast");
        });
+  });
+  </script>
 
+<?php endif; ?>
+
+  <script>
     /*Controle de deleção dos Arquivos*/
     function deletarArquivos() {
         var deletar = $(".deletar-arquivo-file");
@@ -125,7 +156,6 @@ else
 
   deletarArquivos();
 
-});
 	</script>
 </body>
 </html>

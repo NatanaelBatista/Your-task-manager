@@ -25,8 +25,8 @@ if (isset($_GET["cadastrar"]))
 	{
         $upload->setInputFile($nomeDoArquivo);
         $upload->sendTo("arquivos/");
-        $upload->SetMaxFileSize(1);
-        $extensoes = array("pdf", "doc", "docx", "html", "css", "php", "js", "sql", "txt");
+        $upload->SetMaxFileSize(10);
+        $extensoes = array("pdf", "doc", "docx", "html", "css", "php", "js", "sql", "txt", "zip");
         $upload->setExtensions($extensoes);
         
         if ($arquivos->verificaNomeDeArquivo("nome", $nomeParaOArquivo))
@@ -74,6 +74,26 @@ if (isset($_GET["cadastrar"]))
 	}
 }
 
+
+/*Editar Arquivo*/
+if (isset($_GET["editar"]))
+{
+	$nomeParaOArquivo = strip_tags(trim(ucwords($_POST["nome_para_o_arquivo"])));
+	$nomeDoArquivo = $_FILES["nome_do_arquivo"];
+	$id = (int) $_GET["id"];
+	
+	if ($nomeDoArquivo["size"] == 0)
+	{   
+		$arquivos->setNome($nomeParaOArquivo);
+		if ($arquivos->editarNomeArquivo($id))
+		{
+			setcookie("msgSucesso","Nome do Arquivo Editado com Sucesso.");
+    		header("Location:adicionar_arquivos.php");
+		}
+	}
+}
+
+
 /*Deletar Arquivos*/
 if (isset($_GET["deletar"]))
 {
@@ -82,12 +102,30 @@ if (isset($_GET["deletar"]))
 	{
 		$retornoCaminhoDoArquivo = $listar->caminhoArquivo;
 	}
-
-	if (!unlink($retornoCaminhoDoArquivo))
+    
+    /**
+    * Se o Arquivo não existir mais no servidor, teleta apenas a referencia dele na tabela
+    */
+    if (!file_exists($retornoCaminhoDoArquivo))
+	{
+		if ($arquivos->deletar($id))
+		{
+			setcookie("msgSucesso","Arquivo Deletado com Sucesso.");
+    		header("Location:adicionar_arquivos.php");
+		}
+	}
+	/**
+    * Se o Arquivo existir no servidor, executa a deleção dele
+    */
+	elseif (!unlink($retornoCaminhoDoArquivo))
 	{
 		setcookie("msgErro","O arquivo não pode ser Deletado.");
 		header("Location:adicionar_arquivos.php");
 	}
+	
+	/**
+	* Deleta a referencia dele na tabela
+	*/
 	else
 	{
 		if ($arquivos->deletar($id))

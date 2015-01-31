@@ -59,7 +59,7 @@ class ArquivoModel
 
 	public function select()
 	{
-		$query = $this->db->prepare("select * from {$this->tableName}");
+		$query = $this->db->prepare("select * from {$this->tableName} order by dataPostagem desc, id desc");
 		$query->execute();
 		return $query->fetchAll(PDO::FETCH_OBJ);
 	}
@@ -85,5 +85,44 @@ class ArquivoModel
 		$deletar = $this->db->prepare("delete from {$this->tableName} where id = ?");
 		$deletar->execute(array($id));
 		return $deletar;
+	}
+    
+    /**
+    * Método edita apenas o nome do Arquivo
+    * @param Int
+    * @return Boolean
+    */
+	public function editarNomeArquivo($id)
+	{
+		$id = (int) $id;
+		$editar = $this->db->prepare("update {$this->tableName} set nome = ? where id = ?");
+		$editar->execute(array($this->nome, $id));
+		return $editar;
+	}
+    
+    /**
+    * Método edita apenas o caminho do Arquivo
+    * @param Int
+    * @return Boolean
+    */
+	public function editarArquivo($id)
+	{
+		$id = (int) $id;
+		$editar = $this->db->prepare("update {$this->tableName} set caminhoArquivo = ? where id = ?");
+		$editar->execute(array($this->caminhoArquivo, $id));
+		return $editar;
+	}
+    
+    /**
+    * Método edita tanto o nome do Arquivo como o caminho do Arquivo
+    * @param Int
+    * @return Boolean
+    */
+	public function editarArquivoEnome($id)
+	{
+		$id = (int) $id;
+		$editar = $this->db->prepare("update {$this->tableName} set nome = ?, set caminhoArquivo = ? where id = ?");
+		$editar->execute(array($this->nome, $this->caminhoArquivo, $id));
+		return $editar;
 	}
 }
