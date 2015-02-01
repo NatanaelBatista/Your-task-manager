@@ -26,11 +26,12 @@ class soma
 
 //echo $soma = "R$: " . soma::emprestimo(2000,12);
 
+$name = "Ultima Versão Do Banco De Dados Do Sistema Task M";
 
-$a =  number_format($produto = 1024 * 1024 * 4, 2, '.','.');
-$a = explode(".", $a);
-echo $a[0];
-
+foreach($arquivos->listarWhere("nome", $name) as $listar)
+{
+       echo $retornoIdArquivoComMesmoNome = $listar->id;
+}
 
 ?>
 

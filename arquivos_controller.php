@@ -99,61 +99,28 @@ if (isset($_GET["editar"]))
         $extensoes = array("pdf", "doc", "docx", "html", "css", "php", "js", "sql", "txt", "zip");
         $upload->setExtensions($extensoes);
          
-        /*Busca o caminho do arquivo que sera editado*/
-        foreach($arquivos->listarWhere("id", $id) as $listar)
-        {
-        	$retornoCaminhoDoArquivo = $listar->caminhoArquivo;
-        }
-
         foreach($arquivos->listarWhere("nome", $nomeParaOArquivo) as $listar)
         {
         	$retornoIdArquivoComMesmoNome = $listar->id;
         }
 
-        /*Deleta o arquivo atual para que possa ser substituído pelo novo*/
-        unlink($retornoCaminhoDoArquivo);
-        
-        if ($arquivos->verificaNomeDeArquivo("nome", $nomeParaOArquivo) == true and $id != $retornoIdArquivoComMesmoNome)
+        if ($arquivos->verificaNomeDeArquivo("nome", $nomeParaOArquivo))
 		{
-		    setcookie("msgErro","Já existe um Arquivo com este Nome.");
-		    header("Location:adicionar_arquivos.php");
-		}
-		if ($upload->getErros() == 1)
-		{
-			setcookie("msgErro","Erro ( Critico ) referente ao tamanho máximo configurado no php.ini, por favor, entre em contato com os administradores do sistema");
-		    header("Location:adicionar_arquivos.php");
-		}
-		elseif ($upload->getErros() == 2)
-		{
-			setcookie("msgErro","Erro ( Critico ) os argumentos passados nos métodos (setExtensions e sendTo) precisam ser do tipo Array. Entre em contato com os administradores do sistema");
-		    header("Location:adicionar_arquivos.php");
-		}
-		elseif ($upload->getErros() == 3)
-		{
-			setcookie("msgErro","Ultrapaçou o tamanho limite para Upload definido pelo sistema");
-		    header("Location:adicionar_arquivos.php");
-		}
-		elseif ($upload->getErros() == 4)
-		{
-			setcookie("msgErro","Esse formato de arquivo não é permitido pelo sistema");
-		    header("Location:adicionar_arquivos.php");
-		}
-        elseif ($upload->move())
-        {
-        	$arquivos->setNome($nomeParaOArquivo);
-		    $arquivos->setCaminhoArquivo($upload->getPath());
-		    
-		    if ($arquivos->editarArquivoEnome($id))
-		    {
-		    	setcookie("msgSucesso","Arquivo e Nome Editados com Sucesso.");
-    		    header("Location:adicionar_arquivos.php");
+			if ($id != $retornoIdArquivoComMesmoNome)
+			{
+		        setcookie("msgErro","Você tentou cadastrar um Arquivo chamado: ( {$nomeParaOArquivo} ). Já existe um Arquivo com este Nome.");
+		        header("Location:adicionar_arquivos.php?editar&id={$id}");
 		    }
 		    else
 		    {
-		    	echo "Error";
-		    }
-        }
-	}
+		        checaEeditaArquivo($upload, $arquivos, $id, $nomeParaOArquivo);
+	        } 
+       }
+       else
+       {
+       	  checaEeditaArquivo($upload, $arquivos, $id, $nomeParaOArquivo); 
+       }
+    } 
 }
 
 
@@ -199,6 +166,57 @@ if (isset($_GET["deletar"]))
 	}
 }
 
+/**
+* Função verifica se ocorreu erro durante o upload, 
+* e faz a edição do arquivo tanto na pasta quanto na base de dados.
+*/
+function checaEeditaArquivo($upload, $arquivos, $id, $nomeParaOArquivo)
+{
+	/*Busca o caminho do arquivo que sera editado*/
+    foreach($arquivos->listarWhere("id", $id) as $listar)
+    {
+        $retornoCaminhoDoArquivo = $listar->caminhoArquivo;
+    }
+       
+    /*Deleta o arquivo atual para que possa ser substituído pelo novo*/
+    unlink($retornoCaminhoDoArquivo);
+
+	if ($upload->getErros() == 1)
+	{
+		setcookie("msgErro","Erro ( Critico ) referente ao tamanho máximo configurado no php.ini, por favor, entre em contato com os administradores do sistema");
+		header("Location:adicionar_arquivos.php");
+	}
+	elseif ($upload->getErros() == 2)
+	{
+		setcookie("msgErro","Erro ( Critico ) os argumentos passados nos métodos (setExtensions e sendTo) precisam ser do tipo Array. Entre em contato com os administradores do sistema");
+		header("Location:adicionar_arquivos.php");
+	}
+    elseif ($upload->getErros() == 3)
+    {
+		setcookie("msgErro","Ultrapaçou o tamanho limite para Upload definido pelo sistema");
+		header("Location:adicionar_arquivos.php");
+    }
+    elseif ($upload->getErros() == 4)
+    {
+		setcookie("msgErro","Esse formato de arquivo não é permitido pelo sistema");
+		header("Location:adicionar_arquivos.php");
+    }
+    elseif ($upload->move())
+    {
+        $arquivos->setNome($nomeParaOArquivo);
+		$arquivos->setCaminhoArquivo($upload->getPath());
+
+		if ($arquivos->editarArquivoEnome($id))
+		{
+		    setcookie("msgSucesso","Arquivo e Nome Editados com Sucesso.");
+    		header("Location:adicionar_arquivos.php");
+		}
+		else
+		{
+		    echo "Error";
+		}   
+    }
+}
 
 
 /* End of file arquivos_controller.php */
