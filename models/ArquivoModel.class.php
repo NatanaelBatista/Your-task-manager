@@ -69,7 +69,7 @@ class ArquivoModel
 		$query = $this->db->prepare("select * from {$this->tableName} where {$campo} = ?");
 		$query->execute(array($value));
 
-		if ($query->rowCount())
+		if ($query->rowCount() != 0)
 		{
 			return true;
 		}
@@ -121,7 +121,7 @@ class ArquivoModel
 	public function editarArquivoEnome($id)
 	{
 		$id = (int) $id;
-		$editar = $this->db->prepare("update {$this->tableName} set nome = ?, set caminhoArquivo = ? where id = ?");
+		$editar = $this->db->prepare("update {$this->tableName} set nome = ?, caminhoArquivo = ? where id = ?");
 		$editar->execute(array($this->nome, $this->caminhoArquivo, $id));
 		return $editar;
 	}
