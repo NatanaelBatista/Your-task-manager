@@ -15,6 +15,7 @@
 <p>
 	O que você deseja editar? O nome do arquivo ou o próprio arquivo?
 	Caso você não queira editar o arquivo, basta deixar o campo do arquivo em branco e o sistema entenderá que você não deseja editá-lo.  
+    <br> <a href="adicionar_arquivos.php" title="Voltar para página de Cadastrar Arquivos"><< Cadastrar Arquivos</a>
 </p>
 <form method="post" action="arquivos_controller.php?editar&id=<?php echo $id; ?>" enctype="multipart/form-data">
 	<label for="file">Você pode carregar arquivos como PDF, Html, Css, Javascript, Php, Sql</label> <br>

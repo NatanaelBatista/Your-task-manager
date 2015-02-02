@@ -37,7 +37,7 @@ else
 
 <section class="areas apresenta-tarefas">
 
-<h1 class="h1-title-tarefas">Adicionar Arquivos</h1>
+<h1 class="h1-title-tarefas">Cadastrar Arquivos</h1>
 <div class="info-areas">
 
 <form method="post" action="arquivos_controller.php?cadastrar" enctype="multipart/form-data">
@@ -84,11 +84,11 @@ else
       {
         echo '<img src="html_img/icone_arquivos_file_erro.png" alt="">';
       }
-      elseif ($extencao[1] != "zip" and $extencao[1] != "html" and $extencao[1] != "css" and $extencao[1] != "js" and $extencao[1] != "php" and $extencao[1] != "sql")
+      elseif ($extencao[1] != "zip" and $extencao[1] != "rar" and $extencao[1] != "html" and $extencao[1] != "css" and $extencao[1] != "js" and $extencao[1] != "php" and $extencao[1] != "sql")
       {
         echo '<img src="html_img/icone_arquivos_file.png" alt="">';
       }
-      elseif ($extencao[1] == "zip")
+      elseif ($extencao[1] == "zip" or $extencao[1] == "rar")
       {
         echo '<img src="html_img/icone_arquivos_file_zip.png" alt="">';
       }

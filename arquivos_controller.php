@@ -26,7 +26,7 @@ if (isset($_GET["cadastrar"]))
         $upload->setInputFile($nomeDoArquivo);
         $upload->sendTo("arquivos/");
         $upload->SetMaxFileSize(10);
-        $extensoes = array("pdf", "doc", "docx", "html", "css", "php", "js", "sql", "txt", "zip");
+        $extensoes = array("pdf", "doc", "docx", "html", "css", "php", "js", "sql", "txt", "zip", "rar");
         $upload->setExtensions($extensoes);
         
         if ($arquivos->verificaNomeDeArquivo("nome", $nomeParaOArquivo))
@@ -82,6 +82,10 @@ if (isset($_GET["editar"]))
 	$nomeDoArquivo = $_FILES["nome_do_arquivo"];
 	$id = (int) $_GET["id"];
 	
+	/**
+	* Se o campo file estiver em branco provavelmente o usuário está tentando apenas editar o nome do arquivo.
+	* Sendo assim edito somente o nome do arquivo
+	*/
 	if ($nomeDoArquivo["size"] == 0)
 	{   
 		$arquivos->setNome($nomeParaOArquivo);
@@ -91,19 +95,37 @@ if (isset($_GET["editar"]))
     		header("Location:adicionar_arquivos.php");
 		}
 	}
+	elseif (empty($nomeParaOArquivo))
+	{
+		setcookie("msgErro","Todos os campos são Obrigatórios.");
+		header("Location:adicionar_arquivos.php?editar&id={$id}");
+	}
+	/**
+    * Se nem o nome do arquivo e nem o arquivo estiver em branco provavelmente o usuário está querendo editar os dois ou apenas o arquivo.
+	* Sendo assim, edito o nome e o próprio arquivo.
+	*/
 	elseif ($nomeDoArquivo["size"] != 0 and !empty($nomeParaOArquivo))
 	{
 		$upload->setInputFile($nomeDoArquivo);
         $upload->sendTo("arquivos/");
         $upload->SetMaxFileSize(10);
-        $extensoes = array("pdf", "doc", "docx", "html", "css", "php", "js", "sql", "txt", "zip");
+        $extensoes = array("pdf", "doc", "docx", "html", "css", "php", "js", "sql", "txt", "zip", "rar");
         $upload->setExtensions($extensoes);
          
+        /**
+        * No momento de editar verifico se existe algum arquivo com o mesmo nome do arquivo que está sendo editado.
+        * Caso exista, eu recupero o id deste arquivo.
+        */
         foreach($arquivos->listarWhere("nome", $nomeParaOArquivo) as $listar)
         {
         	$retornoIdArquivoComMesmoNome = $listar->id;
         }
-
+        
+        /**
+        * Faço uma comparação entre o id do arquivo encontrado com o mesmo nome e o id do arquivo que está sendo editado.
+        * Se o id for o mesmo, cadastro o mesmo nome na base.
+        * Se o id for diferente, mostro uma mensagem negando a gravação deste nome na base.
+        */
         if ($arquivos->verificaNomeDeArquivo("nome", $nomeParaOArquivo))
 		{
 			if ($id != $retornoIdArquivoComMesmoNome)
@@ -217,7 +239,5 @@ function checaEeditaArquivo($upload, $arquivos, $id, $nomeParaOArquivo)
 		}   
     }
 }
-
-
 /* End of file arquivos_controller.php */
 /* Location: raiz */

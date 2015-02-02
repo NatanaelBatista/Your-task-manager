@@ -18,7 +18,7 @@ if (count($usuario->colecaoUsuarioTarefasWhere("criadorDaTarefa",$id)) < 1):
 		<img style="float:left; margin-right:10px;" class="" src="<?php echo requisicaoGravatarAPI($listar->login,112); ?>" alt="">
 	    <?php } ?>
 	  <h2>Esse usuário ainda não cadastrou nenhuma tarefa no sistema.</h2>
-      <p><a href="dashboard.php">Visualizar tarefas existentes</a></p>
+      <p><a href="dashboard.php?pagina=0">Visualizar tarefas existentes</a></p>
     <div class="hide"></div>
     </div>
 </section>
