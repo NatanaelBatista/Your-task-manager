@@ -61,6 +61,18 @@ else
 <h1 class="h1-title-tarefas">Arquivos Cadastrados</h1>
 <div class="info-areas">
 
+<form method="post" action="arquivos_controller.php?deletarViaMultiplos">
+<div class="div_segura_button">
+
+<!--botão submit para deletar todos os arquivos selecionados via checkboxs-->
+<button type="submit" class="deletar_todos_arquivos_selecionados">Deletar selecionados</button>
+
+<!--checkbox para selecionar todos os checkboxs-->
+<label for="checkAll">Selecionar Todos</label>
+<input id="checkAll" class="checkAll" type="checkbox" name="checkAll"> 
+<!--end-->
+</div>
+<div class="hide"></div>
 <?php foreach($arquivos->select() as $listar):
         $extencao = explode(".", $listar->caminhoArquivo);
         $id = $listar->id;
@@ -112,6 +124,8 @@ else
 <?php endforeach; ?>
 </div><!-- end info areas -->
 
+</form>
+
 <?php endif; ?>
 </section><!--end-->
 
@@ -157,5 +171,30 @@ else
   deletarArquivos();
 
 	</script>
+
+
+  <script>
+  window.onload = function()
+  {
+     /*Seleciona todos os checkbox da página*/
+     var all = document.querySelectorAll(".checkbox"),
+         checkAll = document.querySelector(".checkAll");
+
+         checkAll.onclick = function()
+         {
+            for (var cont = 0; cont < all.length; cont++)
+            {
+               if (checkAll.checked == false)
+               {
+                 all[cont].checked = false;
+               }
+               if (checkAll.checked == true)
+               {
+                 all[cont].checked = true;
+               }
+            }
+         }
+  }
+  </script>
 </body>
 </html>

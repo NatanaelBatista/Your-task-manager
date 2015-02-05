@@ -20,7 +20,8 @@
 <form method="post" action="arquivos_controller.php?editar&id=<?php echo $id; ?>" enctype="multipart/form-data">
 	<label for="file">Você pode carregar arquivos como PDF, Html, Css, Javascript, Php, Sql</label> <br>
 	<input type="text" name="nome_para_o_arquivo" value="<?php echo isset($retornoNome) ? $retornoNome : "";?>" placeholder="Digite um nome para o Arquivo
-	"> <br>
+	">
+	<br>
      
 	<input type="file" name="nome_do_arquivo" class="campo_file"> <br>
 	<button type="submit" class="button-postar postar-file">Cadastrar Mudanças</button>

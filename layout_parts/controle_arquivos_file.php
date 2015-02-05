@@ -22,5 +22,8 @@
 	    <a class="deletar-arquivo-file" href="arquivos_controller.php?deletar&id=<?php echo $id; ?>">Deletar</a>
   	
   <?php endif; ?>
-
+  
+  
+  | <input class="checkbox" type="checkbox" name="check[]" value="<?php echo $listar->id; ?>">
+  
 </div>

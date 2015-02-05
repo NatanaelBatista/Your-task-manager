@@ -620,7 +620,7 @@
     }
     .mostra_baixar {
     	float:right;
-    	line-height:5px;
+    	line-height:3px!important;
     }
     .deletar-arquivo-file {
     	color:red;
@@ -629,5 +629,26 @@
     	color:#5ba188;
     }
     .classCssNaoEccontrado {
+    	opacity:0.60;
+    }
+
+    .checkbox, .checkAll {
+    	width:18px!important;
+    }
+    .deletar_todos_arquivos_selecionados {
+    	float:right;
+    	background:#b77c7c!important;
+    	border-radius:2px;
+    	margin:0;
+    }
+    .deletar_todos_arquivos_selecionados:hover {
+    	opacity:0.80!important;
+    	cursor:pointer;
+    }
+    .div_segura_button {
+    	width:auto;
+    	height:30px;
+    	float:right;
+    	padding:0;
     	opacity:0.60;
     }

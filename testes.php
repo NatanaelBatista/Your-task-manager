@@ -23,21 +23,34 @@ class soma
 		return number_format($parcelas, 2, ',', '.');
 	}
 }
+ 
+ 
+ if (isset($_GET["mandar"]))
+ {
+ 	$campo = $_POST["check"];
+ 	$quantidade = count($_POST["check"]);
+ 	for ($cont = 0; $cont < $quantidade; $cont++)
+ 	{
+ 		echo var_dump($campo[$cont]);
+ 	}
+ }
 
-//echo $soma = "R$: " . soma::emprestimo(2000,12);
-
-$name = "Ultima Versão Do Banco De Dados Do Sistema Task M";
-
-foreach($arquivos->listarWhere("nome", $name) as $listar)
-{
-       echo $retornoIdArquivoComMesmoNome = $listar->id;
-}
+ 
 
 ?>
 
-<form method="post" action="testes.php">
-<input type="text" name="input" value="052.115.185-28">
+<form method="post" action="testes.php?mandar">
+<!--<input type="text" name="input" value="052.115.185-28">-->
 <br>
+
+<?php 
+  foreach($arquivos->select() as $listar):
+  	echo $listar->id;
+?>
+
+<input type="checkbox" name="check[]" value="<?php echo $listar->id; ?>">
+
+<?php endforeach; ?>
 <button type="submit">Mandar</button>
 </form>
 

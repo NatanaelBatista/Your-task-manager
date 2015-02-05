@@ -156,7 +156,7 @@ if (isset($_GET["deletar"]))
 	}
     
     /**
-    * Se o Arquivo não existir mais no servidor, teleta apenas a referencia dele na tabela
+    * Se o Arquivo não existir mais no servidor, deleta apenas a referencia dele na tabela
     */
     if (!file_exists($retornoCaminhoDoArquivo))
 	{
@@ -187,6 +187,30 @@ if (isset($_GET["deletar"]))
 		}
 	}
 }
+
+
+/**
+* Deletar Multiplo, Deletar todos os arquivos de uma só vez.
+*/
+if (isset($_GET["deletarViaMultiplos"]))
+{
+	$campo = $_POST["check"];
+	$quantidade = count($_POST["check"]);
+	for ($cont = 0; $cont < $quantidade; $cont++)
+	{
+		foreach($arquivos->listarWhere("id", $campo[$cont]) as $listar)
+		{
+			unlink($listar->caminhoArquivo);
+		}
+
+		if ($arquivos->deletar($campo[$cont]))
+		{
+			setcookie("msgSucesso","Arquivo Deletado com Sucesso.");
+    	    header("Location:adicionar_arquivos.php");
+	    }
+    }
+}
+
 
 /**
 * Função verifica se ocorreu erro durante o upload, 
