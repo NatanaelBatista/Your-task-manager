@@ -55,13 +55,23 @@ class Container
 	}
     
      /**
-    * Instância a class para trabalhar com os relatórios de cadastro.
+    * Instância a class para trabalhar com os relatórios de tarefas.
     * @return instancia do objeto Relatorio
     */
 	public static function getTarefasRelatorios()
 	{
 		$tarefasRelatorios = new TarefasRelatorios(self::getTarefas());
 		return $tarefasRelatorios;
+	}
+
+    /**
+    * Instância a class para trabalhar com os relatórios de usuarios.
+    * @return instancia do objeto Relatorio
+    */
+	public static function getUsuariosRelatorios()
+	{
+		$usuariosRelatorios = new UsuariosRelatorios(self::getUsuario());
+		return $usuariosRelatorios; 
 	}
     
      /**

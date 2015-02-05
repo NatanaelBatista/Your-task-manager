@@ -5,6 +5,7 @@ $usuario = Container::getUsuario();
 $tarefas = Container::getTarefas();
 $loginModel = Container::getLoginModel();
 $TarefasRelatorios = Container::getTarefasRelatorios();
+$usuariosRelatorios = Container::getUsuariosRelatorios();
 require_once("layout_parts/header.php");
 require_once("layout_parts/banner.php");
 require_once("validaSession.php");
@@ -21,14 +22,15 @@ require_once("validaSession.php");
 <section class="areas apresenta-tarefas">
 
 <h1 class="h1-title-tarefas">Relatório Geral de atividades</h1>
-<div class="info-areas">
 
+<div class="info-areas">
+Relatório das Terefas
         	<table>
             <thead>
         		<tr class="tr-top">
         			<td>Tarefas</td>
         			<td>Pendentes</td>
-        			<td>Sendo Feita</td>
+        			<td>Em Andamento</td>
         			<td>Finalizadas</td>
         			<td>Previsão de conclusão</td>
         		</tr>
@@ -44,6 +46,25 @@ require_once("validaSession.php");
 
         	</table>
 
+<!------------------------------------------------------------------------------------------------>
+<br>
+Relatório dos Usuários
+            <table>
+            <thead>
+                <tr class="tr-top">
+                    <td>Usuarios</td>
+                    <td>Usuarios Master</td>
+                    <td>Usuarios Funcionarios</td>
+                </tr>
+            </thead>
+
+                <tr>
+                    <td><?php echo $usuariosRelatorios->usuariosCadastrados();              ?></td>
+                    <td><?php echo $usuariosRelatorios->quantidadeDeUsuariosMaster();       ?></td>
+                    <td><?php echo $usuariosRelatorios->quantidadeDeUsuariosFuncionario();  ?></td>           
+                </tr>
+
+            </table>
 </div><!-- end info areas -->
 </section>
     

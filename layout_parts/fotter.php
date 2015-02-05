@@ -3,6 +3,7 @@
 <script	src="js/hideMsg.js"></script>
 <script	src="js/deletarTarefas.js"></script>
 <script src="editor/ckeditor.js"></script>
+<script src="js/form.js"></script> 
 <script>
     $(document).ready(function() {
     
@@ -35,4 +36,6 @@
 	
 	hideMsg();
 	deletarTarefas();
+
+  $("#theForm").jqTransform();
 </script>
