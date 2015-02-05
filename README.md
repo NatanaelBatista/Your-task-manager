@@ -29,7 +29,7 @@
 	<li>Cadastro de tarefas ( Estado - pedente - sendo feita - concluída )</li>
 	<li>Cadastro de mensagens global usando o editor ( Ckeditor )</li>
 	<li>Área mostrando o andamento das tarefas cadastradas juntamente com a previsão de conclusão expressa em porcentagem</li>
-	<li>Cadastro de arquivos de variados tipos que poe ser definido pelo administrador do sistema, como: pdf, zip, rar, php...</li>
+	<li>Cadastro de arquivos de variados tipos que podem ser definidos pelo administrador do sistema, como: pdf, zip, rar, php...</li>
 	<li>Acesso a API do Gravatar para buscar imagens de perfil vinculadas ao email dos usuários</li>
 </ul>
 
