@@ -196,6 +196,13 @@ if (isset($_GET["deletarViaMultiplos"]))
 {
 	$campo = $_POST["check"];
 	$quantidade = count($_POST["check"]);
+
+	if ($quantidade < 1)
+	{
+		setcookie("msgErro","Selecione algum Arquivo antes de tentar Deletar.");
+		header("Location:adicionar_arquivos.php");
+	}
+
 	for ($cont = 0; $cont < $quantidade; $cont++)
 	{
 		foreach($arquivos->listarWhere("id", $campo[$cont]) as $listar)

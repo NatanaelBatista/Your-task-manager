@@ -9,21 +9,20 @@
 	   <a class="link_visualizar" href="<?php echo $listar->caminhoArquivo;?>" target="_blank">Visualizar</a> | 
 	<?php endif; ?>
 
-	<?php if ($_SESSION["perfil"] != 2 and $_SESSION["perfil"] != 1):?>
+	<?php if ($_SESSION["perfil_master_master"] == 1 or $_SESSION["perfil"] == 1):?>
 
       <a href="?editar&id=<?php echo $listar->id;?>">Editar</a> |
-	    <a class="deletar-arquivo-file" href="arquivos_controller.php?deletar&id=<?php echo $id; ?>">Deletar</a>
-  	
+      <a class="deletar-arquivo-file" href="arquivos_controller.php?deletar&id=<?php echo $id; ?>">Deletar</a>
+      | <input class="checkbox" type="checkbox" name="check[]" value="<?php echo $listar->id; ?>">
+    
   <?php endif; ?>
 
-  <?php if ($_SESSION["idUsuario"] == $listar->idUsuario or $_SESSION["perfil_master_master"] = 1):?>
+  <?php if ($_SESSION["perfil"] == 2 and $_SESSION["idUsuario"] == $listar->idUsuario):?>
          
       <a href="?editar&id=<?php echo $listar->id;?>">Editar</a> |
 	    <a class="deletar-arquivo-file" href="arquivos_controller.php?deletar&id=<?php echo $id; ?>">Deletar</a>
+      | <input class="checkbox" type="checkbox" name="check[]" value="<?php echo $listar->id; ?>">
   	
   <?php endif; ?>
-  
-  
-  | <input class="checkbox" type="checkbox" name="check[]" value="<?php echo $listar->id; ?>">
   
 </div>

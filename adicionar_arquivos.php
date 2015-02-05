@@ -62,6 +62,10 @@ else
 <div class="info-areas">
 
 <form method="post" action="arquivos_controller.php?deletarViaMultiplos">
+
+
+<?php if (count($arquivos->listarWhere("idUsuario",$_SESSION["idUsuario"])) > 0):?>
+
 <div class="div_segura_button">
 
 <!--botão submit para deletar todos os arquivos selecionados via checkboxs-->
@@ -72,6 +76,9 @@ else
 <input id="checkAll" class="checkAll" type="checkbox" name="checkAll"> 
 <!--end-->
 </div>
+
+<?php endif; ?>
+
 <div class="hide"></div>
 <?php foreach($arquivos->select() as $listar):
         $extencao = explode(".", $listar->caminhoArquivo);
@@ -114,8 +121,8 @@ else
     <?php echo $listar->nome . "." . $extencao[1]; ?>
   	<br> 
     <span class="data_postagem_files">
-       Cadastrado em:  <span class="time-line-nome"> <?php echo $listar->dataPostagem; ?></span> |
-       ( Cadastrado por: <span class="time-line-nome"> <?php echo DelimitarPorTamnho($_retornoNomeUsuario, 20, "..."); ?></span> )
+       Data: <span class="time-line-nome"> <?php echo $listar->dataPostagem; ?></span> |
+       ( Por: <span class="time-line-nome"> <?php echo DelimitarPorTamnho($_retornoNomeUsuario, 20, "..."); ?></span> )
     </span>
   	<?php
       require("layout_parts/controle_arquivos_file.php");
@@ -146,7 +153,7 @@ else
   $(document).ready(function() {
 	   /*Mostra o botão de submit se o campo file contiver um arquivo setado*/
 	    var postarFile = $(".postar-file").hide();
-       var campoFile = $(".campo_file").on("change",function() {
+      var campoFile = $(".campo_file").on("change",function() {
           postarFile.show("fast");
        });
   });
@@ -179,7 +186,7 @@ else
      /*Seleciona todos os checkbox da página*/
      var all = document.querySelectorAll(".checkbox"),
          checkAll = document.querySelector(".checkAll");
-
+ 
          checkAll.onclick = function()
          {
             for (var cont = 0; cont < all.length; cont++)
@@ -194,6 +201,29 @@ else
                }
             }
          }
+
+        /*Verifica se existe um arquivo selecionado antes de tentar a deleção multipla*/
+        var buttonDeletar = document.querySelector(".deletar_todos_arquivos_selecionados");
+            buttonDeletar.onclick = function()
+            {
+              var confirmar = confirm("Deseja deletar esses Arquivos?");
+              if (confirmar)
+              {
+                for (var cont = 0; cont < all.length; cont++)
+                 {
+                   if (all[cont].checked == false)
+                   {
+                     alert("Selecione um arquivo");
+                     return false;
+                   }
+                 }
+                 return true;
+              }
+              else
+              {
+                return false;
+              }
+            }
   }
   </script>
 </body>
