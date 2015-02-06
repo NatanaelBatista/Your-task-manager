@@ -16,6 +16,18 @@ $input = str_replace("-","",$input);
 echo $input;
 */
 
-echo $usuariosRelatorios->usuariosCadastrados();
+$parametro = 45;
+function checar($chave = 0)
+{
+	if ($chave > 0)
+	{
+		return "Yes";
+	}
+	else
+	{
+		return "Howww";
+	}
+}
 
+echo checar();
 ?>

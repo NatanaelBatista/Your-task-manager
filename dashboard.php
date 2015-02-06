@@ -1,10 +1,6 @@
 <?php 
 session_start();
 require_once("loaderClasses.php");
-$usuario = Container::getUsuario();
-$tarefas = Container::getTarefas();
-$loginModel = Container::getLoginModel();
-$arquivos = Container::getArquivos();
 require_once("layout_parts/header.php");
 require_once("layout_parts/banner.php");
 require_once("validaSession.php");
@@ -29,12 +25,7 @@ require_once("validaSession.php");
 	{
 		require_once("layout_parts/area_textarea_postagem.php");
 	}
-	?>
-    
-    
 	
-
-	<?php 
 	if (isset($_GET["textoCompleto"]))
 	{
 		$id = (int) $_GET["id"];

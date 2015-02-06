@@ -1,9 +1,6 @@
 <?php 
 session_start();
 require_once("loaderClasses.php");
-$usuario = Container::getUsuario();
-$tarefas = Container::getTarefas();
-
 require_once("layout_parts/header.php");
 require_once("layout_parts/banner.php");
 require_once("utilidades/functions.php");

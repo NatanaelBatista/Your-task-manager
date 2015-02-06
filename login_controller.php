@@ -4,7 +4,6 @@
 * @author Valdiney França
 */
 require_once("loaderClasses.php");
-$loginModel = Container::getLoginModel();
 
 if (isset($_GET["login"]))
 {

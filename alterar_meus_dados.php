@@ -4,9 +4,6 @@ session_start();
 * Essa página altera os dados do Usuario Corrente
 */
 require_once("loaderClasses.php");
-$usuario = Container::getUsuario();
-$tarefas = Container::getTarefas();
-
 require_once("layout_parts/header.php");
 require_once("layout_parts/banner.php");
 require_once("utilidades/functions.php");
