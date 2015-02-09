@@ -38,7 +38,7 @@ function situacaoTarefa($situacao)
 	}
 	elseif ($situacao == "2")
 	{
-		return "Sendo Feita";
+		return "Em andamento";
 	}
 	elseif ($situacao == "3")
 	{

@@ -1,8 +1,6 @@
 <?php 
   require_once("loaderClasses.php");
   require_once("utilidades/functions.php");
-  $usuario = Container::getUsuario();
-  $loginModel = Container::getLoginModel();
 
   /**
   * Este metodo cadastra o primeiro usuario do sistema

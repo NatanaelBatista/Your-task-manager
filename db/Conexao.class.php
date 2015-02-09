@@ -16,7 +16,7 @@ class Conexao implements ConexaoInterface
 				$servidor = "false";
 				if ($servidor == "true")
 				{
-					self::$conexao = new PDO("mysql:host=mysql12.000webhost.com;dbname=a1759951_tarefas","a1759951_base","32402709ney");
+					self::$conexao = new PDO("mysql:host=mysql.hostinger.com.br;dbname=u592982482_ney","u592982482_ney","32402709ney");
 				}
 				else
 				{

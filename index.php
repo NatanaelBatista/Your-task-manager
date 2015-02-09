@@ -2,7 +2,6 @@
 $bannerIndexPage = 'id="pagina_index"';
 require_once("layout_parts/header.php");
 require_once("layout_parts/banner.php");
-
 ?>
 
 	<article class="main">
@@ -83,13 +82,8 @@ require_once("layout_parts/banner.php");
                      recuperarSenha: loginEmail.val()
                   }, function(data) {
                     respostaAjaxEmail.text("");
-                    var explode = data.split("<br />",data);
-                    /**
-                    * Infelizmente uma gambiarra para não retornar validação incoerente 
-                    * quando o sistema estiver rodando localmente sem a função “mail” 
-                    * configurada no php.ini 
-                    */
-                  	if (data[0] == "<") {
+                    
+                  	if (data == 1) {
                   		respostaAjaxEmail.attr('class', 'verde');
                   		respostaAjaxEmail.text("Verifique o seu Email para recuperar sua Senha.");
                   	} 

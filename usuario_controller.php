@@ -321,7 +321,7 @@ if (isset($_POST["recuperarSenha"]))
         $sendEmail->setRemetente($email);
         $sendEmail->setDestino($email);
         $sendEmail->setAssunto("Recuperação das suas credenciais de acesso do gerenciador de tarefas ( Your task manager )");
-        $sendEmail->setMensagem("Senhor {$_nome} sua senha de acesso para o sistema é: {$_senha}");
+        $sendEmail->setMensagem("<h3>Senhor {$_nome} sua senha de acesso para o sistema ( Your task manager ) é</h3>: {$_senha}");
         $sendEmail->sendThisEmail();
         echo 1;
     }
