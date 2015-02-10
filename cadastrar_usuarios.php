@@ -10,6 +10,10 @@ require_once("validaAreaPerfilMaster.php");
 if (isset($_GET["editar"]))
 {
     $id = (int) $_GET["id"];
+    if (!$usuario->listarWhere("id", $id))
+    {
+        header("Location:cadastrar_usuarios.php");
+    }
     foreach($usuario->listarWhere("id",$id) as $listar)
     {
         $_id = $listar->id;
