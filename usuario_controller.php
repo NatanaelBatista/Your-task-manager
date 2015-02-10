@@ -108,6 +108,11 @@ if (isset($_GET["deletar"]))
         setcookie("msgErro","Um Usuário portador do perfil Master não pode deletar um outro usuário com o mesmo perfil.");
         header("Location:cadastrar_usuarios.php");
     }
+    elseif ($_SESSION["perfil_master_master"] == "1")
+    {
+        setcookie("msgErro","O perfil ( Master Master ) não pode ser deletado, nem mesmo por você usuário (  Master Master ).");
+        header("Location:cadastrar_usuarios.php");
+    }
     else 
     {
         /**
