@@ -43,11 +43,13 @@ require_once("validaSession.php");
             <button type="submit" class="button-postar">Publicar Recado</button>
             <p>
               ( <span class="time-line-nome"> Recados cadastrados<b><?php echo count($recados->listar());?></b></span> )
-             Os seus recados serão mostradas para todos os usuários do sistema.
+             Os seus recados serão mostrados para todos os usuários do sistema.
             </p>
         </form>
         <?php }; ?>
       </section>  
+    
+    <?php if (count($recados->listar()) > 0): ?>
 
     <section class="areas apresenta-tarefas areas_recados">
        <h1 class="h1-title-tarefas">Mural de Recados</h1>
@@ -83,6 +85,8 @@ require_once("validaSession.php");
          <?php endforeach; ?>
        </div><!-- end info areas -->
     </section><!-- end areas -->
+
+  <?php endif; ?>
     
     </section>
 	</section><!--end right-->

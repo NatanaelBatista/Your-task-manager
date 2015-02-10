@@ -10,6 +10,7 @@
 
 </section><!--end left-->
 
+<?php  if (count($tarefas->listar()) > 0):?>
 
 <section class="left">
 <div class="div_oculta_left">
@@ -19,6 +20,9 @@
 </form>
 </div>
 </section><!--end left-->
+
+<?php endif;?>
+
 
 <section class="left">
 <br>
@@ -64,6 +68,7 @@
 
 
 <?php  if (count($tarefas->listar()) > 0):?>
+
 <section class="left">
 <br>
 <b><?php echo $captions_menu_left["caption_menu_left_tarefas"]; ?></b>
@@ -88,5 +93,7 @@
     <?php endforeach; ?>
 </ul>
 </section><!--end left-->
+
 <?php endif; ?>
+
 </div><!-- end toda área de menu -->
