@@ -40,8 +40,9 @@
 </ul>
 </section><!--end left-->
 
+<?php if (count($usuario->listar()) > 1): ?>
 <ul id="menu-left" class="cadastrar-usuario">
-<li><a href="#" class="show_menu_usuarios_cadastrados"><?php echo $captions_menu_left["05"]; ?></a></li>
+    <li><a href="#" class="show_menu_usuarios_cadastrados"><?php echo $captions_menu_left["05"]; ?></a></li>
 </ul>
 
 <div id="container_lista_usuarios">
@@ -65,6 +66,8 @@
 </ul>
 </section><!--end left-->
 </div>
+
+<?php endif; ?>
 
 
 <?php  if (count($tarefas->listar()) > 0):?>
