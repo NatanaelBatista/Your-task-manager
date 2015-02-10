@@ -63,7 +63,7 @@
 </div>
 
 
-
+<?php  if (count($tarefas->listar()) > 0):?>
 <section class="left">
 <br>
 <b><?php echo $captions_menu_left["caption_menu_left_tarefas"]; ?></b>
@@ -88,4 +88,5 @@
     <?php endforeach; ?>
 </ul>
 </section><!--end left-->
-</div>
+<?php endif; ?>
+</div><!-- end toda área de menu -->
