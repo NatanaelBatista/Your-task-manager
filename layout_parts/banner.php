@@ -51,7 +51,7 @@
   }
 ?>
 	<section id="sobre-usuario">
-		<?php echo "<b>Perfil</b>: "  . $tipoPerfil; ?> | <a id="logOut" href="?sair" title="Sair do Sistema">Sair</a>
+		<?php echo "<b>Perfil</b>: <small class='small_aux'>"  . $tipoPerfil . "</small>"; ?> | <a id="logOut" href="?sair" title="Sair do Sistema">Sair</a>
 	</section>
 <?php endif; ?>
 <div class="hide"></div>
