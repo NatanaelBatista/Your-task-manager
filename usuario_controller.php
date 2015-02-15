@@ -188,6 +188,31 @@ if (isset($_GET["deletar"]))
 }
 
 /**
+* Deletar Mutiplos Usuários
+*/
+if (isset($_GET["deletarMultiplo"]))
+{
+    $campo = $_POST["check"];
+    $quantidade = count($_POST["check"]);
+
+    if ($quantidade < 1)
+    {
+        setcookie("msgErro","Selecione algum Usuário antes de tentar Deletar.");
+        header("Location:cadastrar_usuarios.php");
+    }
+
+    for ($cont = 0; $cont < $quantidade; $cont++)
+    {
+        if ($usuario->deletar($campo[$cont]))
+        {
+            setcookie("msgSucesso","Usuários Deletados com Sucesso.");
+            header("Location:cadastrar_usuarios.php");
+        }
+    }
+}
+
+
+/**
 * Editar Usuario
 */
 if (isset($_GET["editar"]))

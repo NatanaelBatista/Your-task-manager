@@ -14,6 +14,7 @@ if (isset($_GET["editar"]))
     {
         header("Location:cadastrar_usuarios.php");
     }
+
     foreach($usuario->listarWhere("id",$id) as $listar)
     {
         $_id = $listar->id;
@@ -136,6 +137,18 @@ if (isset($_GET["editar"]))
         <section class="areas">
         	<h3>Usuarios Cadastrados</h3>
 
+        <form method="post" action="usuario_controller.php?deletarMultiplo">
+
+        <div class="div_segura_button">
+            <!--botão submit para deletar todos os arquivos selecionados via checkboxs-->
+            <button type="submit" class="deletar_todos_arquivos_selecionados">Deletar selecionados</button>
+
+            <!--checkbox para selecionar todos os checkboxs-->
+            <label for="checkAll">Selecionar Todos</label>
+            <input id="checkAll" class="checkAll" type="checkbox" name="checkAll">   
+
+        </div> <!--end-->
+
         	<table>
             <thead>
         		<tr class="tr-top">
@@ -145,6 +158,7 @@ if (isset($_GET["editar"]))
         			<td>Perfil</td>
         			<td>Editar</td>
         			<td>Deletar</td>
+                    <td>Del</td>
         		</tr>
             </thead>
 
@@ -156,17 +170,17 @@ if (isset($_GET["editar"]))
              if ($listar->perfil == "1" and $listar->perfil_master_master != "1")
              {
                 $classPerfil = "master";
-             	$tipoPerfil = "Master";
+             	$tipoPerfil = "MT";
              }
              elseif ($listar->perfil == "1" and $listar->perfil_master_master == "1")
              {
                 $classPerfil = "master";
-                $tipoPerfil = "Super Master";
+                $tipoPerfil = "SMT";
              }
              else
              {
                 $classPerfil = "funcionario";
-             	$tipoPerfil = "Funcionario";
+             	$tipoPerfil = "FC";
              }
             ?>
                 <tr>
@@ -175,11 +189,14 @@ if (isset($_GET["editar"]))
                 	<td><?php echo $listar->login; ?></td>
                 	<td class="<?php echo $classPerfil ?>"><?php echo $tipoPerfil; ?></td>
                     <td><a href="?editar&id=<?php echo $listar->id;?>" class="editar" title="Editar o Usuario <?php echo $listar->nome; ?>">Editar</a></td>
-                    <td><a href="usuario_controller.php?deletar&id=<?php echo $listar->id;?>" class="deletar" title="Deletar o Usuario <?php echo $listar->nome; ?>">Deletar</a></td>                </tr>
+                    <td><a href="usuario_controller.php?deletar&id=<?php echo $listar->id;?>" class="deletar" title="Deletar o Usuario <?php echo $listar->nome; ?>">Deletar</a></td>
+                    <td><input class="checkbox" type="checkbox" name="check[]" value="<?php echo $listar->id; ?>"></td>
                 </tr>
         	<?php endforeach; ?>
         		
         	</table>
+        </form>
+
         </section>
 	</section><!--end right-->
 
@@ -192,5 +209,53 @@ if (isset($_GET["editar"]))
 
 	</article><!--end main-->
     <?php require_once("layout_parts/footer.php"); ?>
+
+     <script>
+  window.onload = function()
+  {
+     /*Seleciona todos os checkbox da página*/
+     var all = document.querySelectorAll(".checkbox"),
+         checkAll = document.querySelector(".checkAll");
+ 
+         checkAll.onclick = function()
+         {
+            for (var cont = 0; cont < all.length; cont++)
+            {
+               if (checkAll.checked == false)
+               {
+                 all[cont].checked = false;
+               }
+               if (checkAll.checked == true)
+               {
+                 all[cont].checked = true;
+               }
+            }
+         }
+       
+        /*Verifica se existe um arquivo selecionado antes de tentar a deleção multipla*/
+        
+        var buttonDeletar = document.querySelector(".deletar_todos_arquivos_selecionados");
+            buttonDeletar.onclick = function()
+            {
+              var confirmar = confirm("Deseja deletar esse Usuário?");
+              if (confirmar)
+              {
+                for (var cont = 0; cont < all.length; cont++)
+                 {
+                   if (all[cont].checked == false)
+                   {
+                     alert("Selecione um arquivo");
+                     return false;
+                   }
+                 }
+                 return true;
+              }
+              else
+              {
+                return false;
+              }
+            } 
+  }
+  </script>
 </body>
 </html>
