@@ -20,7 +20,7 @@ class LoginModel
     * @param String $login
     * @param String $senha
     */
-	public function verificaLogin($login,$senha)
+	public function verificaLogin($login, $senha)
 	{
 		$query = $this->db->prepare("select * from {$this->tableName} where login = ? and senha = ?");
 		$query->execute(array($login,$senha));
@@ -29,10 +29,8 @@ class LoginModel
 		{
 			return true;
 		}
-		else 
-		{
-			return false;
-		}
+
+		return false;
 	}
     
     /**
@@ -41,7 +39,7 @@ class LoginModel
     * @param String $login
     * @param String $senha
     */
-	public function retornaDadosLogin($login,$senha)
+	public function retornaDadosLogin($login, $senha)
 	{
 		$query = $this->db->prepare("select * from {$this->tableName} where login = ? and senha = ?");
 		$query->execute(array($login,$senha));
@@ -54,7 +52,7 @@ class LoginModel
     * @param String - $caminhoNaoLogado;
     * @return Void
     */
-	public function protegeSession($sessionLogin,$caminhoNaoLogado)
+	public function protegeSession($sessionLogin, $caminhoNaoLogado)
 	{
 		@session_start();
 		if (!isset($sessionLogin))
@@ -69,7 +67,7 @@ class LoginModel
     * @param String - $caminhoNaoLogado;
     * @return Void
     */
-	public function protegeAreaAdminPerfilMaster($sessionLogin,$caminhoNaoLogado)
+	public function protegeAreaAdminPerfilMaster($sessionLogin, $caminhoNaoLogado)
 	{
 		@session_start();
 		if (isset($sessionLogin) != "1")

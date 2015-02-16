@@ -49,9 +49,9 @@ require_once("validaSession.php");
 		
 	</section><!--end right-->
 
-	    <?php 
-	      require_once("layout_parts/area_left.php");
-	    ?>
+	<?php 
+	    require_once("layout_parts/area_left.php");
+	?>
     <div class="hide"></div>
 
 	</article><!--end main-->

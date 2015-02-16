@@ -1,8 +1,8 @@
 <script src="js/jquery-1.11.0.js"></script>
-<script	src="js/jquery-ui.min.js"></script>
-<script	src="js/hideMsg.js"></script>
-<script	src="js/deletarTarefas.js"></script>
+<script src="js/jquery-ui.min.js"></script>
+<script src="js/hideMsg.js"></script>
 <script src="editor/ckeditor.js"></script>
+<script src="js/deletar.js"></script>
 <script>
     $(document).ready(function() {
     
@@ -34,5 +34,7 @@
 	}); // end jquery
 	
 	hideMsg();
-	deletarTarefas();
+	var buttonDeletarTarefas = document.querySelector(".deletar"),
+      mensagem = "Deseja realmente deletar essa Tarefa?";
+      deletar(buttonDeletarTarefas, mensagem);
 </script>

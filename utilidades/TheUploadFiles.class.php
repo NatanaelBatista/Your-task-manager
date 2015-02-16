@@ -96,10 +96,8 @@ class TheUploadFiles
                 $this->moveFile();
                 return true;
             }
-            else
-            {
-                return false;
-            }
+            
+            return false;
         } 
     }
     

@@ -10,8 +10,7 @@ class Container
     */
 	public static function getUsuario()
 	{
-		$usuario = new UsuarioModel(self::getConexao());
-		return $usuario;
+		return new UsuarioModel(self::getConexao());
 	}
 
     /**
@@ -20,8 +19,7 @@ class Container
     */
 	public static function getTarefas()
 	{
-		$tarefas = new TarefasModel(self::getConexao());
-		return $tarefas;
+		return new TarefasModel(self::getConexao());
 	}
 
 	 /**
@@ -30,8 +28,7 @@ class Container
     */
 	public static function getRecados()
 	{
-		$recados = new RecadosModel(self::getConexao());
-		return $recados;
+		return new RecadosModel(self::getConexao());
 	}
     
     /**
@@ -40,8 +37,7 @@ class Container
     */
 	public static function getLoginModel()
 	{
-		$login = new LoginModel(self::getConexao());
-		return $login;
+		return new LoginModel(self::getConexao());
 	}
     
     /**
@@ -50,8 +46,7 @@ class Container
     */
 	public static function getSendMail()
 	{
-		$sendEmail = new SendEmail();
-		return $sendEmail;
+		return new SendEmail();
 	}
     
      /**
@@ -60,8 +55,7 @@ class Container
     */
 	public static function getTarefasRelatorios()
 	{
-		$tarefasRelatorios = new TarefasRelatorios(self::getTarefas());
-		return $tarefasRelatorios;
+		return new TarefasRelatorios(self::getTarefas());
 	}
 
     /**
@@ -70,8 +64,7 @@ class Container
     */
 	public static function getUsuariosRelatorios()
 	{
-		$usuariosRelatorios = new UsuariosRelatorios(self::getUsuario());
-		return $usuariosRelatorios; 
+		return new UsuariosRelatorios(self::getUsuario());
 	}
     
      /**
@@ -80,8 +73,7 @@ class Container
     */
 	public static function getArquivos()
 	{
-		$arquivos = new ArquivoModel(self::getConexao());
-		return $arquivos;
+		return new ArquivoModel(self::getConexao());
 	}
     
      /**
@@ -90,8 +82,7 @@ class Container
     */
 	public static function getTheUploadFiles()
 	{
-		$upload = new TheUploadFiles();
-		return $upload;
+		return new TheUploadFiles();
 	}
 
 	/**

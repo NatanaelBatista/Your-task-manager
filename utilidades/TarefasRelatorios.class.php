@@ -42,14 +42,10 @@ class TarefasRelatorios
 		if ($this->quantidadeDeTarefas() > 0)
 		{
 			$razao = $this->finalizadas / $this->quantidade;
-	        $razaoCentesimal = ceil($razao * 100);
-	        return $razaoCentesimal;
-		}
-		else
-		{
-			return 0;
+	        return $razaoCentesimal = ceil($razao * 100);
 		}
 		
+		return 0;
 	}
 }
 /* End of file TarefasRelatorios.class.php */

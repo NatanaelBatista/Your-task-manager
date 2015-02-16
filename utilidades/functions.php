@@ -46,6 +46,11 @@ function situacaoTarefa($situacao)
 	}
 }
 
+function situacaoPerfil($perfil)
+{
+  //Escrever aqui seu code...
+}
+
 /**
 * Deleta Cookies depois da atualização da página
 */

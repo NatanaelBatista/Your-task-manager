@@ -2,7 +2,7 @@
 /**
 * Página carrega as Classes usadas pelo Sistema.
 */
-require_once("config/translation_en.php");
+require_once("idioma/translation_en.php");
 require_once("db/Conexao.class.php");
 require_once("config/Container.class.php");
 

@@ -30,6 +30,7 @@ function checar($chave = 0)
 	}
 }
 */
+
 $usuarios = array();
 foreach($usuario->listar() as $listar)
 {
@@ -39,5 +40,6 @@ foreach($usuario->listar() as $listar)
 	$usuarios[] = $listar;
 }
 
-echo $json = json_encode($usuarios);
+//echo $json = json_encode($usuarios);
 ?>
+

@@ -23,7 +23,7 @@ if (isset($_GET["login"]))
 	/**
 	* Se returnar true o usuário tem um cadastro valido no sistema.
 	*/
-	elseif ($loginModel->verificaLogin($login,$senha) == true)
+	elseif ($loginModel->verificaLogin($login,$senha))
 	{
 		foreach($loginModel->retornaDadosLogin($login,$senha) as $listar)
 		{

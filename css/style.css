@@ -20,7 +20,11 @@
         line-height: 1.5;
         background-image:url("css_img/fundo.jpg")!important;
         background-attachment: fixed;
-        background:#f1f0f0!important;
+        /*background:#f1f0f0!important;*/
+         -webkit-background-size: cover;
+         -moz-background-size: cover;
+         -o-background-size: cover;
+         background-size: cover;
 	}
 	.main {
 		width:1010px;
