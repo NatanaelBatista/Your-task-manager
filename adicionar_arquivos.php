@@ -142,6 +142,8 @@ else
 
 	</article><!--end main-->
 	<?php require_once("layout_parts/footer.php"); ?>
+  <script src="js/checkboxMultiplo.js"></script>
+  <script src="js/deletar.js"></script>
 
 <?php if (!isset($_GET["editar"])): ?>
 
@@ -157,70 +159,25 @@ else
 
 <?php endif; ?>
 
-  <script>
-    /*Controle de deleção dos Arquivos*/
-    function deletarArquivos() {
-        var deletar = $(".deletar-arquivo-file");
-        deletar.click( function() {
-        var confirmar = confirm("Deseja realmente deletar esse Arquivo?");
-        if (confirmar) {
-          return true;
-        } else {
-          return false;
-        }
-      })
-    }
+<script>
+window.onload = function()
+{
+    /*Seleciona todos os checkbox da página*/
+    var all = document.querySelectorAll(".checkbox"),
+        checkAll = document.querySelector(".checkAll");
+        selecionarTodos(all, checkAll);
 
-  deletarArquivos();
+    /*Confirma deleção multipla*/    
+    var buttonDeletarMultipla = document.querySelector(".deletar_todos_arquivos_selecionados"),
+        segundaMensagem = "Deseja Deletar esse Arquivo?";
+        deletar(buttonDeletarMultipla , segundaMensagem);
 
-	</script>
-
-
-  <script>
-  window.onload = function()
-  {
-     /*Seleciona todos os checkbox da página*/
-     var all = document.querySelectorAll(".checkbox"),
-         checkAll = document.querySelector(".checkAll");
- 
-         checkAll.onclick = function()
-         {
-            for (var cont = 0; cont < all.length; cont++)
-            {
-               if (checkAll.checked == false)
-               {
-                 all[cont].checked = false;
-               }
-               if (checkAll.checked == true)
-               {
-                 all[cont].checked = true;
-               }
-            }
-         }
-
-        /*Verifica se existe um arquivo selecionado antes de tentar a deleção multipla*/
-        var buttonDeletar = document.querySelector(".deletar_todos_arquivos_selecionados");
-            buttonDeletar.onclick = function()
-            {
-              var confirmar = confirm("Deseja deletar esses Arquivos?");
-              if (confirmar)
-              {
-                for (var cont = 0; cont < all.length; cont++)
-                 {
-                   if (all[cont].checked == false)
-                   {
-                     alert("Selecione um arquivo");
-                     return false;
-                   }
-                 }
-                 return true;
-              }
-              else
-              {
-                return false;
-              }
-            }
-  }
-  </script>
+    /*Confirma deleção unidade*/    
+    var buttonDeletarUnidade = document.querySelector(".deletar-arquivo-file"),
+        segundaMensagem = "Deseja Deletar esse Arquivo?";
+        deletar(buttonDeletarUnidade, segundaMensagem);
+            
+}
+</script>
 </body>
 </html>
