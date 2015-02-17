@@ -78,7 +78,7 @@ require_once("validaSession.php");
          if ($_SESSION["perfil_master_master"] == 1):
          ?>
            <a href="pagina_de_recados.php?prepara_para_editar&id=<?php echo $listar->id; ?>" class="editar" title="Editar essa tarefa">Editar</a> |
-           <a href="recados_controller.php?deletar&id=<?php echo $listar->id; ?>" class="deletar" title="Deletar essa tarefa">Deletar</a>
+           <a href="recados_controller.php?deletar&id=<?php echo $listar->id; ?>" id="deletar_recados" class="deletar_recados" title="Deletar essa tarefa">Deletar</a>
          
          <?php endif;?>
          </div>
@@ -98,7 +98,7 @@ require_once("validaSession.php");
 	</article><!--end main-->
 <?php require_once("layout_parts/footer.php"); ?>
 
-    <script>
+<script>
     $(function() {
      CKEDITOR.replace( 'recado', {
         uiColor: '#f6f7f8',
@@ -109,6 +109,17 @@ require_once("validaSession.php");
         ]
       });
 });
-    </script>
+
+/*Confirmação Deletar Recados*/
+window.onload = function() 
+{
+  var buttonDeletarRecados = document.querySelectorAll(".deletar_recados");
+  for (var cont = 0, max = buttonDeletarRecados.length; cont < max; cont += 1)
+  {
+    var mensagemDeletar = "Deseja Realmente deletar esse Recado?";
+        deletar(buttonDeletarRecados[cont], mensagemDeletar);
+  } 
+}
+</script>
 </body>
 </html>

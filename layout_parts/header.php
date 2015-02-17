@@ -1,6 +1,6 @@
 <html>
 <head>
-	<title>Your Task Manager 0.1</title>
+	<title>Your Task Manager</title>
 	<meta charset="utf-8">
 	<link rel="icon" type="image/png" href="html_img/icon.png" />
 	<link rel="stylesheet" href="css/style.css" type="text/css">

@@ -34,7 +34,11 @@
 	}); // end jquery
 	
 	hideMsg();
-	var buttonDeletarTarefas = document.querySelector(".deletar"),
-      mensagem = "Deseja realmente deletar essa Tarefa?";
-      deletar(buttonDeletarTarefas, mensagem);
+  
+	var buttonDeletarTarefas = document.querySelectorAll(".deletar");
+      for (var cont = 0, max = buttonDeletarTarefas.length; cont < max; cont += 1)
+      {
+        var mensagem = "Deseja realmente deletar essa Tarefa?";
+            deletar(buttonDeletarTarefas[cont], mensagem);
+      }
 </script>

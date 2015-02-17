@@ -173,10 +173,12 @@ window.onload = function()
         deletar(buttonDeletarMultipla , segundaMensagem);
 
     /*Confirma deleção unidade*/    
-    var buttonDeletarUnidade = document.querySelector(".deletar-arquivo-file"),
-        segundaMensagem = "Deseja Deletar esse Arquivo?";
-        deletar(buttonDeletarUnidade, segundaMensagem);
-            
+    var buttonDeletarUnidade = document.querySelectorAll(".deletar-arquivo-file");
+    for (var cont = 0, max = buttonDeletarUnidade.length; cont < max; cont += 1)
+    {
+      var segundaMensagem = "Deseja Deletar esse Arquivo?";
+          deletar(buttonDeletarUnidade[cont], segundaMensagem);
+    }     
 }
 </script>
 </body>
