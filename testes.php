@@ -1,6 +1,7 @@
 <?php 
 session_start();
 require_once("loaderClasses.php");
+require_once("utilidades/functions.php");
 $usuario = Container::getUsuario();
 /*
 $tarefas = Container::getTarefas();
@@ -30,6 +31,9 @@ function checar($chave = 0)
 	}
 }
 */
+
+$nome = "Valdiney";
+echo Delimitar(" ", $nome, 1);
 
 $usuarios = array();
 foreach($usuario->listar() as $listar)

@@ -8,9 +8,9 @@
 * Delimita uma String de acordo com valores passados via argumentos.
 * @return Array
 */
-function DelimitarPorTamnho($entrada,$tamanho,$acabamento) 
+function DelimitarPorTamnho($entrada, $tamanho, $acabamento) 
 {
-	$saida = str_split($entrada,$tamanho);
+	$saida = str_split($entrada, $tamanho);
   return $saida[0].$acabamento;
 }
 
@@ -18,10 +18,15 @@ function DelimitarPorTamnho($entrada,$tamanho,$acabamento)
 * Delimita por caracteres.
 * @return Array
 */
-function Delimitar($d,$entrada,$p) 
+function Delimitar($d, $entrada, $p) 
 {
-	$saida = explode($d,$entrada);
-	return $saida[$p];
+	$saida = explode($d, $entrada);
+  if (empty($saida[$p]))
+  {
+    return " ";
+  }
+
+  return $saida[$p];
 }
 
 /**
