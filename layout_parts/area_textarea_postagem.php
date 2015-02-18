@@ -10,7 +10,7 @@
 				foreach($usuario->listar() as $listar):?>
                    <option value="<?php echo $listar->id;?>"><?php echo $listar->nome; ?></option>
 				<?php endforeach;?>
-			</select> <br>
+			</select> 
 			<button type="submit" class="button-postar"><?php echo $captions_postar_tarefas["caption_button"]; ?></button>
 		</form>
 </section>		

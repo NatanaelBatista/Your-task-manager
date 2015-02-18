@@ -1,5 +1,6 @@
 <script src="js/jquery-1.11.0.js"></script>
 <script src="js/jquery-ui.min.js"></script>
+<script src="js/jquery.fs.selecter.min.js"></script>
 <script src="js/hideMsg.js"></script>
 <script src="editor/ckeditor.js"></script>
 <script src="js/deletar.js"></script>
@@ -31,6 +32,10 @@
 				source: dadosPesquisa
 			});
 		})
+    
+    
+    $("select").selecter();
+    
 	}); // end jquery
 	
 	hideMsg();
