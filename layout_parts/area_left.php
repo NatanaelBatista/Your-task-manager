@@ -32,6 +32,7 @@
 
 	<?php if ($_SESSION["perfil"] == "1"): ?>
 	<li><a href="cadastrar_usuarios.php"><?php echo $captions_menu_left["02"]; ?></a></li>
+	<li><a href="configuracao_geral.php"><?php echo "General Config"; ?></a></li>
 	<?php endif; ?>
 
 	<li><a href="pagina_de_recados.php"><?php echo $captions_menu_left["03"]; ?></a></li>

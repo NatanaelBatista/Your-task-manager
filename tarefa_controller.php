@@ -65,6 +65,31 @@ if (isset($_GET["deletar"]))
 }
 
 /**
+* Deletar Multiplas Tarefas
+*/
+if (isset($_GET["deletarMultiploTarefas"]))
+{
+	$campo = $_POST["check_tarefas"];
+	$quantidade = count($_POST["check_tarefas"]);
+
+	if ($quantidade < 1)
+	{
+		setcookie("msgErro","Selecione alguma Tarefa antes de tentar Deletar.");
+        header("Location:configuracao_geral.php");
+	}
+
+	for ($cont = 0; $cont < $quantidade; $cont++)
+	{
+		if ($tarefas->deletar($campo[$cont]))
+		{
+			setcookie("msgSucesso","Tarefas Deletadas com Sucesso.");
+            header("Location:configuracao_geral.php");
+		}
+	}
+}
+
+
+/**
 * Editar tarefas
 */
 if (isset($_GET["editar"]))

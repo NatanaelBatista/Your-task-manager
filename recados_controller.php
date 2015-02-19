@@ -48,6 +48,30 @@ if (isset($_GET["deletar"]))
 }
 
 /**
+* Deletar Multiplos Recados
+*/
+if (isset($_GET["deletarMultiploRecados"]))
+{
+	$campo = $_POST["check_recados"];
+	$quantidade = count($_POST["check_recados"]);
+
+	if ($quantidade < 1)
+	{
+		setcookie("msgErro","Selecione algum Recado antes de tentar Deletar.");
+        header("Location:configuracao_geral.php");
+	}
+
+	for ($cont = 0; $cont < $quantidade; $cont++)
+	{
+		if ($recados->deletar($campo[$cont]))
+		{
+			setcookie("msgSucesso","Recados Deletados com Sucesso.");
+            header("Location:configuracao_geral.php");
+		}
+	}
+}
+
+/**
 * Edita um Recado.
 */
 if (isset($_GET["editarRecados"]))
