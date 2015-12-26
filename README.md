@@ -34,4 +34,4 @@
 </ul>
 
 <h1>Layout Atual:</h1>
-<img src="https://scontent-a-gru.xx.fbcdn.net/hphotos-xpa1/v/t1.0-9/10917134_695038720618706_9007768139795650316_n.jpg?oh=c820f70171358aa25cd9dd43f68508a9&oe=55415760" alt="">
+<img src="[IMG]http://i68.tinypic.com/s5k3np.png[/IMG] alt="">
