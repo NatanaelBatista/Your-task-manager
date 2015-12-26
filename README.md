@@ -34,4 +34,4 @@
 </ul>
 
 <h1>Layout Atual:</h1>
-<img src="http://pt-br.tinypic.com/r/s5k3np/9 alt="">
+<img src="http://i68.tinypic.com/s5k3np.png" alt="">
